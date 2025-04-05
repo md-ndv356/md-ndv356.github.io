@@ -13,10 +13,13 @@ header {
   top: 0; left: 0;
   width: 100dvw;
   box-sizing: border-box;
-  background: #0c0f13;
+  background: #0c0f13cc;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   font-size: 15px;
   padding: 6px 20px;
   text-align: start;
+  z-index: 999;
 }
 header a {
   text-decoration: none;
