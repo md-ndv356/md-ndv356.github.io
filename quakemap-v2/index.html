@@ -214,7 +214,7 @@ body {
         <label class="view_every_area_container"><input type="checkbox" id="view_every_area">地域毎表示</label>
       </div>
       <div class="info-bar">
-        <div>JMA QuakeMap v2.1.1</div>
+        <div>JMA QuakeMap v2.1.2</div>
         <div id="mapzoom-log">MapZoom: 12</div>
         <div id="maprotate-log">MapZoom: 12</div>
         <div id="maptilt-log">MapZoom: 12</div>
@@ -533,9 +533,9 @@ function handleQuake(url, type = 3){
     const shindoStageStop = [false, false, false];
     if (type !== 2) viewBounds = new maplibregl.LngLatBounds();;
     if (type !== 1){
-      const epicenter_pos = data.Body.Earthquake.Hypocenter.Area.Coordinate.replace("/","").replace(/(\+|\-)/g, "|$1").split("|").slice(-3);
+      const epicenter_pos = data.Body.Earthquake.Hypocenter.Area.Coordinate.replace("/","").replace(/(\+|\-)/g, "|$1").split("|").slice(1);
       const hypocenter_depth = epicenter_pos[2]-0;
-      const depthText = hypocenter_depth === 0 ? "ごく浅い" : "約" + (-hypocenter_depth/1000) + "km";
+      const depthText = isNaN(hypocenter_depth) ? "不明" : (hypocenter_depth === 0 ? "ごく浅い" : "約" + (-hypocenter_depth/1000) + "km");
       document.getElementById("com-addition").innerText = `震源　${data.Body.Earthquake.Hypocenter.Area.Name}
     規模　M ${data.Body.Earthquake.Magnitude}
     深さ　${depthText}`;
