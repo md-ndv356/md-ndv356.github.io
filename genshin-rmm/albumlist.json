@@ -1,4 +1,38 @@
 {
+  "Natlan2": {
+    "zh_cn": "纳塔·流火陨坠之野",
+    "zh_tw": "納塔·流火隕墜之野",
+    "en_us": "Natlan: Plains of Flowing Flames",
+    "ko_kr": "나타·불꽃이 내리는 들판",
+    "ja_jp": "ナタ・流火墜落の地",
+    "es_es": "Natlan: Llanuras del fuego ardiente",
+    "fr_fr": "Natlan: Plains of Flowing Flames",
+    "ru_ru": "Натлан: Равнины текущего пламени",
+    "th_th": "Natlan - Plains of Flowing Flames",
+    "vi_vn": "Natlan: Cánh Đồng Lửa Rơi",
+    "de_de": "Natlan: Plains of Flowing Flames",
+    "id_id": "Natlan: Plains of Flowing Flames",
+    "pt_pt": "Natlan: Planícies de Chamas Fluidas",
+    "tr_tr": "Natlan: Akan Alevler Ovası",
+    "it_it": "Natlan: Plains of Flowing Flames"
+  },
+  "Natlan": {
+    "zh_cn": "纳塔·炽炎交逐之原",
+    "zh_tw": "納塔·熾炎交逐之原",
+    "en_us": "Natlan: Land of Tleyaoyotl",
+    "ko_kr": "나타·불꽃이 뒤얽히는 벌판",
+    "ja_jp": "ナタ・熾焔が駆け巡る野原",
+    "es_es": "Natlan - Land of Tleyaoyotl",
+    "fr_fr": "Natlan: Land of Tleyaoyotl",
+    "ru_ru": "Natlan: Land of Tleyaoyotl",
+    "th_th": "Natlan: Land of Tleyaoyotl",
+    "vi_vn": "Natlan - Land of Tleyaoyotl",
+    "de_de": "Natlan – Land of Tleyaoyotl",
+    "id_id": "Natlan: Land of Tleyaoyotl",
+    "pt_pt": "Natlan: Land of Tleyaoyotl",
+    "tr_tr": "Natlan: Land of Tleyaoyotl",
+    "it_it": "Natlan: Land of Tleyaoyotl"
+  },
   "Mondstadt": {
     "zh_cn": "蒙德·风与牧歌之城",
     "zh_tw": "蒙德·風與牧歌之城",
@@ -83,39 +117,5 @@
     "pt_pt": "Fontaine: Fountain of Belleau",
     "tr_tr": "Fontaine: Fountain of Belleau",
     "it_it": "Fontaine: Fountain of Belleau"
-  },
-  "Natlan": {
-    "zh_cn": "纳塔·炽炎交逐之原",
-    "zh_tw": "納塔·熾炎交逐之原",
-    "en_us": "Natlan: Land of Tleyaoyotl",
-    "ko_kr": "나타·불꽃이 뒤얽히는 벌판",
-    "ja_jp": "ナタ・熾焔が駆け巡る野原",
-    "es_es": "Natlan - Land of Tleyaoyotl",
-    "fr_fr": "Natlan: Land of Tleyaoyotl",
-    "ru_ru": "Natlan: Land of Tleyaoyotl",
-    "th_th": "Natlan: Land of Tleyaoyotl",
-    "vi_vn": "Natlan - Land of Tleyaoyotl",
-    "de_de": "Natlan – Land of Tleyaoyotl",
-    "id_id": "Natlan: Land of Tleyaoyotl",
-    "pt_pt": "Natlan: Land of Tleyaoyotl",
-    "tr_tr": "Natlan: Land of Tleyaoyotl",
-    "it_it": "Natlan: Land of Tleyaoyotl"
-  },
-  "Natlan2": {
-    "zh_cn": "纳塔·流火陨坠之野",
-    "zh_tw": "納塔·流火隕墜之野",
-    "en_us": "Natlan: Plains of Flowing Flames",
-    "ko_kr": "나타·불꽃이 내리는 들판",
-    "ja_jp": "ナタ・流火墜落の地",
-    "es_es": "Natlan: Llanuras del fuego ardiente",
-    "fr_fr": "Natlan: Plains of Flowing Flames",
-    "ru_ru": "Натлан: Равнины текущего пламени",
-    "th_th": "Natlan - Plains of Flowing Flames",
-    "vi_vn": "Natlan: Cánh Đồng Lửa Rơi",
-    "de_de": "Natlan: Plains of Flowing Flames",
-    "id_id": "Natlan: Plains of Flowing Flames",
-    "pt_pt": "Natlan: Planícies de Chamas Fluidas",
-    "tr_tr": "Natlan: Akan Alevler Ovası",
-    "it_it": "Natlan: Plains of Flowing Flames"
   }
 }

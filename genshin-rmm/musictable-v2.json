@@ -1,6 +1,6 @@
 {
   "_GMusic1": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 145,
     "duration": 97,
     "sortkey": 3004,
@@ -33,7 +33,7 @@
     }
   },
   "_GMusic2": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 150,
     "duration": 89,
     "sortkey": 3007,
@@ -66,7 +66,7 @@
     }
   },
   "_GMusic3": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 168,
     "duration": 88,
     "sortkey": 3003,
@@ -99,7 +99,7 @@
     }
   },
   "_GMusic4": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 143,
     "duration": 64,
     "sortkey": 3005,
@@ -132,7 +132,7 @@
     }
   },
   "_GMusic5": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 129,
     "duration": 90,
     "sortkey": 1005,
@@ -165,7 +165,7 @@
     }
   },
   "_GMusic6": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 136,
     "duration": 91,
     "sortkey": 2010,
@@ -198,7 +198,7 @@
     }
   },
   "_GMusic7": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 144,
     "duration": 83,
     "sortkey": 3006,
@@ -231,7 +231,7 @@
     }
   },
   "_GMusic8": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 118,
     "duration": 86,
     "sortkey": 1012,
@@ -264,7 +264,7 @@
     }
   },
   "_GMusic9": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 135.8,
     "duration": 107,
     "sortkey": 1006,
@@ -297,7 +297,7 @@
     }
   },
   "_GMusic10": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 125,
     "duration": 112,
     "sortkey": 1007,
@@ -330,7 +330,7 @@
     }
   },
   "_GMusic11": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 94,
     "duration": 128,
     "sortkey": 1011,
@@ -363,7 +363,7 @@
     }
   },
   "_GMusic12": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 97,
     "duration": 71,
     "sortkey": 4005,
@@ -396,7 +396,7 @@
     }
   },
   "_GMusic13": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 103,
     "duration": 131,
     "sortkey": 4006,
@@ -429,7 +429,7 @@
     }
   },
   "_GMusic14": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 136,
     "duration": 108,
     "sortkey": 1004,
@@ -462,7 +462,7 @@
     }
   },
   "_GMusic15": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 115,
     "duration": 107,
     "sortkey": 5004,
@@ -495,7 +495,7 @@
     }
   },
   "_GMusic16": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 168,
     "duration": 95,
     "sortkey": 4007,
@@ -528,7 +528,7 @@
     }
   },
   "_GMusic17": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 145,
     "duration": 109,
     "sortkey": 2006,
@@ -561,7 +561,7 @@
     }
   },
   "_GMusic18": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 120,
     "duration": 93,
     "sortkey": 2007,
@@ -594,7 +594,7 @@
     }
   },
   "_GMusic19": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 152,
     "duration": 103,
     "sortkey": 5006,
@@ -627,7 +627,7 @@
     }
   },
   "_GMusic20": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 110,
     "duration": 142,
     "sortkey": 5007,
@@ -660,7 +660,7 @@
     }
   },
   "_GMusic21": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 128,
     "duration": 133,
     "sortkey": 5005,
@@ -693,7 +693,7 @@
     }
   },
   "_GMusic22": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 98,
     "duration": 108,
     "sortkey": 1001,
@@ -726,7 +726,7 @@
     }
   },
   "_GMusic23": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 108,
     "duration": 75,
     "sortkey": 1008,
@@ -759,7 +759,7 @@
     }
   },
   "_GMusic24": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 107,
     "duration": 61,
     "sortkey": 1009,
@@ -792,7 +792,7 @@
     }
   },
   "_GMusic25": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 106,
     "duration": 145,
     "sortkey": 1010,
@@ -825,7 +825,7 @@
     }
   },
   "_GMusic26": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 172,
     "duration": 86,
     "sortkey": 1003,
@@ -858,7 +858,7 @@
     }
   },
   "_GMusic27": {
-    "region": "Mondstadt",
+    "album": "Mondstadt",
     "bpm": 176,
     "duration": 117,
     "sortkey": 1002,
@@ -891,7 +891,7 @@
     }
   },
   "_GMusic28": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 120,
     "duration": 187,
     "sortkey": 2001,
@@ -924,7 +924,7 @@
     }
   },
   "_GMusic29": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 120,
     "duration": 117,
     "sortkey": 2002,
@@ -957,7 +957,7 @@
     }
   },
   "_GMusic30": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 116,
     "duration": 127,
     "sortkey": 2003,
@@ -990,7 +990,7 @@
     }
   },
   "_GMusic31": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 119,
     "duration": 107,
     "sortkey": 2004,
@@ -1023,7 +1023,7 @@
     }
   },
   "_GMusic32": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 154,
     "duration": 100,
     "sortkey": 2005,
@@ -1056,7 +1056,7 @@
     }
   },
   "_GMusic33": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 121,
     "duration": 78,
     "sortkey": 2007,
@@ -1089,7 +1089,7 @@
     }
   },
   "_GMusic34": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 140,
     "duration": 120,
     "sortkey": 2009,
@@ -1122,7 +1122,7 @@
     }
   },
   "_GMusic35": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 140,
     "duration": 164,
     "sortkey": 2011,
@@ -1155,7 +1155,7 @@
     }
   },
   "_GMusic36": {
-    "region": "Liyue",
+    "album": "Liyue",
     "bpm": 95,
     "duration": 160,
     "sortkey": 2012,
@@ -1188,7 +1188,7 @@
     }
   },
   "_GMusic37": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 149,
     "duration": 142,
     "sortkey": 3001,
@@ -1221,7 +1221,7 @@
     }
   },
   "_GMusic38": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 144,
     "duration": 153,
     "sortkey": 3002,
@@ -1254,7 +1254,7 @@
     }
   },
   "_GMusic39": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 136,
     "duration": 164,
     "sortkey": 3008,
@@ -1287,7 +1287,7 @@
     }
   },
   "_GMusic40": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 122,
     "duration": 83,
     "sortkey": 3009,
@@ -1320,7 +1320,7 @@
     }
   },
   "_GMusic41": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 178,
     "duration": 125,
     "sortkey": 3010,
@@ -1353,7 +1353,7 @@
     }
   },
   "_GMusic42": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 181,
     "duration": 182,
     "sortkey": 3011,
@@ -1386,7 +1386,7 @@
     }
   },
   "_GMusic43": {
-    "region": "Imazuma",
+    "album": "Inazuma",
     "bpm": 132,
     "duration": 208,
     "sortkey": 3012,
@@ -1419,7 +1419,7 @@
     }
   },
   "_GMusic44": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 148,
     "duration": 136,
     "sortkey": 4001,
@@ -1452,7 +1452,7 @@
     }
   },
   "_GMusic45": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 95,
     "duration": 108,
     "sortkey": 4002,
@@ -1485,7 +1485,7 @@
     }
   },
   "_GMusic46": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 136,
     "duration": 135,
     "sortkey": 4003,
@@ -1518,7 +1518,7 @@
     }
   },
   "_GMusic47": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 110,
     "duration": 108,
     "sortkey": 4004,
@@ -1551,7 +1551,7 @@
     }
   },
   "_GMusic48": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 128,
     "duration": 172,
     "sortkey": 4008,
@@ -1584,7 +1584,7 @@
     }
   },
   "_GMusic49": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 120,
     "duration": 124,
     "sortkey": 4009,
@@ -1617,7 +1617,7 @@
     }
   },
   "_GMusic50": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 130,
     "duration": 72,
     "sortkey": 4010,
@@ -1650,7 +1650,7 @@
     }
   },
   "_GMusic51": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 160,
     "duration": 200,
     "sortkey": 4011,
@@ -1683,7 +1683,7 @@
     }
   },
   "_GMusic52": {
-    "region": "Sumeru",
+    "album": "Sumeru",
     "bpm": 110,
     "duration": 218,
     "sortkey": 4012,
@@ -1716,7 +1716,7 @@
     }
   },
   "_GMusic53": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 180,
     "duration": 168,
     "sortkey": 5001,
@@ -1749,7 +1749,7 @@
     }
   },
   "_GMusic54": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 183,
     "duration": 186,
     "sortkey": 5002,
@@ -1782,7 +1782,7 @@
     }
   },
   "_GMusic55": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 178,
     "duration": 179,
     "sortkey": 5003,
@@ -1815,7 +1815,7 @@
     }
   },
   "_GMusic56": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 150,
     "duration": 165,
     "sortkey": 5008,
@@ -1848,7 +1848,7 @@
     }
   },
   "_GMusic57": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 114,
     "duration": 144,
     "sortkey": 5009,
@@ -1881,7 +1881,7 @@
     }
   },
   "_GMusic58": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 140,
     "duration": 165,
     "sortkey": 5010,
@@ -1914,7 +1914,7 @@
     }
   },
   "_GMusic59": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 150,
     "duration": 105,
     "sortkey": 5011,
@@ -1947,7 +1947,7 @@
     }
   },
   "_GMusic60": {
-    "region": "Fontaine",
+    "album": "Fontaine",
     "bpm": 110,
     "duration": 149,
     "sortkey": 5012,
@@ -1980,7 +1980,7 @@
     }
   },
   "_GMusic61": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 120,
     "duration": 158,
     "sortkey": 1,
@@ -2013,7 +2013,7 @@
     }
   },
   "_GMusic62": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 172,
     "duration": 116,
     "sortkey": 4,
@@ -2046,7 +2046,7 @@
     }
   },
   "_GMusic63": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 140,
     "duration": 118,
     "sortkey": 5,
@@ -2079,7 +2079,7 @@
     }
   },
   "_GMusic64": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 109,
     "duration": 103,
     "sortkey": 2,
@@ -2112,7 +2112,7 @@
     }
   },
   "_GMusic65": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 136,
     "duration": 132,
     "sortkey": 3,
@@ -2145,7 +2145,7 @@
     }
   },
   "_GMusic66": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 148,
     "duration": 131,
     "sortkey": 6,
@@ -2178,7 +2178,7 @@
     }
   },
   "_GMusic67": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 170,
     "duration": 89,
     "sortkey": 7,
@@ -2211,7 +2211,7 @@
     }
   },
   "_GMusic68": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 140,
     "duration": 74,
     "sortkey": 8,
@@ -2244,7 +2244,7 @@
     }
   },
   "_GMusic69": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 140,
     "duration": 134,
     "sortkey": 9,
@@ -2277,7 +2277,7 @@
     }
   },
   "_GMusic70": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 141,
     "duration": 147,
     "sortkey": 10,
@@ -2310,7 +2310,7 @@
     }
   },
   "_GMusic71": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 78,
     "duration": 160,
     "sortkey": 11,
@@ -2343,7 +2343,7 @@
     }
   },
   "_GMusic72": {
-    "region": "Natlan",
+    "album": "Natlan",
     "bpm": 176,
     "duration": 94,
     "sortkey": 12,
@@ -2376,7 +2376,7 @@
     }
   },
   "_GMusic73": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 98,
     "duration": 104,
     "sortkey": -998,
@@ -2409,7 +2409,7 @@
     }
   },
   "_GMusic74": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 154,
     "duration": 152,
     "sortkey": -997,
@@ -2442,7 +2442,7 @@
     }
   },
   "_GMusic75": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 109,
     "duration": 109,
     "sortkey": -996,
@@ -2475,7 +2475,7 @@
     }
   },
   "_GMusic76": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 130,
     "duration": 117,
     "sortkey": -999,
@@ -2508,7 +2508,7 @@
     }
   },
   "_GMusic77": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 112,
     "duration": 100,
     "sortkey": -995,
@@ -2541,7 +2541,7 @@
     }
   },
   "_GMusic78": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 153,
     "duration": 142,
     "sortkey": -994,
@@ -2574,7 +2574,7 @@
     }
   },
   "_GMusic79": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 180,
     "duration": 150,
     "sortkey": -993,
@@ -2607,7 +2607,7 @@
     }
   },
   "_GMusic80": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 126,
     "duration": 93,
     "sortkey": -992,
@@ -2640,7 +2640,7 @@
     }
   },
   "_GMusic81": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 204,
     "duration": 125,
     "sortkey": -991,
@@ -2673,7 +2673,7 @@
     }
   },
   "_GMusic82": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 150,
     "duration": 54,
     "sortkey": -990,
@@ -2706,7 +2706,7 @@
     }
   },
   "_GMusic83": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 120,
     "duration": 80,
     "sortkey": -989,
@@ -2739,7 +2739,7 @@
     }
   },
   "_GMusic84": {
-    "region": "Natlan2",
+    "album": "Natlan2",
     "bpm": 152,
     "duration": 231,
     "sortkey": -988,

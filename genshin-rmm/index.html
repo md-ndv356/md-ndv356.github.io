@@ -14,6 +14,11 @@
       color: #eee;
       font-size: 24px;
     }
+    h2 {
+      color: #d8d8d8;
+      font-size: 20px;
+      margin: 16px 0 8px;
+    }
     main {
       display: flex;
       flex-direction: column;
@@ -117,7 +122,7 @@ langselect.addEventListener("change", event => {
 });
 
 const musiclist = document.getElementById("musiclist");
-function init ([i18n, musicTable, scoreList, history]){
+function init ([i18n, albumList, musicTable, scoreList, history]){
   document.title = i18n.pagetitle[langText];
   document.querySelector('meta[name="description"]').content = i18n.meta_description[langText];
 
@@ -136,9 +141,23 @@ function init ([i18n, musicTable, scoreList, history]){
     if (text) item.innerText = text;
   }
 
+  // Albums
+  // やりたいこと: 今までMusic List直下にそのまま曲を並べていたが、アルバムごとに分けて表示したい
+  const albumElements = {};
+  for (const [key, album] of Object.entries(albumList)){
+    const albumElement = document.createElement("div");
+    albumElement.className = "album";
+    albumElement.innerHTML = `<h2>${album[langText]}</h2>`;
+    const albumList = document.createElement("div");
+    albumList.className = "album-list";
+    albumElement.appendChild(albumList);
+    musiclist.appendChild(albumElement);
+    albumElements[key] = albumList;
+  }
+
   // Music List
   for (const music of Object.entries(musicTable).sort((a, b) => a[1].sortkey - b[1].sortkey)){
-    musiclist.insertAdjacentHTML("beforeend", `<div class="item">
+    albumElements[music[1].album]?.insertAdjacentHTML("beforeend", `<div class="item">
 <div class="bpm">${music[1].bpm}</div>
 <div class="title">${music[1].title[langText]}</div>
 <div class="levels">
@@ -154,6 +173,7 @@ function init ([i18n, musicTable, scoreList, history]){
 (async () => {
   Promise.all([
     fetch("./i18n-v2.json").then(res => res.json()),
+    fetch("./albumlist.json").then(res => res.json()),
     fetch("./musictable-v2.json").then(res => res.json()),
     fetch("./scorelist-v2.json").then(res => res.json()),
     fetch("./history.json").then(res => res.json())
