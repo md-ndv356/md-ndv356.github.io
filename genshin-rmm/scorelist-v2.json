@@ -56,7 +56,7 @@
   "_GMusic55": [0, 0, 0, 1, "Lamentation et Triomphe"],
   "_GMusic15": [0, 0, 0, 1, "Lustrous Trick"],
   "_GMusic21": [0, 0, 0, 1, "Nippy Bout"],
-  "_GMusic19": [0, 0, 0, 0, "Parousia Diluvi"],
+  "_GMusic19": [0, 0, 0, 1, "Parousia Diluvi"],
   "_GMusic20": [0, 0, 0, 0, "Se mettre sur son trente-et-un !"],
   "_GMusic56": [0, 0, 0, 0, "Offertorium of Fortuitum"],
   "_GMusic57": [0, 0, 0, 0, "Largo alla donzella"],
@@ -75,5 +75,18 @@
   "_GMusic69": [0, 0, 0, 0, "Lights on Me"],
   "_GMusic70": [0, 0, 0, 0, "Viajadora's Verse"],
   "_GMusic71": [0, 0, 0, 0, "Rain of Seven Curtains"],
-  "_GMusic72": [0, 0, 0, 0, "Chasing the Rainbow"]
+  "_GMusic72": [0, 0, 0, 0, "Chasing the Rainbow"],
+
+  "_GMusic76": [0, 0, 0, 0, "Bounty of the Fertile Slopes"],
+  "_GMusic73": [0, 0, 0, 0, "Springtime in a Mirror"],
+  "_GMusic74": [0, 0, 0, 0, "Night's Crown of Flowers"],
+  "_GMusic75": [0, 0, 0, 0, "All the Pretty Courses"],
+  "_GMusic77": [0, 0, 0, 0, "Sleep After the Toil"],
+  "_GMusic78": [0, 0, 0, 0, "The Chosen of Dragons' Trials"],
+  "_GMusic79": [0, 0, 0, 0, "Tumaini washa moto"],
+  "_GMusic80": [0, 0, 0, 0, "Interstellar Drift"],
+  "_GMusic81": [0, 0, 0, 0, "Valiant Duel"],
+  "_GMusic82": [0, 0, 0, 0, "Fitness Lesson"],
+  "_GMusic83": [0, 0, 0, 0, "Healing Breeze"],
+  "_GMusic84": [0, 0, 0, 0, "Ode of Resurrection: Recapitulation"]
 }
