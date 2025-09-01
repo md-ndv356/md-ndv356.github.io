@@ -145,7 +145,7 @@
 const ct2ln = ({"cn": "zh_cn", "tw": "zh_tw", "de": "de_de", "en": "en_us", "es": "es_es", "fr": "fr_fr", "id": "id_id", "ja": "ja_jp", "ko": "ko_kr", "pt": "pt_pt", "ru": "ru_ru", "th": "th_th", "vi": "vi_vn"});
 const searchquery = location.search.slice(1).split("/");
 const langText = (ct2ln[searchquery[0]] ?? searchquery[0]) || "ja_jp";
-const params = Object.fromEntries(searchquery.slice(1).map(item => item.toLowerCase().split("=")));
+const params = Object.fromEntries(searchquery.slice(1).filter(item => !!item).map(item => item.toLowerCase().split("=")));
 if (searchquery[0] !== langText) window.location = "./?" + langText;
 document.body.classList.add("lang-" + langText);
 document.getElementById("headtitle").href = "./?" + langText;
@@ -154,6 +154,13 @@ const canonicalLink = document.createElement("link");
 canonicalLink.rel = "canonical";
 canonicalLink.href = "https://md-ndv356.github.io/genshin-rmm/?" + langText;
 document.head.appendChild(canonicalLink);
+/** noindex */
+if (params.sort && params.sort !== "album"){
+  const noRobot = document.createElement("meta");
+  noRobot.name = "robots";
+  noRobot.content = "noindex";
+  document.head.appendChild(noRobot);
+}
 
 const langselect = document.getElementById("langselect");
 langselect.value = langText;
@@ -202,6 +209,11 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   const categoryElements = {};
   const nullCategories = [ ["0", ""] ];
   const BPMCategories = [
+    [ "15", "BPM 300 ~ 320" ],
+    [ "14", "BPM 280 ~ 300" ],
+    [ "13", "BPM 260 ~ 280" ],
+    [ "12", "BPM 240 ~ 260" ],
+    [ "11", "BPM 220 ~ 240" ],
     [ "10", "BPM 200 ~ 220" ],
     [ "9" , "BPM 180 ~ 200" ],
     [ "8" , "BPM 160 ~ 180" ],
@@ -210,32 +222,35 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
     [ "5" , "BPM 100 ~ 120" ],
     [ "4" , "BPM 80 ~ 100" ],
     [ "3" , "BPM 60 ~ 80" ],
+    [ "2" , "BPM 40 ~ 60" ],
+    [ "1" , "BPM 20 ~ 40" ],
+    [ "0" , "BPM ~ 20" ],
   ];
   const LevelCategories = [
     ["10", "Lv. 10"],
-    ["9",  "Lv. 9"],
-    ["8",  "Lv. 8"],
-    ["7",  "Lv. 7"],
-    ["6",  "Lv. 6"],
-    ["5",  "Lv. 5"],
-    ["4",  "Lv. 4"],
-    ["3",  "Lv. 3"],
-    ["2",  "Lv. 2"],
-    ["1",  "Lv. 1"],
+    ["9" , "Lv. 9"],
+    ["8" , "Lv. 8"],
+    ["7" , "Lv. 7"],
+    ["6" , "Lv. 6"],
+    ["5" , "Lv. 5"],
+    ["4" , "Lv. 4"],
+    ["3" , "Lv. 3"],
+    ["2" , "Lv. 2"],
+    ["1" , "Lv. 1"],
   ];
   const notesCategories = [
     ["11", "1100 ~ 1200 notes"],
     ["10", "1000 ~ 1100 notes"],
-    ["9", "900 ~ 1000 notes"],
-    ["8", "800 ~ 900 notes"],
-    ["7", "700 ~ 800 notes"],
-    ["6", "600 ~ 700 notes"],
-    ["5", "500 ~ 600 notes"],
-    ["4", "400 ~ 500 notes"],
-    ["3", "300 ~ 400 notes"],
-    ["2", "200 ~ 300 notes"],
-    ["1", "100 ~ 200 notes"],
-    ["0", "~ 100 notes"],
+    ["9" , "900 ~ 1000 notes"],
+    ["8" , "800 ~ 900 notes"],
+    ["7" , "700 ~ 800 notes"],
+    ["6" , "600 ~ 700 notes"],
+    ["5" , "500 ~ 600 notes"],
+    ["4" , "400 ~ 500 notes"],
+    ["3" , "300 ~ 400 notes"],
+    ["2" , "200 ~ 300 notes"],
+    ["1" , "100 ~ 200 notes"],
+    ["0" , "~ 100 notes"],
   ];
 
   if (!params.sort) params.sort = "album";
