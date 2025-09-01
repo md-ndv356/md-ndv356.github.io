@@ -59,6 +59,37 @@
     main a[href] {
       color: #2c13b7;
     }
+    .sort-container {
+      display: flex;
+      padding: 6px 10px;
+      border-radius: 10px;
+      width: min(536px, calc(100dvw - 32px));
+      background-color: #2a395b;
+    }
+    .sort-icon {
+      display: block;
+      margin: 3px 0;
+    }
+    .sort-button {
+      appearance: none;
+      margin: 2px;
+      border: 2px;
+      border-radius: 6px;
+      padding: 6px 8px;
+      height: 30px;
+      cursor: pointer;
+      color: #e7e7e7e7;
+      background-color: #242734;
+      font: inherit;
+      font-size: 12px;
+    }
+    .sort-button.active {
+      color: #dede87;
+    }
+    .sort-button:hover {
+      color: #7dc2f7;
+      background-color: #363b4d;
+    }
     .history, .description {
       padding: 8px 0;
       max-width: 700px;
@@ -86,8 +117,16 @@
     <option value="it_it">Italiano</option>
   </select></div>
 </header>
-<h1 i18n="pagetitle">原神 幾千のメロディー 譜面保管所</h1>
 <main>
+  <h1 i18n="pagetitle">原神 幾千のメロディー 譜面保管所</h1>
+  <div class="sort-container">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#888" xmlns="http://www.w3.org/2000/svg" class="sort-icon">
+      <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+      <path d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z"></path>
+      <path d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z"></path>
+    </svg>
+    <div style="margin-left: 12px;" id="sort-buttons"></div>
+  </div>
   <div id="musiclist"></div>
   <div class="description">
     <h2 i18n="description-title"></h2>
@@ -104,9 +143,10 @@
 </body>
 <script>
 const ct2ln = ({"cn": "zh_cn", "tw": "zh_tw", "de": "de_de", "en": "en_us", "es": "es_es", "fr": "fr_fr", "id": "id_id", "ja": "ja_jp", "ko": "ko_kr", "pt": "pt_pt", "ru": "ru_ru", "th": "th_th", "vi": "vi_vn"});
-const param0 = location.search.slice(1).split("/")[0];
-const langText = (ct2ln[param0] ?? param0) || "ja_jp";
-if (param0 !== langText) window.location = "./?" + langText;
+const searchquery = location.search.slice(1).split("/");
+const langText = (ct2ln[searchquery[0]] ?? searchquery[0]) || "ja_jp";
+const params = Object.fromEntries(searchquery.slice(1).map(item => item.toLowerCase().split("=")));
+if (searchquery[0] !== langText) window.location = "./?" + langText;
 document.body.classList.add("lang-" + langText);
 document.getElementById("headtitle").href = "./?" + langText;
 /** Create Canonical URL */
@@ -118,7 +158,7 @@ document.head.appendChild(canonicalLink);
 const langselect = document.getElementById("langselect");
 langselect.value = langText;
 langselect.addEventListener("change", event => {
-  window.location = "?" + event.target.value;
+  window.location = "?" + event.target.value + "/" + Object.entries(params).map(item => item[0] + "=" + item[1]).join("/");
 });
 
 const musiclist = document.getElementById("musiclist");
@@ -141,32 +181,116 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
     if (text) item.innerText = text;
   }
 
+  // Initialize sorting button
+  const sortButtonClicked = event => {
+    params.sort = event.target.sortId;
+    if (params.sort === "default") delete params.sort;
+    window.location = "?" + langText + "/" + Object.entries(params).map(item => item[0] + "=" + item[1]).join("/");
+  };
+  const sortButtons = document.getElementById("sort-buttons");
+  for (const sortId of [ "default", "bpm_start", "level_l", "notes_l", "alphabetical" ]){
+    const button = document.createElement("button");
+    button.sortId = sortId;
+    button.classList.add("sort-button");
+    if (sortId === (params.sort || "default")) button.classList.add("active");
+    button.textContent = i18n.__sort__[sortId][langText];
+    sortButtons.appendChild(button);
+    button.addEventListener("click", sortButtonClicked);
+  }
+
+  // Categories
+  const categoryElements = {};
+  const nullCategories = [ ["0", ""] ];
+  const BPMCategories = [
+    [ "10", "BPM 200 ~ 220" ],
+    [ "9" , "BPM 180 ~ 200" ],
+    [ "8" , "BPM 160 ~ 180" ],
+    [ "7" , "BPM 140 ~ 160" ],
+    [ "6" , "BPM 120 ~ 140" ],
+    [ "5" , "BPM 100 ~ 120" ],
+    [ "4" , "BPM 80 ~ 100" ],
+    [ "3" , "BPM 60 ~ 80" ],
+  ];
+  const LevelCategories = [
+    ["10", "Lv. 10"],
+    ["9",  "Lv. 9"],
+    ["8",  "Lv. 8"],
+    ["7",  "Lv. 7"],
+    ["6",  "Lv. 6"],
+    ["5",  "Lv. 5"],
+    ["4",  "Lv. 4"],
+    ["3",  "Lv. 3"],
+    ["2",  "Lv. 2"],
+    ["1",  "Lv. 1"],
+  ];
+  const notesCategories = [
+    ["11", "1100 ~ 1200 notes"],
+    ["10", "1000 ~ 1100 notes"],
+    ["9", "900 ~ 1000 notes"],
+    ["8", "800 ~ 900 notes"],
+    ["7", "700 ~ 800 notes"],
+    ["6", "600 ~ 700 notes"],
+    ["5", "500 ~ 600 notes"],
+    ["4", "400 ~ 500 notes"],
+    ["3", "300 ~ 400 notes"],
+    ["2", "200 ~ 300 notes"],
+    ["1", "100 ~ 200 notes"],
+    ["0", "~ 100 notes"],
+  ];
+
+  if (!params.sort) params.sort = "album";
+
   // Albums
-  // やりたいこと: 今までMusic List直下にそのまま曲を並べていたが、アルバムごとに分けて表示したい
-  const albumElements = {};
-  for (const [key, album] of Object.entries(albumList)){
-    const albumElement = document.createElement("div");
-    albumElement.className = "album";
-    albumElement.innerHTML = `<h2>${album[langText]}</h2>`;
-    const albumList = document.createElement("div");
-    albumList.className = "album-list";
-    albumElement.appendChild(albumList);
-    musiclist.appendChild(albumElement);
-    albumElements[key] = albumList;
+  for (const [key, album] of (
+    params.sort.startsWith("bpm_") ? BPMCategories :
+    params.sort.startsWith("level_l") ? LevelCategories :
+    params.sort.startsWith("notes_") ? notesCategories :
+    params.sort === "alphabetical" ? nullCategories : Object.entries(albumList).map(item => [item[0], item[1][langText]])
+  )){
+    const categoryElement = document.createElement("div");
+    categoryElement.className = "album";
+    const categoryTitle = document.createElement("h2");
+    categoryTitle.textContent = album;
+    categoryElement.appendChild(categoryTitle);
+    const categoryList = document.createElement("div");
+    categoryList.className = "album-list";
+    categoryElement.appendChild(categoryList);
+    musiclist.appendChild(categoryElement);
+    categoryElements[key] = categoryList;
   }
 
   // Music List
-  for (const music of Object.entries(musicTable).sort((a, b) => a[1].sortkey - b[1].sortkey)){
-    albumElements[music[1].album]?.insertAdjacentHTML("beforeend", `<div class="item">
-<div class="bpm">${music[1].bpm}</div>
-<div class="title">${music[1].title[langText]}</div>
-<div class="levels">
-<a` + (scoreList[music[0]]?.[0] ? ` href="./detail/?${langText}/${music[0]}/0"` : "") + `><div class="easy">${music[1].score.n_level}</div></a>
-<a` + (scoreList[music[0]]?.[1] ? ` href="./detail/?${langText}/${music[0]}/1"` : "") + `><div class="normal">${music[1].score.h_level}</div></a>
-<a` + (scoreList[music[0]]?.[2] ? ` href="./detail/?${langText}/${music[0]}/2"` : "") + `><div class="hard">${music[1].score.p_level}</div></a>
-<a` + (scoreList[music[0]]?.[3] ? ` href="./detail/?${langText}/${music[0]}/3"` : "") + `><div class="legend">${music[1].score.l_level}</div></a>
-</div>
+  for (const music of Object.entries(musicTable).sort(
+    params.sort === "bpm_start" ? (a, b) => b[1].bpm - a[1].bpm :
+    params.sort === "level_l" ? (a, b) => b[1].score.l_level - a[1].score.l_level :
+    params.sort === "notes_l" ? (a, b) => b[1].score.l_notes - a[1].score.l_notes :
+    (params.sort === "alphabetical" && langText === "ja_jp") ? (a, b) => a[1].ja_kana.localeCompare(b[1].ja_kana, "ja") :
+    (params.sort === "alphabetical" && langText === "zh_cn") ? (a, b) => a[1].cn_pinyin.localeCompare(b[1].cn_pinyin, "zh-Hans") :
+    (params.sort === "alphabetical" && langText === "zh_tw") ? (a, b) => a[1].tw_pinyin.localeCompare(b[1].tw_pinyin, "zh-Hant") :
+    params.sort === "alphabetical" ? (a, b) => a[1].title[langText].localeCompare(b[1].title[langText]) : (a, b) => a[1].sortkey - b[1].sortkey
+  )){
+    categoryElements[
+      params.sort === "bpm_start" ? Math.floor(music[1].bpm / 20) :
+      params.sort === "level_l" ? Math.floor(music[1].score.l_level) :
+      params.sort === "notes_l" ? Math.floor(music[1].score.l_notes / 100) :
+      params.sort === "alphabetical" ? "0" : music[1].album
+    ].insertAdjacentHTML("beforeend", `<div class="item">
+  <div class="bpm">${music[1].bpm}</div>
+  <div class="title">${music[1].title[langText]}</div>
+  <div class="levels">
+  <a` + (scoreList[music[0]]?.[0] ? ` href="./detail/?${langText}/${music[0]}/0"` : "") + `><div class="easy">${music[1].score.n_level}</div></a>
+  <a` + (scoreList[music[0]]?.[1] ? ` href="./detail/?${langText}/${music[0]}/1"` : "") + `><div class="normal">${music[1].score.h_level}</div></a>
+  <a` + (scoreList[music[0]]?.[2] ? ` href="./detail/?${langText}/${music[0]}/2"` : "") + `><div class="hard">${music[1].score.p_level}</div></a>
+  <a` + (scoreList[music[0]]?.[3] ? ` href="./detail/?${langText}/${music[0]}/3"` : "") + `><div class="legend">${music[1].score.l_level}</div></a>
+  </div>
 </div>`);
+  }
+
+  // ないやつは消す
+  for (const item of Object.values(categoryElements)){
+    if (!item.children.length){
+      item.parentElement.remove();
+    }
   }
 }
 

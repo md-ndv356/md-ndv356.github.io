@@ -3,6 +3,9 @@
     "album": "Inazuma",
     "bpm": 145,
     "duration": 97,
+    "ja_kana": "まんかいのえんしょう",
+    "cn_pinyin": "Xiāohuá Liúyàn",
+    "tw_pinyin": "Xiāohuá Liúyàn",
     "sortkey": 3004,
     "score": {
       "n_level": 2,
@@ -36,6 +39,9 @@
     "album": "Inazuma",
     "bpm": 150,
     "duration": 89,
+    "ja_kana": "うでのみせどころ",
+    "cn_pinyin": "Gāoguāng Shíkè",
+    "tw_pinyin": "Jiāodiǎn Shíkè",
     "sortkey": 3007,
     "score": {
       "n_level": 1,
@@ -69,6 +75,9 @@
     "album": "Inazuma",
     "bpm": 168,
     "duration": 88,
+    "ja_kana": "あらなみにただようこうよう",
+    "cn_pinyin": "Huāngbō Huāyè",
+    "tw_pinyin": "Huāngbō Huāyè",
     "sortkey": 3003,
     "score": {
       "n_level": 1,
@@ -102,6 +111,9 @@
     "album": "Inazuma",
     "bpm": 143,
     "duration": 64,
+    "ja_kana": "ちゅうこんぎたん",
+    "cn_pinyin": "Chìdǎn Zhāozhōng",
+    "tw_pinyin": "Chìdǎn Zhāozhōng",
     "sortkey": 3005,
     "score": {
       "n_level": 2,
@@ -135,6 +147,9 @@
     "album": "Mondstadt",
     "bpm": 129,
     "duration": 90,
+    "ja_kana": "しんくのきししゅっぱつ",
+    "cn_pinyin": "Zhēnhóng Qíshì, Chūfā!",
+    "tw_pinyin": "Zhēnhóng Qíshì, Chūfā!",
     "sortkey": 1005,
     "score": {
       "n_level": 2,
@@ -168,6 +183,9 @@
     "album": "Liyue",
     "bpm": 136,
     "duration": 91,
+    "ja_kana": "さんがくはくずれ",
+    "cn_pinyin": "Yánhè zhī Bēng",
+    "tw_pinyin": "Yánhuò zhī Bēng",
     "sortkey": 2010,
     "score": {
       "n_level": 1,
@@ -201,6 +219,9 @@
     "album": "Inazuma",
     "bpm": 144,
     "duration": 83,
+    "ja_kana": "もうねんとしゅうねん",
+    "cn_pinyin": "Hé Wàng Hé Zhí",
+    "tw_pinyin": "Hé Wàng Hé Zhí",
     "sortkey": 3006,
     "score": {
       "n_level": 2,
@@ -234,6 +255,9 @@
     "album": "Mondstadt",
     "bpm": 118,
     "duration": 86,
+    "ja_kana": "うぃんどぶるーむのしょうたい",
+    "cn_pinyin": "Fēnghuā de Yāoyuē",
+    "tw_pinyin": "Fēnghuā de Yāoyuē",
     "sortkey": 1012,
     "score": {
       "n_level": 1,
@@ -267,6 +291,9 @@
     "album": "Mondstadt",
     "bpm": 135.8,
     "duration": 107,
+    "ja_kana": "じゅんぱくでのめいそう",
+    "cn_pinyin": "Bái'ái Zhōng de Míngxiǎng",
+    "tw_pinyin": "Bái'ái Zhōng de Míngxiǎng",
     "sortkey": 1006,
     "score": {
       "n_level": 2,
@@ -300,6 +327,9 @@
     "album": "Mondstadt",
     "bpm": 125,
     "duration": 112,
+    "ja_kana": "なみしぶきのまい",
+    "cn_pinyin": "Làngmò Qǐwǔ",
+    "tw_pinyin": "Làngmò Qǐwǔ",
     "sortkey": 1007,
     "score": {
       "n_level": 2,
@@ -333,6 +363,9 @@
     "album": "Mondstadt",
     "bpm": 94,
     "duration": 128,
+    "ja_kana": "しゅうえんのふぃなーれ",
+    "cn_pinyin": "Zhōngtiān de Bìmùqū",
+    "tw_pinyin": "Zhōngtiān de Bìmùqū",
     "sortkey": 1011,
     "score": {
       "n_level": 1,
@@ -366,6 +399,9 @@
     "album": "Sumeru",
     "bpm": 97,
     "duration": 71,
+    "ja_kana": "うつりぎなはっぱたち",
+    "cn_pinyin": "Jiécuì Mànxiǎng",
+    "tw_pinyin": "Jiécuì Mànxiǎng",
     "sortkey": 4005,
     "score": {
       "n_level": 1,
@@ -399,6 +435,9 @@
     "album": "Sumeru",
     "bpm": 103,
     "duration": 131,
+    "ja_kana": "あびでぃあをめぐるかぜ",
+    "cn_pinyin": "Chuòxún Līnfēng",
+    "tw_pinyin": "Chuòxún Līnfēng",
     "sortkey": 4006,
     "score": {
       "n_level": 2,
@@ -432,6 +471,9 @@
     "album": "Mondstadt",
     "bpm": 136,
     "duration": 108,
+    "ja_kana": "しじんのしごと",
+    "cn_pinyin": "Shīrén de Gōngzuò",
+    "tw_pinyin": "Shīrén de Gōngzuò",
     "sortkey": 1004,
     "score": {
       "n_level": 1,
@@ -465,6 +507,9 @@
     "album": "Fontaine",
     "bpm": 115,
     "duration": 107,
+    "ja_kana": "げんこうのとりっく",
+    "cn_pinyin": "Huànguāng Mànxì",
+    "tw_pinyin": "Huànguāng Mànxì",
     "sortkey": 5004,
     "score": {
       "n_level": 1,
@@ -498,6 +543,9 @@
     "album": "Sumeru",
     "bpm": 168,
     "duration": 95,
+    "ja_kana": "すらさたんなげんそうきょく",
+    "cn_pinyin": "Jìngshàn de Xiágē",
+    "tw_pinyin": "Jìngshàn de Xiágē",
     "sortkey": 4007,
     "score": {
       "n_level": 1,
@@ -531,6 +579,9 @@
     "album": "Liyue",
     "bpm": 145,
     "duration": 109,
+    "ja_kana": "うきよかんぽ",
+    "cn_pinyin": "Dìjūn Chén Yóu Jì",
+    "tw_pinyin": "Dìjūn Chén Yóu Jì",
     "sortkey": 2006,
     "score": {
       "n_level": 1,
@@ -564,6 +615,9 @@
     "album": "Liyue",
     "bpm": 120,
     "duration": 93,
+    "ja_kana": "ことわりがつどいしところ",
+    "cn_pinyin": "Jìnzài Wúbèi",
+    "tw_pinyin": "Jìnzài Wúbèi",
     "sortkey": 2007,
     "score": {
       "n_level": 1,
@@ -597,6 +651,9 @@
     "album": "Fontaine",
     "bpm": 152,
     "duration": 103,
+    "ja_kana": "こかいがふたたびわきあがるとき",
+    "cn_pinyin": "Gǔhǎi Fùyǒng zhī Shí",
+    "tw_pinyin": "Gǔhǎi Fùyǒng zhī Shí",
     "sortkey": 5006,
     "score": {
       "n_level": 1,
@@ -630,6 +687,9 @@
     "album": "Fontaine",
     "bpm": 110,
     "duration": 142,
+    "ja_kana": "たびへのいざない",
+    "cn_pinyin": "Yāohuān Tóngyóu",
+    "tw_pinyin": "Yāohuān Tóngyóu",
     "sortkey": 5007,
     "score": {
       "n_level": 1,
@@ -663,6 +723,9 @@
     "album": "Fontaine",
     "bpm": 128,
     "duration": 133,
+    "ja_kana": "そうれつのきょうそう",
+    "cn_pinyin": "Shuāngliè Jìngzhú",
+    "tw_pinyin": "Shuāngliè Jìngzhú",
     "sortkey": 5005,
     "score": {
       "n_level": 1,
@@ -696,6 +759,9 @@
     "album": "Mondstadt",
     "bpm": 98,
     "duration": 108,
+    "ja_kana": "はんぼうなもんどのごご",
+    "cn_pinyin": "Méngdé-chéng Fánmáng de Wǔhòu",
+    "tw_pinyin": "Méngdé-chéng Fánmáng de Wǔhòu",
     "sortkey": 1001,
     "score": {
       "n_level": 2,
@@ -729,6 +795,9 @@
     "album": "Mondstadt",
     "bpm": 108,
     "duration": 75,
+    "ja_kana": "なつよのがーでん",
+    "cn_pinyin": "Xiàgōng Língyòu",
+    "tw_pinyin": "Xiàgōng Língyòu",
     "sortkey": 1008,
     "score": {
       "n_level": 1,
@@ -762,6 +831,9 @@
     "album": "Mondstadt",
     "bpm": 107,
     "duration": 61,
+    "ja_kana": "すぺしゃるどりんく",
+    "cn_pinyin": "Dújiā Tètiáo",
+    "tw_pinyin": "Dújiā Tètiáo",
     "sortkey": 1009,
     "score": {
       "n_level": 2,
@@ -795,6 +867,9 @@
     "album": "Mondstadt",
     "bpm": 106,
     "duration": 145,
+    "ja_kana": "ひょうふうのしんふぉにー",
+    "cn_pinyin": "Bīngfēng Jiāoxiǎngqǔ",
+    "tw_pinyin": "Bīngfēng Jiāoxiǎngqǔ",
     "sortkey": 1010,
     "score": {
       "n_level": 2,
@@ -828,6 +903,9 @@
     "album": "Mondstadt",
     "bpm": 172,
     "duration": 86,
+    "ja_kana": "ゆかいなちょうせん",
+    "cn_pinyin": "Yǒuqù de Tiǎozhàn",
+    "tw_pinyin": "Yǒuqù de Tiǎozhàn",
     "sortkey": 1003,
     "score": {
       "n_level": 2,
@@ -861,6 +939,9 @@
     "album": "Mondstadt",
     "bpm": 176,
     "duration": 117,
+    "ja_kana": "ほうこうするかがやき",
+    "cn_pinyin": "Guānghuī de Zhǎngluò",
+    "tw_pinyin": "Guānghuī de Zhǎngluò",
     "sortkey": 1002,
     "score": {
       "n_level": 2,
@@ -894,6 +975,9 @@
     "album": "Liyue",
     "bpm": 120,
     "duration": 187,
+    "ja_kana": "りーゆぇ",
+    "cn_pinyin": "Líyuè",
+    "tw_pinyin": "Líyuè",
     "sortkey": 2001,
     "score": {
       "n_level": 2,
@@ -927,6 +1011,9 @@
     "album": "Liyue",
     "bpm": 120,
     "duration": 117,
+    "ja_kana": "めいげつさかずきにあり",
+    "cn_pinyin": "Bēi Zhōng Míngyuè",
+    "tw_pinyin": "Bēi Zhōng Míngyuè",
     "sortkey": 2002,
     "score": {
       "n_level": 2,
@@ -960,6 +1047,9 @@
     "album": "Liyue",
     "bpm": 116,
     "duration": 127,
+    "ja_kana": "れっかのごとく",
+    "cn_pinyin": "Jírúměnghuǒ",
+    "tw_pinyin": "Jírúměnghuǒ",
     "sortkey": 2003,
     "score": {
       "n_level": 1,
@@ -993,6 +1083,9 @@
     "album": "Liyue",
     "bpm": 119,
     "duration": 107,
+    "ja_kana": "しょうしつのごう",
+    "cn_pinyin": "Jiéjí zhī Yè",
+    "tw_pinyin": "Jiéjí zhī Yè",
     "sortkey": 2004,
     "score": {
       "n_level": 1,
@@ -1026,6 +1119,9 @@
     "album": "Liyue",
     "bpm": 154,
     "duration": 100,
+    "ja_kana": "りんやくゆうがん",
+    "cn_pinyin": "Línyuèyōuyán",
+    "tw_pinyin": "Línyuèyōuyán",
     "sortkey": 2005,
     "score": {
       "n_level": 2,
@@ -1059,6 +1155,9 @@
     "album": "Liyue",
     "bpm": 121,
     "duration": 78,
+    "ja_kana": "かいいなるしんしょう",
+    "cn_pinyin": "Kuàiyì Xīncí",
+    "tw_pinyin": "Kuàiyì Xīncí",
     "sortkey": 2007,
     "score": {
       "n_level": 2,
@@ -1092,6 +1191,9 @@
     "album": "Liyue",
     "bpm": 140,
     "duration": 120,
+    "ja_kana": "せいれいのひびき",
+    "cn_pinyin": "Hèmíng Qīnglì",
+    "tw_pinyin": "Hèmíng Qīnglì",
     "sortkey": 2009,
     "score": {
       "n_level": 1,
@@ -1125,6 +1227,9 @@
     "album": "Liyue",
     "bpm": 140,
     "duration": 164,
+    "ja_kana": "あらしをきりさくまげい",
+    "cn_pinyin": "Zhǎnpò Fēngbào de Mójīng",
+    "tw_pinyin": "Zhǎnpò Fēngbào de Mójīng",
     "sortkey": 2011,
     "score": {
       "n_level": 2,
@@ -1158,6 +1263,9 @@
     "album": "Liyue",
     "bpm": 95,
     "duration": 160,
+    "ja_kana": "しんにょへきかんかんじょう",
+    "cn_pinyin": "Shénnǚ Pīguàn Huànqíng",
+    "tw_pinyin": "Shénnǚ Pīguàn Huànqíng",
     "sortkey": 2012,
     "score": {
       "n_level": 1,
@@ -1191,6 +1299,9 @@
     "album": "Inazuma",
     "bpm": 149,
     "duration": 142,
+    "ja_kana": "いなづま",
+    "cn_pinyin": "Dàoqī",
+    "tw_pinyin": "Dàoqī",
     "sortkey": 3001,
     "score": {
       "n_level": 1,
@@ -1224,6 +1335,9 @@
     "album": "Inazuma",
     "bpm": 144,
     "duration": 153,
+    "ja_kana": "ざんむはちく",
+    "cn_pinyin": "Zhǎnwù Pòzhú",
+    "tw_pinyin": "Zhǎnwù Pòzhú",
     "sortkey": 3002,
     "score": {
       "n_level": 3,
@@ -1257,6 +1371,9 @@
     "album": "Inazuma",
     "bpm": 136,
     "duration": 164,
+    "ja_kana": "てんこのげんじゅつ",
+    "cn_pinyin": "Tiānhú Wàidào",
+    "tw_pinyin": "Tiānhú Wàidào",
     "sortkey": 3008,
     "score": {
       "n_level": 1,
@@ -1290,6 +1407,9 @@
     "album": "Inazuma",
     "bpm": 122,
     "duration": 83,
+    "ja_kana": "しっぷうついせき",
+    "cn_pinyin": "Nièfēng Bǔjì",
+    "tw_pinyin": "Nièfēng Bǔjī",
     "sortkey": 3009,
     "score": {
       "n_level": 2,
@@ -1323,6 +1443,9 @@
     "album": "Inazuma",
     "bpm": 178,
     "duration": 125,
+    "ja_kana": "はいすいのじん",
+    "cn_pinyin": "Bèishuǐ-yīzhàn",
+    "tw_pinyin": "Bèishuǐ-yīzhàn",
     "sortkey": 3010,
     "score": {
       "n_level": 1,
@@ -1356,6 +1479,9 @@
     "album": "Inazuma",
     "bpm": 181,
     "duration": 182,
+    "ja_kana": "じんめつのまい",
+    "cn_pinyin": "Ránjìn zhī Wǔ",
+    "tw_pinyin": "Ránjìn zhī Wǔ",
     "sortkey": 3011,
     "score": {
       "n_level": 2,
@@ -1389,6 +1515,9 @@
     "album": "Inazuma",
     "bpm": 132,
     "duration": 208,
+    "ja_kana": "いなびかりしんめい",
+    "cn_pinyin": "Dàoguāng Shénmíng",
+    "tw_pinyin": "Dàoguāng Shénmíng",
     "sortkey": 3012,
     "score": {
       "n_level": 2,
@@ -1422,6 +1551,9 @@
     "album": "Sumeru",
     "bpm": 148,
     "duration": 136,
+    "ja_kana": "すめーる",
+    "cn_pinyin": "Xūmí",
+    "tw_pinyin": "Xūmí",
     "sortkey": 4001,
     "score": {
       "n_level": 3,
@@ -1455,6 +1587,9 @@
     "album": "Sumeru",
     "bpm": 95,
     "duration": 108,
+    "ja_kana": "にぎやかなみなと",
+    "cn_pinyin": "Xuānfán zhī Gǎng",
+    "tw_pinyin": "Xuānfán zhī Gǎng",
     "sortkey": 4002,
     "score": {
       "n_level": 2,
@@ -1488,6 +1623,9 @@
     "album": "Sumeru",
     "bpm": 136,
     "duration": 135,
+    "ja_kana": "しっくりゅうきん",
+    "cn_pinyin": "Liújīn Jíchí",
+    "tw_pinyin": "Liújīn Jíchí",
     "sortkey": 4003,
     "score": {
       "n_level": 1,
@@ -1521,6 +1659,9 @@
     "album": "Sumeru",
     "bpm": 110,
     "duration": 108,
+    "ja_kana": "ひろがるりょくちのめろでぃー",
+    "cn_pinyin": "Lǜyě Xiānmián de Qǔdiào",
+    "tw_pinyin": "Lǜyě Xiānmián de Qǔdiào",
     "sortkey": 4004,
     "score": {
       "n_level": 1,
@@ -1554,6 +1695,9 @@
     "album": "Sumeru",
     "bpm": 128,
     "duration": 172,
+    "ja_kana": "せんざいのときをつなぐおもい",
+    "cn_pinyin": "Sījiēqiānzǎi",
+    "tw_pinyin": "Sījiēqiānzǎi",
     "sortkey": 4008,
     "score": {
       "n_level": 2,
@@ -1587,6 +1731,9 @@
     "album": "Sumeru",
     "bpm": 120,
     "duration": 124,
+    "ja_kana": "かんぴのかいりつ",
+    "cn_pinyin": "Jiānmì de Xínglǚ",
+    "tw_pinyin": "Jiānmì de Xínglǚ",
     "sortkey": 4009,
     "score": {
       "n_level": 1,
@@ -1620,6 +1767,9 @@
     "album": "Sumeru",
     "bpm": 130,
     "duration": 72,
+    "ja_kana": "せんらんのまい",
+    "cn_pinyin": "Xuánlán zhī Wǔ",
+    "tw_pinyin": "Xuánlán zhī Wǔ",
     "sortkey": 4010,
     "score": {
       "n_level": 1,
@@ -1653,6 +1803,9 @@
     "album": "Sumeru",
     "bpm": 160,
     "duration": 200,
+    "ja_kana": "さんぜんしゃかいのごえいか",
+    "cn_pinyin": "Sānqiān Suōshì Yùyǒnggē",
+    "tw_pinyin": "Sānqiān Suōshì Yùyǒnggē",
     "sortkey": 4011,
     "score": {
       "n_level": 2,
@@ -1686,6 +1839,9 @@
     "album": "Sumeru",
     "bpm": 110,
     "duration": 218,
+    "ja_kana": "かみくらうきょじゃのらんぶ",
+    "cn_pinyin": "Shìshén Jùshé de Kuángwǔ",
+    "tw_pinyin": "Shìshén Jùshé de Kuángwǔ",
     "sortkey": 4012,
     "score": {
       "n_level": 2,
@@ -1719,6 +1875,9 @@
     "album": "Fontaine",
     "bpm": 180,
     "duration": 168,
+    "ja_kana": "ふぉんてーぬ",
+    "cn_pinyin": "Fēngdān",
+    "tw_pinyin": "Fēngdān",
     "sortkey": 5001,
     "score": {
       "n_level": 2,
@@ -1752,6 +1911,9 @@
     "album": "Fontaine",
     "bpm": 183,
     "duration": 186,
+    "ja_kana": "はなとけんのらんぶ",
+    "cn_pinyin": "Huā yǔ Jiàn de Lúnwǔ",
+    "tw_pinyin": "Huā yǔ Jiàn de Lúnwǔ",
     "sortkey": 5002,
     "score": {
       "n_level": 3,
@@ -1785,6 +1947,9 @@
     "album": "Fontaine",
     "bpm": 178,
     "duration": 179,
+    "ja_kana": "なげきとがいせん",
+    "cn_pinyin": "Yǒn ggē yǔ kǎi xuán",
+    "tw_pinyin": "Yǒn ggē yǔ kǎi xuán",
     "sortkey": 5003,
     "score": {
       "n_level": 2,
@@ -1818,6 +1983,9 @@
     "album": "Fontaine",
     "bpm": 150,
     "duration": 165,
+    "ja_kana": "いまだひびかぬれくいえむ",
+    "cn_pinyin": "Wèi shǐ de gòng xiàn sòng",
+    "tw_pinyin": "Wèi shǐ de gòng xiàn sòng",
     "sortkey": 5008,
     "score": {
       "n_level": 2,
@@ -1851,6 +2019,9 @@
     "album": "Fontaine",
     "bpm": 114,
     "duration": 144,
+    "ja_kana": "おじょうさまのおでまし",
+    "cn_pinyin": "Chuán míng sǎn cǎi",
+    "tw_pinyin": "Chuán míng sǎn cǎi",
     "sortkey": 5009,
     "score": {
       "n_level": 1,
@@ -1884,6 +2055,9 @@
     "album": "Fontaine",
     "bpm": 140,
     "duration": 165,
+    "ja_kana": "しゅうまつのしゃぎしき",
+    "cn_pinyin": "Zhōngmò de Shèdăosòng",
+    "tw_pinyin": "Zhōngmò de Shèdăosòng",
     "sortkey": 5010,
     "score": {
       "n_level": 2,
@@ -1917,6 +2091,9 @@
     "album": "Fontaine",
     "bpm": 150,
     "duration": 105,
+    "ja_kana": "かたすとろふのざんえい",
+    "cn_pinyin": "Zāishí de Hényǐng",
+    "tw_pinyin": "Zāishí de Hényǐng",
     "sortkey": 5011,
     "score": {
       "n_level": 2,
@@ -1950,6 +2127,9 @@
     "album": "Fontaine",
     "bpm": 110,
     "duration": 149,
+    "ja_kana": "さざなみ",
+    "cn_pinyin": "Qīnglián",
+    "tw_pinyin": "Qīnglián",
     "sortkey": 5012,
     "score": {
       "n_level": 1,
@@ -1983,6 +2163,9 @@
     "album": "Natlan",
     "bpm": 120,
     "duration": 158,
+    "ja_kana": "なた",
+    "cn_pinyin": "Nàtǎ",
+    "tw_pinyin": "Nàtǎ",
     "sortkey": 1,
     "score": {
       "n_level": 1,
@@ -2016,6 +2199,9 @@
     "album": "Natlan",
     "bpm": 172,
     "duration": 116,
+    "ja_kana": "せとくれあえあのまどろみ",
+    "cn_pinyin": "Zǐ jǐn cǎo de xián xī",
+    "tw_pinyin": "Zǐ jǐn cǎo de xián xī",
     "sortkey": 4,
     "score": {
       "n_level": 2,
@@ -2049,6 +2235,9 @@
     "album": "Natlan",
     "bpm": 140,
     "duration": 118,
+    "ja_kana": "ここちよいかぜ",
+    "cn_pinyin": "Làng Nuǎn Fēng Róu",
+    "tw_pinyin": "Làng Nuǎn Fēng Róu",
     "sortkey": 5,
     "score": {
       "n_level": 2,
@@ -2082,6 +2271,9 @@
     "album": "Natlan",
     "bpm": 109,
     "duration": 103,
+    "ja_kana": "なみのようにほのおをおって",
+    "cn_pinyin": "Zhúhuǒ Rúxián",
+    "tw_pinyin": "Zhúhuǒ Rúxián",
     "sortkey": 2,
     "score": {
       "n_level": 2,
@@ -2115,6 +2307,9 @@
     "album": "Natlan",
     "bpm": 136,
     "duration": 132,
+    "ja_kana": "とならまとるのえんせい",
+    "cn_pinyin": "Yù jiàn de zhēng chéng",
+    "tw_pinyin": "Yù jiàn de zhēng chéng",
     "sortkey": 3,
     "score": {
       "n_level": 2,
@@ -2148,6 +2343,9 @@
     "album": "Natlan",
     "bpm": 148,
     "duration": 131,
+    "ja_kana": "ほっとすぷりんぐあふぇくしょん",
+    "cn_pinyin": "Nuǎn quán de xiá yǎng",
+    "tw_pinyin": "Nuǎn quán de xiá yǎng",
     "sortkey": 6,
     "score": {
       "n_level": 2,
@@ -2181,6 +2379,9 @@
     "album": "Natlan",
     "bpm": 170,
     "duration": 89,
+    "ja_kana": "ゆうこうなかいけつさく",
+    "cn_pinyin": "Jí xiào fāng àn",
+    "tw_pinyin": "Jí xiào fāng àn",
     "sortkey": 7,
     "score": {
       "n_level": 3,
@@ -2214,6 +2415,9 @@
     "album": "Natlan",
     "bpm": 140,
     "duration": 74,
+    "ja_kana": "なぎうさぎのすてっぷ",
+    "cn_pinyin": "Shǔ tù zhī wǔ",
+    "tw_pinyin": "Shǔ tù zhī wǔ",
     "sortkey": 8,
     "score": {
       "n_level": 3,
@@ -2247,6 +2451,9 @@
     "album": "Natlan",
     "bpm": 140,
     "duration": 134,
+    "ja_kana": "らいつおんみー",
+    "cn_pinyin": "Jù guāng zhī kè",
+    "tw_pinyin": "Jù guāng zhī kè",
     "sortkey": 9,
     "score": {
       "n_level": 2,
@@ -2280,6 +2487,9 @@
     "album": "Natlan",
     "bpm": 141,
     "duration": 147,
+    "ja_kana": "ちょうていのうた",
+    "cn_pinyin": "Tiáo tíng de yuè shī",
+    "tw_pinyin": "Tiáo tíng de yuè shī",
     "sortkey": 10,
     "score": {
       "n_level": 2,
@@ -2313,6 +2523,9 @@
     "album": "Natlan",
     "bpm": 78,
     "duration": 160,
+    "ja_kana": "ななつのとばりのあめ",
+    "cn_pinyin": "Qī wéi de mù yǔ",
+    "tw_pinyin": "Qī wéi de mù yǔ",
     "sortkey": 11,
     "score": {
       "n_level": 2,
@@ -2346,6 +2559,9 @@
     "album": "Natlan",
     "bpm": 176,
     "duration": 94,
+    "ja_kana": "にじをおいかけて",
+    "cn_pinyin": "Yóu guāng zhú hóng",
+    "tw_pinyin": "Yóu guāng zhú hóng",
     "sortkey": 12,
     "score": {
       "n_level": 3,
@@ -2379,6 +2595,9 @@
     "album": "Natlan2",
     "bpm": 130,
     "duration": 117,
+    "ja_kana": "ひよくなおか",
+    "cn_pinyin": "Yù wò pō yě",
+    "tw_pinyin": "Yù wò pō yě",
     "sortkey": -999,
     "score": {
       "n_level": 2,
@@ -2412,6 +2631,9 @@
     "album": "Natlan2",
     "bpm": 98,
     "duration": 104,
+    "ja_kana": "かがみのなかのはる",
+    "cn_pinyin": "Jìng zhōng rì nuǎn",
+    "tw_pinyin": "Jìng zhōng rì nuǎn",
     "sortkey": -998,
     "score": {
       "n_level": 2,
@@ -2445,6 +2667,9 @@
     "album": "Natlan2",
     "bpm": 154,
     "duration": 152,
+    "ja_kana": "よるのかかん",
+    "cn_pinyin": "Yè dàn de huā guān",
+    "tw_pinyin": "Yè dàn de huā guān",
     "sortkey": -997,
     "score": {
       "n_level": 2,
@@ -2478,6 +2703,9 @@
     "album": "Natlan2",
     "bpm": 109,
     "duration": 109,
+    "ja_kana": "くもにのるつばさ",
+    "cn_pinyin": "Shū yì chéng yún",
+    "tw_pinyin": "Shū yì chéng yún",
     "sortkey": -996,
     "score": {
       "n_level": 1,
@@ -2511,6 +2739,9 @@
     "album": "Natlan2",
     "bpm": 112,
     "duration": 100,
+    "ja_kana": "ろうどうのあとのまどろみ",
+    "cn_pinyin": "Qín juàn zhī zhěn",
+    "tw_pinyin": "Qín juàn zhī zhěn",
     "sortkey": -995,
     "score": {
       "n_level": 2,
@@ -2544,6 +2775,9 @@
     "album": "Natlan2",
     "bpm": 153,
     "duration": 142,
+    "ja_kana": "りゅうにえらばれしもののしれん",
+    "cn_pinyin": "Shòu lóng suǒ xuǎn de shì liàn",
+    "tw_pinyin": "Shòu lóng suǒ xuǎn de shì liàn",
     "sortkey": -994,
     "score": {
       "n_level": 2,
@@ -2577,6 +2811,9 @@
     "album": "Natlan2",
     "bpm": 180,
     "duration": 150,
+    "ja_kana": "きぼうのひをともせ",
+    "cn_pinyin": "Fèng chì huǒ yǐ xī wàng",
+    "tw_pinyin": "Fèng chì huǒ yǐ xī wàng",
     "sortkey": -993,
     "score": {
       "n_level": 2,
@@ -2610,6 +2847,9 @@
     "album": "Natlan2",
     "bpm": 126,
     "duration": 93,
+    "ja_kana": "せいかんゆうこう",
+    "cn_pinyin": "Yào jiān fú xíng",
+    "tw_pinyin": "Yào jiān fú xíng",
     "sortkey": -992,
     "score": {
       "n_level": 2,
@@ -2643,6 +2883,9 @@
     "album": "Natlan2",
     "bpm": 204,
     "duration": 125,
+    "ja_kana": "ゆうもうなるせんし",
+    "cn_pinyin": "Sà yǒng de háo dòu",
+    "tw_pinyin": "Sà yǒng de háo dòu",
     "sortkey": -991,
     "score": {
       "n_level": 1,
@@ -2676,6 +2919,9 @@
     "album": "Natlan2",
     "bpm": 150,
     "duration": 54,
+    "ja_kana": "けんこうしなん",
+    "cn_pinyin": "Jiàn tǐ zhī huì",
+    "tw_pinyin": "Jiàn tǐ zhī huì",
     "sortkey": -990,
     "score": {
       "n_level": 2,
@@ -2709,6 +2955,9 @@
     "album": "Natlan2",
     "bpm": 120,
     "duration": 80,
+    "ja_kana": "やまいをのぞくせいふう",
+    "cn_pinyin": "Qū jí de qīng fēng",
+    "tw_pinyin": "Qū jí de qīng fēng",
     "sortkey": -989,
     "score": {
       "n_level": 2,
@@ -2742,6 +2991,9 @@
     "album": "Natlan2",
     "bpm": 152,
     "duration": 231,
+    "ja_kana": "しゃくれつのはんごんのうたさいらい",
+    "cn_pinyin": "Chì liè de huán hún shī zài xiàn",
+    "tw_pinyin": "Chì liè de huán hún shī zài xiàn",
     "sortkey": -988,
     "score": {
       "n_level": 1,

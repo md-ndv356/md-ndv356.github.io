@@ -1,6 +1,27 @@
 {
   "history": [
     {
+      "id": "20250901140820",
+      "postedDate": "2025/09/01",
+      "content": {
+        "ja_jp": "譜面一覧にカテゴリ分けを追加し、並び替えを利用できるようにしました。デフォルト、開始BPMの速い順、レベル順（レジェンド）、ノーツ順（レジェンド）、あいう順が利用できます。",
+        "zh_cn": "在谱面列表中增加了分类，并可以使用排序功能。可用的排序包括：默认、起始BPM高、等级（传说）、音符数（传说）、拼音顺序。",
+        "zh_tw": "在譜面列表中新增了分類，並可使用排序功能。可用的排序包括：預設、起始BPM高、等級（傳說）、音符數（傳說）、拼音順序。",
+        "en_us": "Added categories to the score list and enabled sorting. Available options: Default, Start BPM ↑, Level (Legend), Notes (Legend), Alphabetical.",
+        "ko_kr": "악보 목록에 카테고리를 추가하고 정렬 기능을 사용할 수 있도록 했습니다. 사용 가능한 옵션: 기본값, 시작 BPM↑, 레벨 (레전드), 노트 수 (레전드), 가나다.",
+        "es_es": "Se añadieron categorías a la lista de partituras y ahora es posible ordenar. Opciones disponibles: Predeterminado, BPM inicial ↑, Nivel (Leyenda), Notas (Leyenda), A–Z.",
+        "fr_fr": "Ajout de catégories à la liste des partitions et activation du tri. Options disponibles : Par défaut, BPM départ ↑, Niveau (Légende), Notes (Légende), A–Z.",
+        "ru_ru": "Добавлены категории в список партитур и возможность сортировки. Доступные варианты: По умолчанию, Стартовый BPM ↑, Уровень (Легенда), Ноты (Легенда), А–Я.",
+        "th_th": "ได้เพิ่มการจัดหมวดหมู่ในรายการโน้ตเพลง และสามารถใช้งานการจัดเรียงได้แล้ว ตัวเลือกที่ใช้ได้: ค่าเริ่มต้น, BPM เริ่มสูง, ระดับ (ตำนาน), โน้ต (ตำนาน), ก–ฮ",
+        "vi_vn": "Đã thêm phân loại vào danh sách bản nhạc và bật tính năng sắp xếp. Các tùy chọn: Mặc định, BPM đầu ↑, Cấp độ (Huyền thoại), Nốt (Huyền thoại), A–Z.",
+        "de_de": "Zur Notenliste wurden Kategorien hinzugefügt und die Sortierung aktiviert. Verfügbare Optionen: Standard, Start-BPM ↑, Level (Legende), Noten (Legende), A–Z.",
+        "id_id": "Menambahkan kategori pada daftar partitur dan mengaktifkan fungsi pengurutan. Opsi yang tersedia: Default, BPM awal ↑, Level (Legenda), Not (Legenda), A–Z.",
+        "pt_pt": "Adicionadas categorias à lista de partituras e ativada a ordenação. Opções disponíveis: Padrão, BPM inicial ↑, Nível (Lenda), Notas (Lenda), A–Z.",
+        "tr_tr": "Nota listesine kategoriler eklendi ve sıralama kullanılabilir hale getirildi. Mevcut seçenekler: Varsayılan, Başlangıç BPM ↑, Seviye (Efsanevi), Notalar (Efsanevi), A–Z.",
+        "it_it": "Aggiunte categorie all'elenco delle partiture e abilitato l'ordinamento. Opzioni disponibili: Predefinito, BPM iniziale ↑, Livello (Leggenda), Note (Leggenda), A–Z."
+      }
+    },
+    {
       "id": "20250130203806",
       "postedDate": "2025/01/30",
       "content": {
