@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การคาดเดาเกี่ยวกับการทำงานของการเปลี่ยน BPM - ฐานข้อมูลโน้ตเพลง - Genshin Impact "ท่วงทำนองสรรพเสียง"</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="./common.css" rel="stylesheet">
+  <link href="./fonts/font.css" rel="stylesheet">
+  <style>
+    .contents {
+      color: #f0f0f0;
+      margin: 3px 0;
+      padding: 5px 8px;
+      width: calc(100dvw - 32px);
+      max-width: 700px;
+      border-radius: 10px;
+    }
+    img {
+      max-width: 520px;
+    }
+  </style>
+</head>
+<body class="lang-th_th">
+<header>
+  <div style="flex: 1;"><a href=".?th_th" id="headtitle" i18n="headtitle">คลังโน้ตเพลง</a></div>
+  <div><select id="langselect">
+    <option value="ja_jp">日本語</option>
+    <option value="en_us">English</option>
+    <option value="zh_cn">中文（简体）</option>
+    <option value="zh_tw">中文（繁體）</option>
+    <option value="ko_kr">한국어</option>
+    <option value="es_es">Español</option>
+    <option value="fr_fr">Français</option>
+    <option value="ru_ru">Русский язык</option>
+    <option value="th_th" selected>ภาษาไทย</option>
+    <option value="vi_vn">Tiếng Việt</option>
+    <option value="de_de">Deutsch</option>
+    <option value="id_id">Bahasa Indonesia</option>
+    <option value="pt_pt">Português</option>
+    <option value="tr_tr">Türkçe</option>
+    <option value="it_it">Italiano</option>
+  </select></div>
+</header>
+<main>
+  <div class="contents">
+    <h1>การคาดเดาเกี่ยวกับการทำงานของการเปลี่ยน BPM</h1>
+    <p>ในเกมนี้ การเปลี่ยน BPM ไม่ได้ถูกทำโดยการแก้ไขที่ห้องหรือจังหวะใด ๆ โดยตรง แต่ใช้วิธีเริ่มต้นโน้ตเพลงใหม่ที่เวลาหนึ่ง ๆ แทน</p>
+    <p>ดังนั้น เมื่อมีการเปลี่ยน BPM ทันทีที่เริ่มห้อง โปรแกรมแก้ไขอาจแสดงเส้นห้องสองเส้นซ้อนกัน (→ ดูภาพ)</p>
+    <picture>
+      <source srcset="./about-bpmchange-1.webp" />
+      <img src="./about-bpmchange-1.png" />
+    </picture>
+    <p>พฤติกรรมนี้ยังถูกใช้เพื่อทำให้ตำแหน่งเริ่มต้นของเพลงตรงกับจุดเริ่มต้นของห้องด้วย</p>
+    <p>ดังนั้น ในคลังโน้ตเพลงนี้ เส้นห้องสองเส้นที่แสดงในโปรแกรมแก้ไขจะไม่ถูกนำมาแสดงตามนั้น แต่จะถูกรวมให้เป็นเส้นเดียว</p>
+  </div>
+</main>
+</body>
+<script>
+const langselect = document.getElementById("langselect");
+langselect.addEventListener("change", event => {
+  window.location = "./about-bpmchange-" + event.target.value + ".html";
+});
+</script>
+</html>

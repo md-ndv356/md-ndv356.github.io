@@ -10,20 +10,6 @@
   <link href="./common.css" rel="stylesheet">
   <link href="./fonts/font.css" rel="stylesheet">
   <style>
-    h1 {
-      color: #eee;
-      font-size: 24px;
-    }
-    h2 {
-      color: #d8d8d8;
-      font-size: 20px;
-      margin: 16px 0 8px;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
     .item {
       display: flex;
       color: #111520;
@@ -58,6 +44,12 @@
     }
     main a[href] {
       color: #2c13b7;
+    }
+    main a#bpmchange-link {
+      color: #d7d7d7;
+    }
+    main a[href]:hover, main a#bpmchange-link:hover {
+      color: #379fc4;
     }
     .sort-container {
       display: flex;
@@ -127,6 +119,9 @@
     </svg>
     <div style="margin-left: 12px;" id="sort-buttons"></div>
   </div>
+  <div style="margin-top: 12px;">
+    <a id="bpmchange-link" i18n="bpmchange-link" href=""></a>
+  </div>
   <div id="musiclist"></div>
   <div class="description">
     <h2 i18n="description-title"></h2>
@@ -165,8 +160,11 @@ if (params.sort && params.sort !== "album"){
 const langselect = document.getElementById("langselect");
 langselect.value = langText;
 langselect.addEventListener("change", event => {
+  if (params.sort === "album") delete params.sort;
   window.location = "?" + event.target.value + "/" + Object.entries(params).map(item => item[0] + "=" + item[1]).join("/");
 });
+
+document.getElementById("bpmchange-link").href = "./about-bpmchange-" + langText + ".html";
 
 const musiclist = document.getElementById("musiclist");
 function init ([i18n, albumList, musicTable, scoreList, history]){

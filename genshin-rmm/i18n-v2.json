@@ -68,11 +68,11 @@
     "it_it": "Archivio spartiti"
   },
   "pagetitle": {
-    "zh_cn": "原神 千音雅集 乐谱仓库",
-    "zh_tw": "原神 千音雅集 樂譜倉庫",
+    "zh_cn": "原神《千音雅集》乐谱仓库",
+    "zh_tw": "原神《千音雅集》樂譜倉庫",
     "en_us": "Score Database - Genshin Impact \"Repertoire of Myriad Melodies\"",
     "ko_kr": "원신 선율이 흐르는 악보 - 악보 보관소",
-    "ja_jp": "原神 幾千のメロディー 譜面保管所",
+    "ja_jp": "原神「幾千のメロディー」譜面保管所",
     "es_es": "Base de datos de partituras - Genshin Impact «Repertorio melodioso»",
     "fr_fr": "Archive des partitions - Genshin Impact « Répertoire aux mille mélodies »",
     "ru_ru": "База данных партитур - Genshin Impact «Репертуар мириад мелодий»",
@@ -284,6 +284,23 @@
     "tr_tr": "BPM değişikliklerini temsil eden yeşil sayılar, yazar tarafından tahmin edilmiştir.",
     "it_it": "I numeri verdi che indicano le variazioni del BPM sono stimati dall'autore."
   },
+  "bpmchange-link": {
+    "zh_cn": "BPM变化的实现方式推测",
+    "zh_tw": "BPM變化的實作方式推測",
+    "en_us": "Speculation on BPM Change Implementation",
+    "ko_kr": "BPM 변화 구현 방식 추측",
+    "ja_jp": "BPM変化に関する仕様の予想",
+    "es_es": "Especulación sobre la implementación de los cambios de BPM",
+    "fr_fr": "Spéculation sur l’implémentation des changements de BPM",
+    "ru_ru": "Предположения о реализации изменений BPM",
+    "th_th": "การคาดเดาเกี่ยวกับการทำงานของการเปลี่ยน BPM",
+    "vi_vn": "Dự đoán về cách triển khai thay đổi BPM",
+    "de_de": "Vermutungen zur Implementierung von BPM-Änderungen",
+    "id_id": "Perkiraan tentang implementasi perubahan BPM",
+    "pt_pt": "Especulação sobre a implementação de mudanças de BPM",
+    "tr_tr": "BPM değişikliklerinin uygulanışı hakkında tahmin",
+    "it_it": "Ipotesi sull’implementazione dei cambi di BPM"
+  },
   "__sort__": {
     "bpm_start": {
       "ja_jp": "開始BPMの速い順",
@@ -344,8 +361,8 @@
       "ko_kr": "가나다",
       "es_es": "A–Z",
       "fr_fr": "A–Z",
-      "ru_ru": "А–Я",
-      "th_th": "ก–ฮ",
+      "ru_ru": "A–Z",
+      "th_th": "A–Z",
       "vi_vn": "A–Z",
       "de_de": "A–Z",
       "id_id": "A–Z",
