@@ -177,12 +177,14 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   document.querySelector('meta[name="description"]').content = i18n.meta_description[langText];
 
   // History
-  const historyDate = document.createElement("div");
-  const historyContent = document.createElement("div");
-  historyDate.textContent = history.history[0].postedDate + " (yyyy/mm/dd)";
-  historyDate.style = "color: #ccc; margin: 6px 4px; font-size: 15px;";
-  historyContent.innerText = history.history[0].content[langText];
-  document.getElementById("history-latest").append(historyDate, historyContent);
+  for (let i=0; i<2; i++){
+    const historyDate = document.createElement("div");
+    const historyContent = document.createElement("div");
+    historyDate.textContent = history.history[i].postedDate + (langText !== "ja_jp" ? " (yyyy/mm/dd)" : "");
+    historyDate.style = "color: #ccc; margin: 14px 4px 6px; font-size: 15px;";
+    historyContent.innerText = history.history[i].content[langText];
+    document.getElementById("history-latest").append(historyDate, historyContent);
+  }
 
   // Internationalization
   for (const item of Array.from(document.querySelectorAll("*[i18n]"))){
@@ -198,7 +200,7 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
     window.location = "?" + langText + "/" + Object.entries(params).map(item => item[0] + "=" + item[1]).join("/");
   };
   const sortButtons = document.getElementById("sort-buttons");
-  for (const sortId of [ "default", "bpm_start", "level_l", "notes_l", "alphabetical" ]){
+  for (const sortId of [ "default", "bpm_start", "bpm_min", "bpm_max", "level_l", "notes_l", "duration", "alphabetical" ]){
     const button = document.createElement("button");
     button.sortId = sortId;
     button.classList.add("sort-button");
@@ -211,6 +213,18 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   // Categories
   const categoryElements = {};
   const nullCategories = [ ["0", ""] ];
+  const TimeCategories = [
+    [ "9", "4:30 ~ 5:00" ],
+    [ "8", "4:00 ~ 4:30" ],
+    [ "7", "3:30 ~ 4:00" ],
+    [ "6", "3:00 ~ 3:30" ],
+    [ "5", "2:30 ~ 3:00" ],
+    [ "4", "2:00 ~ 2:30" ],
+    [ "3", "1:30 ~ 2:00" ],
+    [ "2", "1:00 ~ 1:30" ],
+    [ "1", "0:30 ~ 1:00" ],
+    [ "0", "0:00 ~ 0:30" ],
+  ];
   const BPMCategories = [
     [ "15", "BPM 300 ~ 320" ],
     [ "14", "BPM 280 ~ 300" ],
@@ -259,16 +273,17 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   if (!params.sort) params.sort = "album";
 
   // Albums
-  for (const [key, album] of (
+  for (const [key, name] of (
     params.sort.startsWith("bpm_") ? BPMCategories :
     params.sort.startsWith("level_l") ? LevelCategories :
     params.sort.startsWith("notes_") ? notesCategories :
+    params.sort === "duration" ? TimeCategories :
     params.sort === "alphabetical" ? nullCategories : Object.entries(albumList).map(item => [item[0], item[1][langText]])
   )){
     const categoryElement = document.createElement("div");
     categoryElement.className = "album";
     const categoryTitle = document.createElement("h2");
-    categoryTitle.textContent = album;
+    categoryTitle.textContent = name;
     categoryElement.appendChild(categoryTitle);
     const categoryList = document.createElement("div");
     categoryList.className = "album-list";
@@ -280,8 +295,11 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   // Music List
   for (const music of Object.entries(musicTable).sort(
     params.sort === "bpm_start" ? (a, b) => b[1].bpm - a[1].bpm :
+    params.sort === "bpm_min" ? (a, b) => b[1].bpm_min - a[1].bpm_min :
+    params.sort === "bpm_max" ? (a, b) => b[1].bpm_max - a[1].bpm_max :
     params.sort === "level_l" ? (a, b) => b[1].score.l_level - a[1].score.l_level :
     params.sort === "notes_l" ? (a, b) => b[1].score.l_notes - a[1].score.l_notes :
+    params.sort === "duration" ? (a, b) => b[1].duration - a[1].duration :
     (params.sort === "alphabetical" && langText === "ja_jp") ? (a, b) => a[1].ja_kana.localeCompare(b[1].ja_kana, "ja") :
     (params.sort === "alphabetical" && langText === "zh_cn") ? (a, b) => a[1].cn_pinyin.localeCompare(b[1].cn_pinyin, "zh-Hans") :
     (params.sort === "alphabetical" && langText === "zh_tw") ? (a, b) => a[1].tw_pinyin.localeCompare(b[1].tw_pinyin, "zh-Hant") :
@@ -289,8 +307,11 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   )){
     categoryElements[
       params.sort === "bpm_start" ? Math.floor(music[1].bpm / 20) :
+      params.sort === "bpm_min" ? Math.floor(music[1].bpm_min / 20) :
+      params.sort === "bpm_max" ? Math.floor(music[1].bpm_max / 20) :
       params.sort === "level_l" ? Math.floor(music[1].score.l_level) :
       params.sort === "notes_l" ? Math.floor(music[1].score.l_notes / 100) :
+      params.sort === "duration" ? Math.floor(music[1].duration / 30) :
       params.sort === "alphabetical" ? "0" : music[1].album
     ].insertAdjacentHTML("beforeend", `<div class="item">
   <div class="bpm">${music[1].bpm}</div>
