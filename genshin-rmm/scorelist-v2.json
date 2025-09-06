@@ -77,16 +77,16 @@
   "_GMusic71": [0, 0, 0, 1, "Rain of Seven Curtains"],
   "_GMusic72": [0, 0, 0, 1, "Chasing the Rainbow"],
 
-  "_GMusic76": [0, 0, 0, 0, "Bounty of the Fertile Slopes"],
-  "_GMusic73": [0, 0, 0, 0, "Springtime in a Mirror"],
-  "_GMusic74": [0, 0, 0, 0, "Night's Crown of Flowers"],
-  "_GMusic75": [0, 0, 0, 0, "All the Pretty Courses"],
-  "_GMusic77": [0, 0, 0, 0, "Sleep After the Toil"],
-  "_GMusic78": [0, 0, 0, 0, "The Chosen of Dragons' Trials"],
-  "_GMusic79": [0, 0, 0, 0, "Tumaini washa moto"],
-  "_GMusic80": [0, 0, 0, 0, "Interstellar Drift"],
-  "_GMusic81": [0, 0, 0, 0, "Valiant Duel"],
-  "_GMusic82": [0, 0, 0, 0, "Fitness Lesson"],
-  "_GMusic83": [0, 0, 0, 0, "Healing Breeze"],
-  "_GMusic84": [0, 0, 0, 0, "Ode of Resurrection: Recapitulation"]
+  "_GMusic76": [0, 0, 0, 1, "Bounty of the Fertile Slopes"],
+  "_GMusic73": [0, 0, 0, 1, "Springtime in a Mirror"],
+  "_GMusic74": [0, 0, 0, 1, "Night's Crown of Flowers"],
+  "_GMusic75": [0, 0, 0, 1, "All the Pretty Courses"],
+  "_GMusic77": [0, 0, 0, 1, "Sleep After the Toil"],
+  "_GMusic78": [0, 0, 0, 1, "The Chosen of Dragons' Trials"],
+  "_GMusic79": [0, 0, 0, 1, "Tumaini washa moto"],
+  "_GMusic80": [0, 0, 0, 1, "Interstellar Drift"],
+  "_GMusic81": [0, 0, 0, 1, "Valiant Duel"],
+  "_GMusic82": [0, 0, 0, 1, "Fitness Lesson"],
+  "_GMusic83": [0, 0, 0, 1, "Healing Breeze"],
+  "_GMusic84": [0, 0, 0, 1, "Ode of Resurrection: Recapitulation"]
 }
