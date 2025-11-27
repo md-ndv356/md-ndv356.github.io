@@ -212,7 +212,7 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
 
   // Categories
   const categoryElements = {};
-  const nullCategories = [ ["0", ""] ];
+  const NullCategories = [ ["0", ""] ];
   const TimeCategories = [
     [ "9", "4:30 ~ 5:00" ],
     [ "8", "4:00 ~ 4:30" ],
@@ -255,7 +255,7 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
     ["2" , "Lv. 2"],
     ["1" , "Lv. 1"],
   ];
-  const notesCategories = [
+  const NotesCategories = [
     ["11", "1100 ~ 1200 notes"],
     ["10", "1000 ~ 1100 notes"],
     ["9" , "900 ~ 1000 notes"],
@@ -276,9 +276,9 @@ function init ([i18n, albumList, musicTable, scoreList, history]){
   for (const [key, name] of (
     params.sort.startsWith("bpm_") ? BPMCategories :
     params.sort.startsWith("level_l") ? LevelCategories :
-    params.sort.startsWith("notes_") ? notesCategories :
+    params.sort.startsWith("notes_") ? NotesCategories :
     params.sort === "duration" ? TimeCategories :
-    params.sort === "alphabetical" ? nullCategories : Object.entries(albumList).map(item => [item[0], item[1][langText]])
+    params.sort === "alphabetical" ? NullCategories : Object.entries(albumList).map(item => [item[0], item[1][langText]])
   )){
     const categoryElement = document.createElement("div");
     categoryElement.className = "album";
