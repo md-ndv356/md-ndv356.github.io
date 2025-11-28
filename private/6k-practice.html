@@ -653,7 +653,7 @@ function main(){
     ct.fillRect(x, 0, LANE_LINE_WIDTH, height);
   }
   ct.fillStyle = "#d8d8d8";
-  ct.fillRect(-10, height - LINE_POS, laneTotalWidth + 20, 4);
+  ct.fillRect(0, height - LINE_POS, laneTotalWidth, 4);
 
   ct.save();
   ct.translate(LANE_LINE_WIDTH, 0);
@@ -717,6 +717,13 @@ function main(){
 
     ct.translate(LANE_WIDTH + LANE_LINE_WIDTH, 0);
   }
+
+  ct.fillStyle = "#333333";
+  ct.fillRect(0, 0, 4, height);
+
+  ct.fillStyle = "#eeeeee";
+  ct.fillRect(0, 0, 4, height * currentTime / GAME_TIME);
+
   ct.restore();
 
   // 判定表示
@@ -748,8 +755,14 @@ function main(){
     // ms表示
     ct.font = `bold 18px "Noto Serif JP"`;
     ct.lineWidth = 2;
-    ct.fillStyle = AnimationData.msJudge.value > 0 ? COLOR_FAST : COLOR_LATE;
     // - + 逆なのはわざと
+    if (Math.abs(AnimationData.msJudge.value) < THRESHOLD_CRITICAL){
+      ct.fillStyle = COLOR_NONE;
+    } else if (AnimationData.msJudge.value < 0){
+      ct.fillStyle = COLOR_FAST;
+    } else {
+      ct.fillStyle = COLOR_LATE;
+    }
     const msMessage = (AnimationData.msJudge.value > 0 ? "-" : "+") + Math.abs(AnimationData.msJudge.value).toFixed(0) + " ms";
     ct.strokeText(msMessage, laneTotalWidth / 2, height - LINE_POS - 150);
     ct.fillText(msMessage, laneTotalWidth / 2, height - LINE_POS - 150);
