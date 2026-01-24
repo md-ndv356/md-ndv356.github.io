@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPM değişikliklerinin uygulanışı hakkında tahmin - Nota Veritabanı - Genshin Impact "Sayısız Melodiler Repertuvarı"</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="./common.css" rel="stylesheet">
+  <link href="./fonts/font.css" rel="stylesheet">
+  <style>
+    .contents {
+      color: #f0f0f0;
+      margin: 3px 0;
+      padding: 5px 8px;
+      width: calc(100dvw - 32px);
+      max-width: 700px;
+      border-radius: 10px;
+    }
+    img {
+      max-width: 520px;
+    }
+  </style>
+</head>
+<body class="lang-tr_tr">
+<header>
+  <div style="flex: 1;"><a href=".?tr_tr" id="headtitle" i18n="headtitle">Nota Arşivi</a></div>
+  <div><select id="langselect">
+    <option value="ja_jp">日本語</option>
+    <option value="en_us">English</option>
+    <option value="zh_cn">中文（简体）</option>
+    <option value="zh_tw">中文（繁體）</option>
+    <option value="ko_kr">한국어</option>
+    <option value="es_es">Español</option>
+    <option value="fr_fr">Français</option>
+    <option value="ru_ru">Русский язык</option>
+    <option value="th_th">ภาษาไทย</option>
+    <option value="vi_vn">Tiếng Việt</option>
+    <option value="de_de">Deutsch</option>
+    <option value="id_id">Bahasa Indonesia</option>
+    <option value="pt_pt">Português</option>
+    <option value="tr_tr" selected>Türkçe</option>
+    <option value="it_it">Italiano</option>
+  </select></div>
+</header>
+<main>
+  <div class="contents">
+    <h1>BPM değişikliklerinin uygulanışı hakkında tahmin</h1>
+    <p>Bu oyunda BPM değişiklikleri, belirli ölçü veya vuruşlarda BPM’yi değiştirmek yerine, belirli saniyelerde yeni bir partisyon başlatılarak gerçekleştirilmektedir.</p>
+    <p>Bu nedenle, bir BPM değişikliği ölçünün başında ayarlandığında editörde çift ölçü çizgisi görünebilir. (→ Görseli inceleyin)</p>
+    <picture>
+      <source srcset="./about-bpmchange-1.webp" />
+      <img src="./about-bpmchange-1.png" />
+    </picture>
+    <p>Bu davranış, parçanın başlangıç noktasını ölçünün başlangıcıyla senkronize etmek için de kullanılmaktadır.</p>
+    <p>Bu yüzden, bu nota arşivinde editörde görünen çift ölçü çizgileri olduğu gibi değil, üst üste gelen iki çizgi birleştirilerek tek çizgi halinde gösterilmektedir.</p>
+  </div>
+</main>
+</body>
+<script>
+const langselect = document.getElementById("langselect");
+langselect.addEventListener("change", event => {
+  window.location = "./about-bpmchange-" + event.target.value + ".html";
+});
+</script>
+</html>

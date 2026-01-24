@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPM变化的实现方式推测 - 原神《千音雅集》乐谱仓库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="./common.css" rel="stylesheet">
+  <link href="./fonts/font.css" rel="stylesheet">
+  <style>
+    .contents {
+      color: #f0f0f0;
+      margin: 3px 0;
+      padding: 5px 8px;
+      width: calc(100dvw - 32px);
+      max-width: 700px;
+      border-radius: 10px;
+    }
+    img {
+      max-width: 520px;
+    }
+  </style>
+</head>
+<body class="lang-zh_cn">
+<header>
+  <div style="flex: 1;"><a href=".?zh_cn" id="headtitle" i18n="headtitle">乐谱仓库</a></div>
+  <div><select id="langselect">
+    <option value="ja_jp">日本語</option>
+    <option value="en_us">English</option>
+    <option value="zh_cn" selected>中文（简体）</option>
+    <option value="zh_tw">中文（繁體）</option>
+    <option value="ko_kr">한국어</option>
+    <option value="es_es">Español</option>
+    <option value="fr_fr">Français</option>
+    <option value="ru_ru">Русский язык</option>
+    <option value="th_th">ภาษาไทย</option>
+    <option value="vi_vn">Tiếng Việt</option>
+    <option value="de_de">Deutsch</option>
+    <option value="id_id">Bahasa Indonesia</option>
+    <option value="pt_pt">Português</option>
+    <option value="tr_tr">Türkçe</option>
+    <option value="it_it">Italiano</option>
+  </select></div>
+</header>
+<main>
+  <div class="contents">
+    <h1>BPM变化的实现方式推测</h1>
+    <p>本游戏中的BPM变化实现方式并不是在特定小节或拍子上直接改变BPM，而是通过在特定秒数重新开始新的谱面来处理的。</p>
+    <p>因此，当在小节开始处设定了BPM变化时，编辑器上可能会出现双重小节线。（→见图）</p>
+    <picture>
+      <source srcset="./about-bpmchange-1.webp" />
+      <img src="./about-bpmchange-1.png" />
+    </picture>
+    <p>这种行为同样被用于将曲目的开始位置与小节的起始位置对齐。</p>
+    <p>因此，在本谱面仓库中，对于编辑器上出现的双重小节线，不是原样展示，而是合并为一条来表示。</p>
+  </div>
+</main>
+</body>
+<script>
+const langselect = document.getElementById("langselect");
+langselect.addEventListener("change", event => {
+  window.location = "./about-bpmchange-" + event.target.value + ".html";
+});
+</script>
+</html>

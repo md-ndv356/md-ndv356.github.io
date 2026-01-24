@@ -1,0 +1,67 @@
+{
+  "history": [
+    {
+      "id": "20250907035600",
+      "postedDate": "2025/09/07",
+      "content": {
+        "ja_jp": "すべてのレジェンド譜面の追加が完了しました。また、カテゴリ分け・ソートに最低BPM・最高BPM・曲の長さを追加しました。",
+        "zh_cn": "所有传说谱面的添加已完成。同时，在分类和排序中新增了最低BPM、最高BPM和曲长。",
+        "zh_tw": "所有傳說譜面的新增已完成。同時，在分類與排序中新增了最低BPM、最高BPM與曲長。",
+        "en_us": "All Legendary charts have been added. In addition, Minimum BPM, Maximum BPM, and Duration have been added to categories and sorting options.",
+        "ko_kr": "모든 레전드 악보 추가가 완료되었습니다. 또한 카테고리와 정렬에 최소 BPM, 최대 BPM, 재생 시간을 추가했습니다.",
+        "es_es": "Se han añadido todas las partituras de nivel Leyenda. Además, se han agregado BPM mínimo, BPM máximo y duración a las opciones de categorías y ordenación.",
+        "fr_fr": "Toutes les partitions de niveau Légende ont été ajoutées. De plus, BPM minimum, BPM maximum et Durée ont été ajoutés aux catégories et aux options de tri.",
+        "ru_ru": "Добавлены все партитуры уровня «Легенда». Кроме того, в категории и сортировку добавлены минимальный BPM, максимальный BPM и длительность.",
+        "th_th": "ได้เพิ่มโน้ตเพลงระดับตำนานครบทั้งหมดแล้ว นอกจากนี้ยังได้เพิ่ม BPM ต่ำสุด, BPM สูงสุด และระยะเวลา ในตัวเลือกหมวดหมู่และการจัดเรียง",
+        "vi_vn": "Tất cả các bản nhạc cấp Huyền thoại đã được thêm. Ngoài ra, các tùy chọn phân loại và sắp xếp đã có thêm BPM thấp nhất, BPM cao nhất và Thời lượng.",
+        "de_de": "Alle Legendären-Partituren wurden hinzugefügt. Außerdem wurden Minimales BPM, Maximales BPM und Dauer zu den Kategorien und Sortieroptionen hinzugefügt.",
+        "id_id": "Semua partitur level Legenda telah ditambahkan. Selain itu, BPM minimum, BPM maksimum, dan Durasi telah ditambahkan ke kategori dan opsi pengurutan.",
+        "pt_pt": "Todas as partituras de nível Lenda foram adicionadas. Além disso, foram incluídos BPM mínimo, BPM máximo e Duração nas categorias e opções de ordenação.",
+        "tr_tr": "Tüm Efsanevi notalar eklendi. Ayrıca kategori ve sıralama seçeneklerine En düşük BPM, En yüksek BPM ve Süre eklendi.",
+        "it_it": "Tutti gli spartiti di livello Leggenda sono stati aggiunti. Inoltre, sono stati aggiunti BPM minimo, BPM massimo e Durata alle categorie e alle opzioni di ordinamento."
+      }
+    },
+    {
+      "id": "20250901140820",
+      "postedDate": "2025/09/01",
+      "content": {
+        "ja_jp": "譜面一覧にカテゴリ分けを追加し、並び替えを利用できるようにしました。デフォルト、開始BPMの速い順、レベル順（レジェンド）、ノーツ順（レジェンド）、あいう順が利用できます。",
+        "zh_cn": "在谱面列表中增加了分类，并可以使用排序功能。可用的排序包括：默认、起始BPM高、等级（传说）、音符数（传说）、拼音顺序。",
+        "zh_tw": "在譜面列表中新增了分類，並可使用排序功能。可用的排序包括：預設、起始BPM高、等級（傳說）、音符數（傳說）、拼音順序。",
+        "en_us": "Added categories to the score list and enabled sorting. Available options: Default, Starting BPM, Level (Legend), Notes (Legend), Alphabetical.",
+        "ko_kr": "악보 목록에 카테고리를 추가하고 정렬 기능을 사용할 수 있도록 했습니다. 사용 가능한 옵션: 기본값, 시작 BPM↑, 레벨 (레전드), 노트 수 (레전드), 가나다.",
+        "es_es": "Se añadieron categorías a la lista de partituras y ahora es posible ordenar. Opciones disponibles: Predeterminado, BPM inicial, Nivel (Leyenda), Notas (Leyenda), A–Z.",
+        "fr_fr": "Ajout de catégories à la liste des partitions et activation du tri. Options disponibles : Par défaut, BPM départ, Niveau (Légende), Notes (Légende), A–Z.",
+        "ru_ru": "Добавлены категории в список партитур и возможность сортировки. Доступные варианты: По умолчанию, Стартовый BPM, Уровень (Легенда), Ноты (Легенда), А–Я.",
+        "th_th": "ได้เพิ่มการจัดหมวดหมู่ในรายการโน้ตเพลง และสามารถใช้งานการจัดเรียงได้แล้ว ตัวเลือกที่ใช้ได้: ค่าเริ่มต้น, BPM เริ่มสูง, ระดับ (ตำนาน), โน้ต (ตำนาน), ก–ฮ",
+        "vi_vn": "Đã thêm phân loại vào danh sách bản nhạc và bật tính năng sắp xếp. Các tùy chọn: Mặc định, BPM đầu, Cấp độ (Huyền thoại), Nốt (Huyền thoại), A–Z.",
+        "de_de": "Zur Notenliste wurden Kategorien hinzugefügt und die Sortierung aktiviert. Verfügbare Optionen: Standard, Start-BPM, Level (Legende), Noten (Legende), A–Z.",
+        "id_id": "Menambahkan kategori pada daftar partitur dan mengaktifkan fungsi pengurutan. Opsi yang tersedia: Default, BPM awal, Level (Legenda), Not (Legenda), A–Z.",
+        "pt_pt": "Adicionadas categorias à lista de partituras e ativada a ordenação. Opções disponíveis: Padrão, BPM inicial, Nível (Lenda), Notas (Lenda), A–Z.",
+        "tr_tr": "Nota listesine kategoriler eklendi ve sıralama kullanılabilir hale getirildi. Mevcut seçenekler: Varsayılan, Başlangıç BPM, Seviye (Efsanevi), Notalar (Efsanevi), A–Z.",
+        "it_it": "Aggiunte categorie all'elenco delle partiture e abilitato l'ordinamento. Opzioni disponibili: Predefinito, BPM iniziale, Livello (Leggenda), Note (Leggenda), A–Z."
+      }
+    },
+    {
+      "id": "20250130203806",
+      "postedDate": "2025/01/30",
+      "content": {
+        "ja_jp": "中国語（繁体字）、韓国語、スペイン語、ロシア語、タイ語、ベトナム語、インドネシア語、ポルトガル語、トルコ語、イタリア語版のサイトを公開し、原神公式が対応している全ての言語に対応しました。また、更新履歴の公開を開始しました。",
+        "zh_cn": "我们已上线繁体中文、韩语、西班牙语、俄语、泰语、越南语、印尼语、葡萄牙语、土耳其语和意大利语版本的网站，实现了对原神官方支持的所有语言的覆盖。同时，我们也开始公开更新记录。",
+        "zh_tw": "我們已上線繁體中文、韓語、西班牙語、俄語、泰語、越南語、印尼語、葡萄牙語、土耳其語和義大利語版本的網站，實現了對原神官方支援的所有語言的覆蓋。同時，我們也開始公開更新記錄。",
+        "en_us": "We have launched the website in Traditional Chinese, Korean, Spanish, Russian, Thai, Vietnamese, Indonesian, Portuguese, Turkish, and Italian, covering all languages officially supported by Genshin Impact. Additionally, we have started publishing update history.",
+        "ko_kr": "번체 중국어, 한국어, 스페인어, 러시아어, 태국어, 베트남어, 인도네시아어, 포르투갈어, 터키어, 이탈리아어 버전의 사이트를 공개하여 원신 공식이 지원하는 모든 언어를 지원하게 되었습니다. 또한, 업데이트 내역 공개를 시작했습니다.",
+        "es_es": "Hemos lanzado el sitio web en chino tradicional, coreano, español, ruso, tailandés, vietnamita, indonesio, portugués, turco e italiano, cubriendo todos los idiomas oficialmente compatibles con Genshin Impact. Además, hemos comenzado a publicar el historial de actualizaciones.",
+        "fr_fr": "Nous avons lancé le site en chinois traditionnel, coréen, espagnol, russe, thaï, vietnamien, indonésien, portugais, turc et italien, couvrant toutes les langues officiellement prises en charge par Genshin Impact. De plus, nous avons commencé à publier l'historique des mises à jour.",
+        "ru_ru": "Мы запустили сайт на традиционном китайском, корейском, испанском, русском, тайском, вьетнамском, индонезийском, португальском, турецком и итальянском языках, охватывая все языки, официально поддерживаемые Genshin Impact. Кроме того, мы начали публиковать историю обновлений.",
+        "th_th": "เราได้เปิดตัวเว็บไซต์ในภาษาจีนตัวเต็ม ภาษาเกาหลี ภาษาสเปน ภาษารัสเซีย ภาษาไทย ภาษาเวียดนาม ภาษาอินโดนีเซีย ภาษาโปรตุเกส ภาษาตุรกี และภาษาอิตาลี ครอบคลุมทุกภาษาที่ Genshin Impact รองรับอย่างเป็นทางการ นอกจากนี้เราได้เริ่มเผยแพร่ประวัติการอัปเดตแล้ว",
+        "vi_vn": "Chúng tôi đã ra mắt trang web bằng tiếng Trung Phồn thể, tiếng Hàn, tiếng Tây Ban Nha, tiếng Nga, tiếng Thái, tiếng Việt, tiếng Indonesia, tiếng Bồ Đào Nha, tiếng Thổ Nhĩ Kỳ và tiếng Ý, hỗ trợ đầy đủ tất cả các ngôn ngữ chính thức của Genshin Impact. Ngoài ra, chúng tôi cũng bắt đầu công bố lịch sử cập nhật.",
+        "de_de": "Wir haben die Website in traditionellem Chinesisch, Koreanisch, Spanisch, Russisch, Thailändisch, Vietnamesisch, Indonesisch, Portugiesisch, Türkisch und Italienisch veröffentlicht und unterstützen damit alle offiziell von Genshin Impact unterstützten Sprachen. Außerdem haben wir begonnen, die Update-Historie zu veröffentlichen.",
+        "id_id": "Kami telah meluncurkan situs web dalam bahasa Tionghoa Tradisional, Korea, Spanyol, Rusia, Thailand, Vietnam, Indonesia, Portugis, Turki, dan Italia, mencakup semua bahasa yang didukung secara resmi oleh Genshin Impact. Selain itu, kami telah mulai menerbitkan riwayat pembaruan.",
+        "pt_pt": "Lançámos o site em Chinês Tradicional, Coreano, Espanhol, Russo, Tailandês, Vietnamita, Indonésio, Português, Turco e Italiano, cobrindo todos os idiomas oficialmente suportados pelo Genshin Impact. Além disso, começámos a publicar o histórico de atualizações.",
+        "tr_tr": "Geleneksel Çince, Korece, İspanyolca, Rusça, Tayca, Vietnamca, Endonezce, Portekizce, Türkçe ve İtalyanca dillerinde web sitesini yayınladık ve Genshin Impact tarafından resmi olarak desteklenen tüm dilleri kapsadık. Ayrıca, güncelleme geçmişini yayınlamaya başladık.",
+        "it_it": "Abbiamo lanciato il sito web in cinese tradizionale, coreano, spagnolo, russo, tailandese, vietnamita, indonesiano, portoghese, turco e italiano, coprendo tutte le lingue ufficialmente supportate da Genshin Impact. Inoltre, abbiamo iniziato a pubblicare la cronologia degli aggiornamenti."
+      }
+    }
+  ]
+}

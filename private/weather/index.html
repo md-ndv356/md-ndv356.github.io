@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://md-ndv356.github.io/private/weather/">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+  <title>雨雲レーダーリアルタイム</title>
+  <style media="screen">
+    *::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic", Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    #map {
+      width: 100dvw;
+      height: calc(100dvh - 75px);
+    }
+    .leaflet-container {
+      background: #000000;
+      outline: 0;
+    }
+    .column {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .operation-container {
+      width: calc(100% - 54px);
+      height: 75px;
+      background: linear-gradient(0, #0d598b, #013d64);
+      color: #fff;
+      padding: 0 27px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .time-operation {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      flex-direction: row;
+      justify-content: center;
+    }
+    #time-range {
+      width: 300px;
+    }
+    .infos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+    .window-title {
+      position: relative;
+      top: 0; left: 0;
+      background: #a8b8c3dd;
+      border-end-end-radius: 9px;
+      backdrop-filter: 10px;
+      padding: 8px 20px;
+      color: #000;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .raincount-container {
+      background-color: #013d64;
+      position: absolute;
+      bottom: 77px;
+      left: 0;
+      padding: 4px 15px;
+      max-width: calc(100vw - 300px);
+      overflow-x: scroll;
+      white-space: nowrap;
+      font-size: 20px;
+      color: #fff;
+      z-index: 9999;
+    }
+    .raincount-container p { margin: 0; }
+
+    .leaflet-bar {
+      background-color: #052b5e;
+    }
+    .leaflet-bar a {
+      background-color: #0b3c5b;
+      color: #fff;
+    }
+    .leaflet-bar a:hover {
+      background-color: #204b65;
+    }
+    .leaflet-control-layers {
+      background: #025d78;
+    }
+    .leaflet-control-layers-expanded {
+      background: #034f55;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div id="map"></div>
+    <div class="operation-container">
+      <div class="column">
+        <div class="time-operation">
+          <time id="range-start-time">--:--</time>
+          <input id="time-range" type="range" min="0" max="0" step="0">
+          <time id="range-end-time">--:--</time>
+        </div>
+        <time id="time-string">--:--</time>
+      </div>
+    </div>
+    <div class="raincount-container">
+      <p>雨が降るまで：<span id="raincount"></span><span id="raincount-unit"></span></p>
+    </div>
+    <div class="infos">
+      <div class="window-title">雨雲レーダー</div>
+    </div>
+  </div>
+  <script>
+    const Maps = L.map("map", {
+      center: [35.7102, 139.8132],
+      zoom: 8,
+      minZoom: 5,
+      maxZoom: 18
+    });
+    L.control.layers({
+      "淡色地図": L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
+        opacity: 0.5,
+        attribution: "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+      }).addTo(Maps),
+      "標準地図": L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png", {
+        opacity: 0.5,
+        attribution: "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+      }),
+      "写真": L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg", {
+        opacity: 0.5,
+        attribution: "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+      }),
+      "OpenStreetMap": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        opacity: 0.5,
+        attribution: "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
+      }),
+      "地理院白地図": L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png", {
+        opacity: 0.5,
+        attribution: "<a href='https://maps.gsi.go.jp/development/'>国土地理院"
+      })
+    }).addTo(Maps);
+    Maps.zoomControl.setPosition("bottomright");
+
+    var htmlElements = {};
+    {
+      let s = {};
+      let q = function(type, string, num=0){
+        switch (type) {
+          case "id":
+            return document.getElementById(string);
+          case "class":
+            return document.getElementsByClassName(string)[num];
+          case "tag":
+            return document.getElementsByTagName(string)[num];
+          default :
+            throw "Invalid Selector Type";
+        }
+      }
+      s.timeRange = q("id", "time-range");
+      s.timeString = q("id", "time-string");
+      s.rangeStartTime = q("id", "range-start-time");
+      s.rangeEndTime = q("id", "range-end-time");
+      s.raincount = q("id", "raincount");
+      s.raincount_unit = q("id", "raincount-unit");
+      htmlElements = s;
+    }
+
+    var locationCoords = null;
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((loc) => {
+        // let coords = (locationCoords = {latitude: 36.3579925300312, longitude: 140.35686492919925});
+        let coords = (locationCoords = loc.coords);
+        marker = L.marker([coords.latitude, coords.longitude]).addTo(Maps);
+        marker.bindPopup("現在地");
+        Maps.setView([coords.latitude, coords.longitude], 10);
+
+        LoadRainCount();
+        setInterval(LoadRainCount, 60000);
+      }, () => { alert("位置情報を取得できませんでした。") }, {
+        enableHighAccuracy: true
+      });
+    }
+
+    var targetTimes = [];
+    var targetNumber = 12;
+    var timerID = null;
+    const SetAmedas = function(index){
+      targetTimes[targetNumber].layer.removeFrom(Maps);
+      targetTimes[index].layer.addTo(Maps);
+      targetNumber = index;
+      SetInputRange(index);
+    };
+    const SetInputRange = function(index){
+      let endsNumber = targetTimes.length - 1;
+      htmlElements.timeRange.step = 1;
+      let timeString = new Date(targetTimes[index].data.tm * 1000);
+      let rangeStartString = new Date(targetTimes[0].data.tm * 1000);
+      let rangeEndString = new Date(targetTimes[endsNumber].data.tm * 1000);
+      htmlElements.timeString.textContent = timeString.getDate().toString().padStart(2, "0") + "日" + timeString.getHours().toString().padStart(2, "0") + "時" + timeString.getMinutes().toString().padStart(2, "0") + (targetTimes[index].data.isForecast ? "分 （予報）" : "分 （実況）");
+      htmlElements.rangeStartTime.textContent = rangeStartString.getDate().toString().padStart(2, "0") + "日" + rangeStartString.getHours().toString().padStart(2, "0") + "時" + rangeStartString.getMinutes().toString().padStart(2, "0") + "分";
+      htmlElements.rangeEndTime.textContent = rangeEndString.getDate().toString().padStart(2, "0") + "日" + rangeEndString.getHours().toString().padStart(2, "0") + "時" + rangeEndString.getMinutes().toString().padStart(2, "0") + "分";
+      htmlElements.timeRange.min = 0;
+      htmlElements.timeRange.max = endsNumber;
+      htmlElements.timeRange.value = index;
+    };
+    htmlElements.timeRange.addEventListener("input", function(event){
+      SetAmedas(event.target.value);
+    });
+    const LoadTargetTimes = function(){
+      let xhr = new XMLHttpRequest();
+      let array = [];
+      xhr.addEventListener("load", function(){
+        targetTimes.forEach(time => {
+          time.layer.removeFrom(Maps);
+        });
+
+        let data = JSON.parse(this.response);
+        targetTimes = [];
+
+        data.tile.forEach(tile => {
+          targetTimes.push({
+            data: tile,
+            layer: L.tileLayer(tile.d+"/{z}_{x}_{y}.png", {
+              maxNativeZoom: data.max_zoom,
+              opacity: 0.7,
+              attribution: `<a href="https://weathernews.jp/onebox/radar/">ウェザーニュース</a>`
+            })
+          });
+        });
+
+        SetAmedas(targetNumber);
+      });
+      xhr.open("GET", "https://tile.weathernews.jp/json/nowcast_460.json?_="+Date.now());
+      xhr.send();
+    };
+    LoadTargetTimes();
+    setInterval(LoadTargetTimes, 300000);
+    function LoadRainCount(){
+      htmlElements.raincount.textContent = "";
+      htmlElements.raincount_unit.textContent = "更新中・・・";
+      fetch("https://weathernews.jp/smart/api_fcst5m.fcgi?lat="+locationCoords.latitude+"&lon="+locationCoords.longitude+"&_="+Date.now()).then(r => r.json()).then(data => {
+        const index = data.fcst.findIndex(item => item.fcst >= 300);
+        if (index !== -1 && index !== 0){
+          const minutes = Math.abs(Math.floor((Date.now()/1000 - data.fcst[index].tm)/60));
+          htmlElements.raincount.textContent = minutes;
+          htmlElements.raincount_unit.textContent = "分";
+        } else {
+          htmlElements.raincount.textContent = (index === -1) ? "今から1時間以内に、雨が降る予想はありません。" : "すでに降っています。";
+          htmlElements.raincount_unit.textContent = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

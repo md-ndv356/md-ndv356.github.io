@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPM変化に関する仕様の予想 - 原神「幾千のメロディー」譜面保管所</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="./common.css" rel="stylesheet">
+  <link href="./fonts/font.css" rel="stylesheet">
+  <style>
+    .contents {
+      color: #f0f0f0;
+      margin: 3px 0;
+      padding: 5px 8px;
+      width: calc(100dvw - 32px);
+      max-width: 700px;
+      border-radius: 10px;
+    }
+    img {
+      max-width: 520px;
+    }
+  </style>
+</head>
+<body class="lang-ja_jp">
+<header>
+  <div style="flex: 1;"><a href=".?ja_jp" id="headtitle" i18n="headtitle">譜面保管所</a></div>
+  <div><select id="langselect">
+    <option value="ja_jp" selected>日本語</option>
+    <option value="en_us">English</option>
+    <option value="zh_cn">中文（简体）</option>
+    <option value="zh_tw">中文（繁體）</option>
+    <option value="ko_kr">한국어</option>
+    <option value="es_es">Español</option>
+    <option value="fr_fr">Français</option>
+    <option value="ru_ru">Русский язык</option>
+    <option value="th_th">ภาษาไทย</option>
+    <option value="vi_vn">Tiếng Việt</option>
+    <option value="de_de">Deutsch</option>
+    <option value="id_id">Bahasa Indonesia</option>
+    <option value="pt_pt">Português</option>
+    <option value="tr_tr">Türkçe</option>
+    <option value="it_it">Italiano</option>
+  </select></div>
+</header>
+<main>
+  <div class="contents">
+    <h1>BPM変化に関する仕様の予想</h1>
+    <p>このゲームにおけるBPM変化の実装方法は、BPMを特定の小節・拍で変更しているわけではなく、特定の秒数を境に新しい譜面が開始される形で対応されていると考えられる。</p>
+    <p>そのため、小節の開始直後にBPM変化が設定されている場合、エディタ上では小節線が二重に表示されることがある。（→画像参照）</p>
+    <picture>
+      <source srcset="./about-bpmchange-0.webp" />
+      <img src="./about-bpmchange-0.png" />
+    </picture>
+    <p>この挙動は、楽曲の開始位置と小節の開始位置を同期させる際にも利用されている。</p>
+    <p>そのため、本譜面保管所では、エディタ上で二重に表示される小節線をそのまま掲載するのではなく、重なっている2本を1本にまとめて表記している。</p>
+  </div>
+</main>
+</body>
+<script>
+const langselect = document.getElementById("langselect");
+langselect.addEventListener("change", event => {
+  window.location = "./about-bpmchange-" + event.target.value + ".html";
+});
+</script>
+</html>

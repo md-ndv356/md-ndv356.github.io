@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「50年に一度の積雪深」比 マップ</title>
+  <script src="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.css" rel="stylesheet">
+</head>
+<body style="margin: 0; background-color: #444; font-family: sans-serif;">
+  <div id="map" style="width: 100dvw; height: 100dvh;"></div>
+  <div style="position: fixed; top: 0; left: 0; pointer-events: none;">
+    <div style="color: #ddd; font-size: 18px; background-color: #111; padding: 4px 12px 0px;">「50年に一度の積雪深」比<span style="font-size: 15px;">（％）</span></div>
+    <div style="color: #ddd; font-size: 14px; background-color: #111; padding: 4px 12px 4px; border-bottom-right-radius: 10px;"><span id="loading-time">Loading...</span><span id="data-crc" style="margin-left: 8px; font-size: 12px;"></span></div>
+  </div>
+  <div style="color: #ccc; font-size: 14px; pointer-events: none;">
+    <div style="position: fixed; bottom: 50px; right: 10px; width: 30px; height: 160px; border: solid 2px #fff9; background: linear-gradient(0deg, hsl(180 100% 62.5%), hsl(135 100% 62.5%), hsl(90 100% 62.5%), hsl(45 100% 62.5%), hsl(0 100% 62.5%), hsl(315 100% 62.5%), hsl(270 100% 62.5%));"></div>
+    <div style="position: fixed; bottom: 42px; right: 50px;">0 %</div>
+    <div style="position: fixed; bottom: 95.3px; right: 50px;">50 %</div>
+    <div style="position: fixed; bottom: 148.7px; right: 50px;">100 %</div>
+    <div style="position: fixed; bottom: 202px; right: 50px;">150 %</div>
+    <div style="position: fixed; bottom: 230px; right: 16px; width: 20px; height: 20px; background-color: hsl(180 100% 62.5%); opacity: 0.9; border-radius: 10px;" title="10px"></div>
+    <div style="position: fixed; bottom: 261px; right: 12px; width: 28px; height: 28px; background-color: hsl(  0 100% 62.5%); opacity: 0.9; border-radius: 14px;" title="14px"></div>
+    <div style="position: fixed; bottom: 295px; right: 11px; width: 30px; height: 30px; background-color: hsl( 63 100% 62.5%); opacity: 0.9; border-radius: 15px;" title="15px"></div>
+    <div style="position: fixed; bottom: 228px; right: 43px;">通常</div>
+    <div style="position: fixed; bottom: 263px; right: 47px;">100% ≦</div>
+    <div style="position: fixed; bottom: 298px; right: 47px;">+2cm / 2h</div>
+    <div style="position: fixed; bottom: 0; left: 0px; display: flex; gap: 15px; font-size: 12px; color: #fffd; background: #0008; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);  padding: 3px 8px;">
+      <div>50yuki Map v1.1.1</div>
+      <div>「A」で1時間戻る</div>
+      <div>「D」で1時間進む</div>
+      <div>「H」で参考値の表示切替</div>
+    </div>
+  </div>
+  <style>
+    .maplibregl-popup-tip {
+      border-bottom-color: #2f373cdd !important;
+      border-top-color: #2f373cdd !important;
+    }
+    .maplibregl-popup-content {
+      pointer-events: none;
+      background: #2f373cdd;
+      color: #eee;
+      border-radius: 6px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+  </style>
+</body>
+<script>
+const map = new maplibregl.Map({
+  container: "map",
+  center: [139, 40],
+  zoom: 5,
+  maxZoom: 9,
+  minZoom: 4,
+  maxBounds: [[103.4228, 16.83063], [170.87887, 50.94791]],
+  style: {
+    version: 8,
+    glyphs: "https://fonts.undpgeohub.org/fonts/{fontstack}/{range}.pbf",
+    sources: {
+      japan: {
+        type: "vector",
+        tiles: ["https://md-ndv356.github.io/gis/AreaForecastLocalEEW/{z}/{x}/{y}.pbf"]
+      },
+      "snow-radar": {
+        type: "geojson",
+        data: { type: "FeatureCollection", features: []}
+      }
+    },
+    layers: [
+      {
+        id: "japan-fill",
+        source: "japan",
+        "source-layer": "緊急地震速報／府県予報区",
+        type: "fill",
+        paint: {
+          "fill-color": "#222"
+        }
+      },
+      {
+        id: "japan-line",
+        source: "japan",
+        "source-layer": "緊急地震速報／府県予報区",
+        type: "line",
+        paint: {
+          "line-width": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            5, 0.5,
+            10, 1
+          ],
+          "line-color": "#707070"
+        }
+      },
+      {
+        id: "snow-marker",
+        type: "circle",
+        source: "snow-radar",
+        paint: {
+          "circle-color": [ "rgb", ["get", "color_r"], ["get", "color_g"], ["get", "color_b"] ],
+          "circle-radius": [ "get", "marker_size" ],
+          "circle-opacity": 0.9
+        }
+      },
+      {
+        id: "snow-text",
+        type: "symbol",
+        source: "snow-radar",
+        layout: {
+          "text-field": [ "to-string", ["get", "ratio"] ],
+          "text-font": [ "Noto Sans Regular" ],
+          "text-size": 14
+        },
+        paint: {
+          "text-halo-color": "#777",
+          "text-halo-width": 0
+        },
+        filter: [ ">=", ["zoom"], 6 ]
+      }
+    ]
+  },
+  attributionControl: false
+})
+.addControl(new maplibregl.AttributionControl({
+  customAttribution: '気象データ：<a href="https://www.jma.go.jp/">気象庁</a> | 地図データ：<a href="https://www.gsi.go.jp/">国土地理院</a>'
+}), "bottom-right");
+
+let lastCrc = 0;
+let playbackHrs = 0;
+let showAll = true;
+const dateTimeFormatter = new Intl.DateTimeFormat('ja-JP', {
+  dateStyle: 'medium',
+  timeStyle: 'short'
+});
+const textEncoder = new TextEncoder();
+const main = async () => {
+  const latestTime = new Date(await fetch("https://www.jma.go.jp/bosai/amedas/data/latest_time.txt?" + Date.now()).then(res => res.text()));
+  latestTime.setMinutes(0);
+  latestTime.setHours(latestTime.getHours() - playbackHrs);
+  document.getElementById("loading-time").textContent = dateTimeFormatter.format(latestTime);
+  const ame1h_raw = await fetch("https://www.jma.go.jp/bosai/amedas/data/map/" + getCurrentTime(latestTime) + ".json?").then(res => res.text());
+  const ame1h = JSON.parse(ame1h_raw);
+
+  const crc = crc16_1021(textEncoder.encode(ame1h_raw + showAll));
+  if (crc === lastCrc) return;
+  lastCrc = crc;
+  document.getElementById("data-crc").textContent = " ( " + crc.toString(16).padStart(4, "0") + " )";
+
+  const amedastable = await fetch("https://www.jma.go.jp/bosai/amedas/const/amedastable.json?").then(res => res.json());
+  latestTime.setHours(latestTime.getHours() - 2);
+  const ame1h_prev2 = await fetch("https://www.jma.go.jp/bosai/amedas/data/map/" + getCurrentTime(latestTime) + ".json?").then(res => res.json());
+  const yuki = await fetch("./50yuki.json?" + Date.now()).then(res => res.json());
+  const features = [];
+  for (const id in ame1h){
+    if (!(ame1h[id].snow?.[1] ?? 1) && ame1h[id].snow[0] && yuki[id] && yuki[id].criterion && (showAll || !yuki[id].type)){
+      const ratio = Math.floor(ame1h[id].snow[0] / yuki[id].criterion * 100);
+      const color = hsv2rgb(Math.max(-90, 180 - ratio * 1.8), 0.75, 1);
+      features.push({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [amedastable[id].lon[0] + amedastable[id].lon[1]/60, amedastable[id].lat[0] + amedastable[id].lat[1]/60]
+        },
+        properties: {
+          snow: ame1h[id].snow[0],
+          criterion: yuki[id].criterion,
+          ratio: ratio,
+          color_r: color.r,
+          color_g: color.g,
+          color_b: color.b,
+          marker_size: (!(ame1h_prev2[id].snow?.[1] ?? 1) && ame1h_prev2[id].snow[0] < ame1h[id].snow[0] - 1) ? 15 : ( ratio >= 100 ? 14 : 10),
+          name: amedastable[id].kjName,
+          type: yuki[id].type
+        }
+      });
+    }
+  }
+  features.sort((a, b) => a.properties.ratio - b.properties.ratio);
+  map.getSource("snow-radar").setData({ type: "FeatureCollection", features});
+}
+const popup = new maplibregl.Popup({
+  closeButton: false,
+  closeOnClick: false
+});
+map.on("load", async () => {
+  main();
+  setInterval(main, 60 * 1000);
+
+  const mousemove = e => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const name = e.features[0].properties.name;
+    const snow = e.features[0].properties.snow;
+    const criterion = e.features[0].properties.criterion;
+    const ratio = e.features[0].properties.ratio;
+    const type = e.features[0].properties.type;
+
+    popup.setLngLat(coordinates).setHTML('<div><div style="font-size: 14px;">' + name + '</div><div style="font-size: 16px;">基準: ' + criterion + 'cm' + (type ? " （参考値）" : "") + '</div><div style="font-size: 16px;">観測: ' + snow + 'cm （' + ratio + ' %）</div></div>').addTo(map);
+  };
+  const mouseleave = e => {
+    map.getCanvas().style.cursor = "";
+    popup.remove();
+  };
+
+  map.on("mousemove", "snow-marker", mousemove);
+  map.on("mouseleave", "snow-marker", mouseleave);
+});
+
+window.addEventListener("keydown", event => {
+  const keyCode = (event.ctrlKey ? "Control+" : "") + (event.metaKey ? "Meta+" : "") + (event.altKey ? "Alt+" : "") + (event.shiftKey ? "Shift+" : "") + event.key;
+  if (keyCode === "a"){
+    event.preventDefault();
+    playbackHrs = Math.min(24, playbackHrs + 1);
+    main();
+  } else if (keyCode === "d"){
+    event.preventDefault();
+    playbackHrs = Math.max(0, playbackHrs - 1);
+    main();
+  } else if (keyCode === "h"){
+    event.preventDefault();
+    showAll = !showAll;
+    main();
+  }
+  document.getElementById("loading-time").style.color = playbackHrs ? "#dee332" : "#ddd";
+});
+
+// https://qiita.com/hirossyi73/items/46e19ffcad758ab36b66
+function getCurrentTime(target) {
+	return "" + target.getFullYear() + "" + padZero(target.getMonth() + 1) +
+		"" + padZero(target.getDate()) + "" + padZero(target.getHours()) + "" +
+		padZero(target.getMinutes()) + "" + padZero(target.getSeconds());
+}
+
+function padZero(num) {
+	var result;
+	if (num < 10) {
+		result = "0" + num;
+	} else {
+		result = "" + num;
+	}
+	return result;
+}
+// https://qiita.com/akebi_mh/items/3377666c26071a4284ee
+function hsv2rgb(h, s, v) {
+  // 引数処理
+  h = (h < 0 ? h % 360 + 360 : h) % 360 / 60;
+  s = s < 0 ? 0 : s > 1 ? 1 : s;
+  v = v < 0 ? 0 : v > 1 ? 1 : v;
+
+  // HSV to RGB 変換
+  const c = [5, 3, 1].map(n =>
+    Math.round((v - Math.max(0, Math.min(1, 2 - Math.abs(2 - (h + n) % 6))) * s * v) * 255));
+
+  // 戻り値
+  return {
+    hex: `#${(c[0] << 16 | c[1] << 8 | c[2]).toString(16).padStart(6, '0')}`,
+    rgb: c, r: c[0], g: c[1], b: c[2],
+  };
+}
+// https://gist.github.com/bryc/79d1a62304773285317191f1ae5aa5b8
+function crc16_1021(data, crc = 0, xorout = 0) {
+  for (let i = 0, t; i < data.length; i++, crc &= 0xFFFF) {
+    t = (crc >> 8) ^ data[i];
+    t = (t ^ t >> 4);
+    crc = (crc << 8) ^ (t << 12) ^ (t << 5) ^ (t);
+  }
+  return crc ^ xorout;
+}
+</script>
+</html>

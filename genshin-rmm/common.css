@@ -1,0 +1,49 @@
+body {
+  background: #3b4252;
+  color: #fff;
+  font-family: "Noto Serif JP", serif;
+  font-size: 16px;
+  text-align: center;
+  margin: 8px;
+  margin-top: 43px;
+}
+header {
+  display: flex;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100dvw;
+  box-sizing: border-box;
+  background: #0c0f13cc;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-size: 15px;
+  padding: 6px 20px;
+  text-align: start;
+  z-index: 999;
+}
+header a {
+  text-decoration: none;
+  color: #ddd;
+}
+footer {
+  margin-top: 28px;
+  border-top: solid 1px #999;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #eee;
+  font-size: 24px;
+}
+h2 {
+  color: #d8d8d8;
+  font-size: 20px;
+  margin: 16px 0 8px;
+}
+
+picture { display: block; }
+img { width: 100%; }

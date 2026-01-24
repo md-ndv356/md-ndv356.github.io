@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音ゲー鍵盤練習</title>
+  <style>
+    @font-face {
+      font-family: "Noto Serif JP";
+      font-weight: 400;
+      font-display: swap;
+      src: url(./Noto_Serif_JP-400.woff2);
+    }
+    @font-face {
+      font-family: "Noto Serif JP";
+      font-weight: 700;
+      font-display: swap;
+      src: url(./Noto_Serif_JP-700.woff2);
+    }
+
+    :root {
+      --bg-color: #012544;
+      --body-text-color: #ffffff;
+      --header-bg-color: #1b3c8f;
+      --header-text-color: #e3e3e3;
+      --menu-bg-color: #053255;
+      --menu-border-color: #888888;
+      --selection-button-bg-color: #052853;
+      --selection-button-border-color: #888888;
+      --selection-button-text-color: #ffffff;
+      --selection-button-hover-bg-color: #044a9f;
+      --selection-button-active-bg-color: #145aaf;
+
+      --header-height: 40px;
+      --content-height: calc(100vh - var(--header-height)); /* fallback to old expression */
+      --content-height: calc(100dvh - var(--header-height));
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Serif JP", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      text-autospace: ideograph-numeric;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--body-text-color);
+      font-size: 16px;
+    }
+    header {
+      background-color: var(--header-bg-color);
+      color: var(--header-text-color);
+      padding: 6px 10px;
+      height: var(--header-height);
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 20px;
+      margin: 0;
+      text-align: center;
+    }
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: var(--content-height);
+    }
+    .menu-window {
+      width: calc(100% - 100px);
+      height: calc(100% - 60px);
+      border: 1px solid var(--menu-border-color);
+      background-color: var(--menu-bg-color);
+      max-width: 900px;
+      max-height: 600px;
+    }
+    .menu-title {
+      font-size: 22px;
+      text-align: center;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--menu-border-color);
+    }
+    .game-options {
+      padding: 20px;
+    }
+    .game-options label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .selection-list {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin: 10px 0 0 10px;
+      word-break: break-all;
+      white-space: nowrap;
+      overflow-x: scroll;
+    }
+    .selection-button, #start-button {
+      display: block;
+      appearance: none;
+      background-color: var(--selection-button-bg-color);
+      color: var(--selection-button-text-color);
+      border: 1px solid var(--selection-button-border-color);
+      border-radius: 4px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+    .selection-button:hover, .selection-button:active, #start-button:hover, #start-button:active {
+      background-color: var(--selection-button-hover-bg-color);
+    }
+    .selection-button.active {
+      background-color: var(--selection-button-active-bg-color);
+    }
+    .option-input {
+      background-color: var(--selection-button-bg-color);
+      color: var(--selection-button-text-color);
+      border: 1px solid var(--selection-button-border-color);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 15px;
+    }
+
+    .singleline-option {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #start-button {
+      width: 100px;
+    }
+
+    #main-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    a.a#a[a="a"] + a > a {}
+  </style>
+</head>
+<body>
+<header>
+  <h1>音ゲー鍵盤練習</h1>
+</header>
+<main>
+  <div class="content" id="title-menu">
+    <div class="menu-window">
+      <div class="menu-title">メニュー</div>
+      <div class="game-options">
+        <label>譜面傾向選択</label>
+        <div class="selection-list" id="chart-type-selection">
+          <button class="selection-button active" data-value="kaidan">折り返し階段</button>
+          <button class="selection-button" data-value="kougo">交互押し</button>
+          <button class="selection-button" data-value="douji">同時押し</button>
+          <button class="selection-button" data-value="tateren">乱打／縦連</button>
+          <button class="selection-button" data-value="bizure">微ズレ</button>
+          <button class="selection-button" data-value="konfure">混フレ</button>
+          <button class="selection-button" data-value="2random">二重乱打</button>
+        </div>
+        <div class="singleline-option">
+          <label for="lane-count-input">鍵盤数</label>
+          <input class="option-input" type="number" id="lane-count-input" min="4" max="7" value="6" step="1" style="width: 80px;">
+        </div>
+        <div class="singleline-option">
+          <label for="bpm-input">基本 BPM</label>
+          <input class="option-input" type="number" id="bpm-input" min="30" max="1080" value="120" step="5" style="width: 80px;">
+          <div>の</div>
+          <input class="option-input" type="number" id="divison-input" min="1" max="64" value="16" step="1" style="width: 80px;">
+          <label for="divison-input">分音符</label>
+        </div>
+        <div class="singleline-option">
+          <label for="scroll-speed">Hi-Speed</label>
+          <input class="option-input" type="number" id="scroll-speed" min="0.1" max="30" value="3" step="0.1" style="width: 80px;">
+          <div style="color: #3adf40" id="notes-visible-time">666.7 ms</div>
+        </div>
+        <!-- 譜面傾向に応じたオプション -->
+        <div class="singleline-option" id="tateren-ratio" style="display: none;">
+          <label for="tateren-ratio-input">- 縦連度</label>
+          <input class="option-input" type="number" id="tateren-ratio-input" min="0" max="100" value="5" step="5" style="width: 80px;">
+          <label for="tateren-ratio-input">%</label>
+        </div>
+        <div class="singleline-option" id="mixed-phrase-c" style="display: none;">
+          <label for="mixed-phrase1-input">- 混ぜる音符幅</label>
+          <input class="option-input" type="number" id="mixed-phrase1-input" min="2" max="128" value="16" step="1" style="width: 80px;">
+          <label for="mixed-phrase1-input">分音符</label>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center; margin-top: 10px;">
+        <button id="start-button">スタート</button>
+      </div>
+    </div>
+  </div>
+  <div class="content" id="game-area" style="display: none;">
+    <canvas id="main-canvas"></canvas>
+  </div>
+</main>
+<script>
+const LANE_WIDTH = 50;
+const LANE_LINE_WIDTH = 2;
+const LINE_POS = 50; // 下からの位置
+const BEAM_HEIGHT = 100; // キービームの高さ
+const BEAM_FADE_TIME = 300; // キービームのフェード時間（ms）
+const JUDGE_DISPLAY_TIME = 800; // 判定表示時間（ms）
+const START_TIME_OFFSET = 2000; // 開始時間オフセット（ms）
+const GAME_TIME = 60000; // ゲーム時間（ms）
+const THRESHOLD_CRITICAL = 25; // クリティカル判定閾値（ms）
+const THRESHOLD_HIT = 60; // ヒット判定閾値（ms）
+const THRESHOLD_GRAZE = 140; // グレイズ判定閾値（ms）
+const THRESHOLD_MISS = 230; // ミス判定閾値（ms）
+const COLOR_CRITICAL = "#ffd800";
+const COLOR_HIT = "#8bf165";
+const COLOR_GRAZE = "#477bed";
+const COLOR_MISS = "#cccccc";
+const COLOR_NONE = "#cccccc";
+const COLOR_FAST = "#12aefc";
+const COLOR_LATE = "#f24141";
+
+const KeyMapping = {
+  4: ["KeyD", "KeyF", "KeyJ", "KeyK"],
+  5: ["KeyZ", "KeyS", "KeyX", "KeyD", "KeyC"],
+  6: ["KeyS", "KeyD", "KeyF", "KeyJ", "KeyK", "KeyL"],
+  7: ["KeyZ", "KeyS", "KeyX", "KeyD", "KeyC", "KeyF", "KeyV"],
+  // 8: ["KeyA", "KeyS", "KeyD", "KeyF", "KeyH", "KeyJ", "KeyK", "KeyL"],
+};
+const BeamGradients = {
+  critical: null,
+  hit: null,
+  graze: null,
+  none: null,
+};
+const AnimationData = {
+  keyBeams: [],
+  judge: { time: -999999, value: "MISS" },
+  msJudge: { time: -999999, value: 0 },
+};
+const GameData = {
+  chartType: "kaidan",
+  laneCount: 6, // 鍵盤数
+  bpm: 120, // 基本 BPM
+  division: 16, // 分音符
+  scrollSpeed: 6, // ハイスピード
+  taterenRatio: 5, // 縦連度（%）
+  mixedPhrase: 16, // 混フレ用音符幅
+
+  startTime: 0, // 開始時間（ms）
+  visibleTime: 0, // ノーツ表示時間（ms）
+  notes: [
+    [
+      { time: 0, type: "normal" }
+    ],  // レーン 0
+    [], // レーン 1
+    [], // レーン 2
+    [], // レーン 3
+    [], // レーン 4
+    [], // レーン 5
+  ], // 生成された譜面データ
+  score: 0n,
+  judgeCount: {
+    critical: 0,
+    hit: 0,
+    graze: 0,
+    miss: 0,
+  }
+};
+
+/**
+ * 表示時間を計算します。
+ * @param {number} bpm
+ * @param {number} speed
+ * @returns {number} 表示時間（ms）
+ */
+function calcVisibleTime(bpm, speed){
+  return (240000 / bpm) / speed;
+}
+
+/**
+ * start 以上 end 未満のランダムな整数を返します。
+ * @param {number} start 開始値
+ * @param {number} end 終了値
+ * @returns {number} ランダム値
+ */
+function randomInt(start, end){
+  return Math.floor(Math.random() * (end - start)) + start;
+}
+
+/** @type {HTMLDivElement} */
+const titleMenu = document.getElementById("title-menu");
+/** @type {HTMLDivElement} */
+const gameArea = document.getElementById("game-area");
+/** @type {HTMLCanvasElement} */
+const mainCanvas = document.getElementById("main-canvas");
+/** @type {CanvasRenderingContext2D} */
+const ct = mainCanvas.getContext("2d");
+
+/** @type {HTMLInputElement} */
+const laneCountInput = document.getElementById("lane-count-input");
+/** @type {HTMLInputElement} */
+const bpmInput = document.getElementById("bpm-input");
+/** @type {HTMLInputElement} */
+const divisionInput = document.getElementById("divison-input");
+/** @type {HTMLInputElement} */
+const scrollSpeedInput = document.getElementById("scroll-speed");
+/** @type {HTMLDivElement} */
+const notesVisibleTime = document.getElementById("notes-visible-time");
+/** @type {HTMLInputElement} */
+const mixedPhrase1Input = document.getElementById("mixed-phrase1-input");
+/** @type {HTMLInputElement} */
+const taterenRatioInput = document.getElementById("tateren-ratio-input");
+/** @type {HTMLButtonElement} */
+const startButton = document.getElementById("start-button");
+/** @type {HTMLButtonElement[]} */
+const chartTypeButtons = Array.from(document.querySelectorAll("#chart-type-selection .selection-button"));
+for (const button of chartTypeButtons){
+  button.addEventListener("click", () => {
+    for (const item of chartTypeButtons) item.classList.remove("active");
+    button.classList.add("active");
+
+    const selectedValue = button.getAttribute("data-value");
+    GameData.chartType = selectedValue;
+
+    // 譜面傾向に応じたオプション
+    document.getElementById("mixed-phrase-c").style.display = (selectedValue === "konfure") ? "flex" : "none";
+    document.getElementById("tateren-ratio").style.display = (selectedValue === "tateren") ? "flex" : "none";
+  });
+}
+
+// 緑数字計算
+function onChangeData(){
+  const visibleTime = calcVisibleTime(bpmInput.valueAsNumber, scrollSpeedInput.valueAsNumber);
+  notesVisibleTime.textContent = `${visibleTime.toFixed(1)} ms`;
+}
+
+bpmInput.addEventListener("input", onChangeData);
+scrollSpeedInput.addEventListener("input", onChangeData);
+
+startButton.addEventListener("click", () => {
+  GameData.laneCount = laneCountInput.valueAsNumber;
+  GameData.bpm = bpmInput.valueAsNumber;
+  GameData.division = divisionInput.valueAsNumber;
+  GameData.scrollSpeed = scrollSpeedInput.valueAsNumber;
+  GameData.mixedPhrase = mixedPhrase1Input.valueAsNumber;
+  GameData.taterenRatio = taterenRatioInput.valueAsNumber;
+
+  if (3 > GameData.laneCount || GameData.laneCount > 8){
+    return;
+  }
+
+  GameData.visibleTime = calcVisibleTime(GameData.bpm, GameData.scrollSpeed);
+
+  titleMenu.style.display = "none";
+  gameArea.style.display = "flex";
+
+  // Canvas サイズ設定
+  mainCanvas.width = gameArea.clientWidth * window.devicePixelRatio;
+  mainCanvas.height = gameArea.clientHeight * window.devicePixelRatio;
+
+  // ノーツ生成
+  GameData.notes = [];
+  for (let i = 0; i < GameData.laneCount; i++) GameData.notes.push([]);
+
+  if (GameData.chartType === "kaidan"){ // 階段
+    let last3Lane = [0, 1, 2]; // dummy
+    const totalNotes = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+
+    for (let i = 0; i < totalNotes; i++){
+      let direction = Math.sign(last3Lane[2] - last3Lane[1]) * ((Math.random() < 0.3) ? -1 : 1);
+      let laneIndex = (last3Lane[2] + direction + GameData.laneCount) % GameData.laneCount;
+      if (last3Lane[2] === last3Lane[0] && last3Lane[1] === laneIndex){
+        laneIndex = (last3Lane[2] - direction + GameData.laneCount) % GameData.laneCount;
+      }
+      last3Lane.shift();
+      last3Lane.push(laneIndex);
+      const time = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+      GameData.notes[laneIndex].push({ time: time, type: "normal" });
+    }
+  } else if (GameData.chartType === "kougo"){ // 交互押し
+    let lastLane = -1,
+        lastSide = -1; // 1: right, -1: left
+    const totalNotes = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+    const rightLaneCount = Math.floor(GameData.laneCount / 2);
+    const leftLaneCount = Math.ceil(GameData.laneCount / 2);
+    const centerLane = (GameData.laneCount % 2 === 1) ? Math.floor(GameData.laneCount / 2) : -1;
+
+    for (let i = 0; i < totalNotes; i++){
+      let laneIndex;
+      if (lastSide === -1){
+        lastSide = 1; // →→
+        if (lastLane === centerLane){ // 縦連を避ける
+          laneIndex = GameData.laneCount - 1 - randomInt(0, rightLaneCount - 1);
+        } else {
+          laneIndex = GameData.laneCount - 1 - randomInt(0, rightLaneCount);
+        }
+      } else {
+        lastSide = -1; // ←←
+        if (lastLane === centerLane){ // 縦連を避ける
+          laneIndex = randomInt(0, leftLaneCount - 1);
+        } else {
+          laneIndex = randomInt(0, leftLaneCount);
+        }
+      }
+      lastLane = laneIndex;
+      const time = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+      GameData.notes[laneIndex].push({ time: time, type: "normal" });
+    }
+  } else if (GameData.chartType === "douji"){ // 同時押し
+    const timingCount = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+    for (let i = 0; i < timingCount; i++){
+      const time = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+      const lanes = new Array(GameData.laneCount).fill(0).map((_, i) => i).filter(_ => Math.random() < 0.4);
+      if (lanes.length === 0){
+        lanes.push(randomInt(0, GameData.laneCount));
+      }
+      for (const laneIndex of lanes){
+        GameData.notes[laneIndex].push({ time: time, type: "normal", weight: 2 / lanes.length });
+      }
+    }
+  } else if (GameData.chartType === "tateren"){ // 縦連
+    let prevLane = randomInt(0, GameData.laneCount); // dummy
+    let nextLaneCandidates = new Array(GameData.laneCount).fill(0).map((_, i) => i);
+    const taterenProbability = GameData.taterenRatio / 100;
+    const totalNotes = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+
+    for (let i = 0; i < totalNotes; i++){
+      const time = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+      const laneIndex = Math.random() < taterenProbability ? prevLane : nextLaneCandidates[randomInt(0, GameData.laneCount - 1)];
+
+      GameData.notes[laneIndex].push({ time: time, type: "normal" });
+      nextLaneCandidates = new Array(GameData.laneCount).fill(0).map((_, i) => i);
+      nextLaneCandidates.splice(laneIndex, 1);
+      prevLane = laneIndex;
+    }
+  } else if (GameData.chartType === "bizure"){ // 微ズレ
+    const timingCount = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+    for (let i = 0; i < timingCount; i++){
+      const baseTime = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+      for (let laneIndex = 0; laneIndex < GameData.laneCount; laneIndex++){
+        const timeOffset = randomInt(-THRESHOLD_HIT, THRESHOLD_HIT);
+        GameData.notes[laneIndex].push({ time: baseTime + timeOffset, type: "normal" });
+      }
+    }
+  } else if (GameData.chartType === "konfure"){ // 混フレ
+    const timingCount1 = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+    const timingCount2 = (GAME_TIME / 60000) * GameData.bpm * (GameData.mixedPhrase / 4);
+
+    const lane1 = 0;
+    const lane2 = GameData.laneCount - 1;
+
+    for (let i = 0; i < timingCount1; i++){
+      const time = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+      GameData.notes[lane1].push({ time: time, type: "normal" });
+    }
+    for (let i = 0; i < timingCount2; i++){
+      const time = (i * (60000 / GameData.bpm)) / (GameData.mixedPhrase / 4);
+      GameData.notes[lane2].push({ time: time, type: "normal" });
+    }
+  } else if (GameData.chartType === "2random"){ // 二重乱打
+    let currentLaneCandidates = new Array(GameData.laneCount).fill(0).map((_, i) => i);
+    const timingCount = (GAME_TIME / 60000) * GameData.bpm * (GameData.division / 4);
+
+    for (let i = 0; i < timingCount; i++){
+      const nextLaneCandidates = new Array(GameData.laneCount).fill(0).map((_, i) => i)
+
+      const time = (i * (60000 / GameData.bpm)) / (GameData.division / 4);
+
+      for (let i = 0; i < 2; i++){
+        const lane = currentLaneCandidates.splice(randomInt(0, currentLaneCandidates.length), 1)[0];
+        nextLaneCandidates.splice(nextLaneCandidates.indexOf(lane), 1);
+        GameData.notes[lane].push({ time: time, type: "normal" });
+      }
+
+      currentLaneCandidates = nextLaneCandidates;
+    }
+  }
+
+  AnimationData.keyBeams = [];
+  for (let i = 0; i < GameData.laneCount; i++) AnimationData.keyBeams.push({
+    type: "miss",
+    time: -9999999,
+  });
+
+  GameData.startTime = Date.now() + START_TIME_OFFSET;
+  main();
+});
+
+/**
+ * 縦連のスコア倍率を取得します。
+ * @param {number} x 連打数割合（0〜1）
+ * @returns {number} スコア倍率（0〜1）
+ */
+function GetScoreTaterenMultiplier(x) {
+  x = Math.min(Math.max(x, 0), 1);
+  if (x < 0.8) {
+    return 1 + Math.pow(x / 0.8, 0.75);
+  } else {
+    return 1 + (1 - x) / 0.2;
+  }
+}
+
+/**
+ * ノーツの判定を処理します。
+ * @param {{time: number, type: string, weight: ?number}} noteData ノーツデータ
+ * @param {"critical" | "hit" | "graze" | "miss"} judge 判定種類
+ * @return {boolean} 処理に成功したかどうか
+ */
+function judgeHandler(noteData, judge){
+  const currentTime = Date.now() - GameData.startTime;
+
+  if (judge === "critical"){
+    GameData.judgeCount.critical++;
+    AnimationData.judge = { time: currentTime, value: "critical" };
+    if (GameData.chartType === "tateren"){
+      GameData.score += BigInt((100 * GetScoreTaterenMultiplier(GameData.taterenRatio / 100)).toFixed(0));
+    } else {
+      GameData.score += BigInt(((noteData.weight ?? 1) * 100).toFixed(0));
+    }
+    return true;
+  } else if (judge === "hit"){
+    GameData.judgeCount.hit++;
+    AnimationData.judge = { time: currentTime, value: "hit" };
+    if (GameData.chartType === "tateren"){
+      GameData.score += BigInt((70 * GetScoreTaterenMultiplier(GameData.taterenRatio / 100)).toFixed(0));
+    } else {
+      GameData.score += BigInt(((noteData.weight ?? 1) * 70).toFixed(0));
+    }
+    return true;
+  } else if (judge === "graze"){
+    GameData.judgeCount.graze++;
+    AnimationData.judge = { time: currentTime, value: "graze" };
+    if (GameData.chartType === "tateren"){
+      GameData.score += BigInt((30 * GetScoreTaterenMultiplier(GameData.taterenRatio / 100)).toFixed(0));
+    } else {
+      GameData.score += BigInt(((noteData.weight ?? 1) * 30).toFixed(0));
+    }
+    return true;
+  } else if (judge === "miss"){
+    GameData.judgeCount.miss++;
+    AnimationData.judge = { time: currentTime, value: "miss" };
+    if (GameData.chartType === "tateren"){
+      GameData.score += BigInt((-10 * GetScoreTaterenMultiplier(GameData.taterenRatio / 100)).toFixed(0));
+    } else {
+      GameData.score += BigInt(((noteData.weight ?? 1) * -10).toFixed(0));
+    }
+    if (GameData.score < 0n) GameData.score = 0n;
+    return true;
+  }
+  return false;
+}
+
+const noteShape = new Path2D();
+noteShape.moveTo(0, 0);
+noteShape.lineTo(3, -3);
+noteShape.lineTo(LANE_WIDTH - 3, -3);
+noteShape.lineTo(LANE_WIDTH, 0);
+noteShape.lineTo(LANE_WIDTH - 3, 3);
+noteShape.lineTo(3, 3);
+noteShape.closePath();
+
+document.body.addEventListener("keydown", (event) => {
+  if (event.repeat || !GameData.startTime) return;
+
+  const key = event.code;
+
+  if (key === "Escape"){
+    // ゲーム終了
+    GameData.startTime = 0;
+    GameData.notes = [];
+    GameData.score = 0n;
+    GameData.judgeCount = { critical: 0, hit: 0, graze: 0, miss: 0 };
+    AnimationData.keyBeams = [];
+    AnimationData.judge = { time: -999999, value: "MISS" };
+    AnimationData.msJudge = { time: -999999, value: 0 };
+
+    titleMenu.style.display = "flex";
+    gameArea.style.display = "none";
+    return;
+  }
+
+  let laneIndex = -1;
+  const keyMap = KeyMapping[GameData.laneCount];
+  for (let i = 0; i < keyMap.length; i++){
+    if (key === keyMap[i]){
+      laneIndex = i;
+      break;
+    }
+  }
+
+  if (laneIndex < 0 || laneIndex >= GameData.laneCount) return;
+
+  const currentTime = Date.now() - GameData.startTime;
+  const lane = GameData.notes[laneIndex];
+
+  for (let i = 0; i < lane.length; i++){
+    const note = lane[i];
+    const timeDiff = note.time - currentTime;
+
+    if (Math.abs(timeDiff) <= THRESHOLD_CRITICAL){
+      lane.splice(i, 1);
+      judgeHandler(note, "critical");
+      AnimationData.keyBeams[laneIndex] = { type: "critical", time: currentTime };
+      AnimationData.msJudge = { time: currentTime, value: timeDiff };
+      return;
+    } else if (Math.abs(timeDiff) <= THRESHOLD_HIT){
+      lane.splice(i, 1);
+      judgeHandler(note, "hit");
+      AnimationData.keyBeams[laneIndex] = { type: "hit", time: currentTime };
+      AnimationData.msJudge = { time: currentTime, value: timeDiff };
+      return;
+    } else if (Math.abs(timeDiff) <= THRESHOLD_GRAZE){
+      lane.splice(i, 1);
+      judgeHandler(note, "graze");
+      AnimationData.keyBeams[laneIndex] = { type: "graze", time: currentTime };
+      AnimationData.msJudge = { time: currentTime, value: timeDiff };
+      return;
+    } else if (Math.abs(timeDiff) <= THRESHOLD_MISS){
+      lane.splice(i, 1);
+      judgeHandler(note, "miss");
+      AnimationData.msJudge = { time: currentTime, value: timeDiff };
+      return;
+    }
+  }
+  // 判定に引っかからなかった場合
+  AnimationData.keyBeams[laneIndex] = { type: "none", time: currentTime };
+});
+
+
+function main(){
+  const width = gameArea.clientWidth;
+  const height = gameArea.clientHeight;
+
+  const xCenter = width / 2;
+  const yCenter = height / 2;
+  const laneTotalWidth = GameData.laneCount * (LANE_WIDTH + LANE_LINE_WIDTH) + LANE_LINE_WIDTH;
+
+  const currentTime = Date.now() - GameData.startTime;
+
+  ct.save();
+  ct.scale(window.devicePixelRatio, window.devicePixelRatio);
+  ct.clearRect(0, 0, width, height);
+
+  ct.save();
+  ct.translate(xCenter - laneTotalWidth / 2, 0);
+
+  ct.fillStyle = "#1d1d1d";
+  ct.fillRect(0, 0, laneTotalWidth, height);
+  for (let i = 0; i <= GameData.laneCount; i++){
+    const x = i * (LANE_WIDTH + LANE_LINE_WIDTH);
+    ct.fillStyle = "#7f7f7f";
+    ct.fillRect(x, 0, LANE_LINE_WIDTH, height);
+  }
+  ct.fillStyle = "#d8d8d8";
+  ct.fillRect(0, height - LINE_POS, laneTotalWidth, 4);
+
+  ct.save();
+  ct.translate(LANE_LINE_WIDTH, 0);
+  for (let laneIndex = 0; laneIndex < GameData.laneCount; laneIndex++) {
+    const lane = GameData.notes[laneIndex];
+
+    // キービーム表示
+    const beamData = AnimationData.keyBeams[laneIndex];
+    const beamTimeDiff = currentTime - beamData.time;
+    if (beamTimeDiff >= 0 && beamTimeDiff <= BEAM_FADE_TIME){
+      if (beamData.type === "critical"){
+        const gradient = ct.createLinearGradient(0, height - LINE_POS, 0, height - LINE_POS - BEAM_HEIGHT);
+        gradient.addColorStop(0, COLOR_CRITICAL);
+        gradient.addColorStop(1, COLOR_CRITICAL + "00");
+        ct.fillStyle = gradient;
+      } else if (beamData.type === "hit"){
+        const gradient = ct.createLinearGradient(0, height - LINE_POS, 0, height - LINE_POS - BEAM_HEIGHT);
+        gradient.addColorStop(0, COLOR_HIT);
+        gradient.addColorStop(1, COLOR_HIT + "00");
+        ct.fillStyle = gradient;
+      } else if (beamData.type === "graze"){
+        const gradient = ct.createLinearGradient(0, height - LINE_POS, 0, height - LINE_POS - BEAM_HEIGHT);
+        gradient.addColorStop(0, COLOR_GRAZE);
+        gradient.addColorStop(1, COLOR_GRAZE + "00");
+        ct.fillStyle = gradient;
+      } else if (beamData.type === "none"){
+        const gradient = ct.createLinearGradient(0, height - LINE_POS, 0, height - LINE_POS - BEAM_HEIGHT);
+        gradient.addColorStop(0, COLOR_NONE);
+        gradient.addColorStop(1, COLOR_NONE + "00");
+        ct.fillStyle = gradient;
+      }
+      ct.globalAlpha = 1 - (beamTimeDiff / BEAM_FADE_TIME);
+      ct.fillRect(0, height - LINE_POS - BEAM_HEIGHT, LANE_WIDTH, BEAM_HEIGHT);
+      ct.globalAlpha = 1;
+    }
+
+    // ノーツ関連
+    for (let idx = 0; idx < lane.length; idx++){
+      const note = lane[idx];
+      const timeDiff = note.time - currentTime;
+      const visibleTime = GameData.visibleTime;
+
+      // 見逃しMissを処理
+      if (timeDiff < -THRESHOLD_GRAZE) {
+        lane.splice(idx, 1);
+        idx--;
+        judgeHandler(note, "miss");
+        continue;
+      }
+
+      // ノーツ表示
+      if (timeDiff > visibleTime) break; // これ以上先は表示しない
+
+      const yPos = (1 - timeDiff / visibleTime) * (height - LINE_POS);
+      ct.fillStyle = "#ffffff";
+      ct.save();
+      ct.translate(0, yPos);
+      ct.fill(noteShape);
+      ct.restore();
+    }
+
+    ct.translate(LANE_WIDTH + LANE_LINE_WIDTH, 0);
+  }
+
+  ct.fillStyle = "#333333";
+  ct.fillRect(0, 0, 4, height);
+
+  ct.fillStyle = "#eeeeee";
+  ct.fillRect(0, 0, 4, height * currentTime / GAME_TIME);
+
+  ct.restore();
+
+  // 判定表示
+  if (currentTime - AnimationData.judge.time <= JUDGE_DISPLAY_TIME){
+    ct.globalAlpha = 1 - ((currentTime - AnimationData.judge.time) / JUDGE_DISPLAY_TIME);
+
+    ct.font = `48px "Noto Serif JP"`;
+    ct.strokeStyle = "#4d4d4d";
+    ct.lineWidth = 3;
+    ct.textAlign = "center";
+    if (AnimationData.judge.value === "critical"){
+      ct.fillStyle = COLOR_CRITICAL;
+      ct.strokeText("Critical", laneTotalWidth / 2, height - LINE_POS - 180);
+      ct.fillText("Critical", laneTotalWidth / 2, height - LINE_POS - 180);
+    } else if (AnimationData.judge.value === "hit"){
+      ct.fillStyle = COLOR_HIT;
+      ct.strokeText("Hit", laneTotalWidth / 2, height - LINE_POS - 180);
+      ct.fillText("Hit", laneTotalWidth / 2, height - LINE_POS - 180);
+    } else if (AnimationData.judge.value === "graze"){
+      ct.fillStyle = COLOR_GRAZE;
+      ct.strokeText("Graze", laneTotalWidth / 2, height - LINE_POS - 180);
+      ct.fillText("Graze", laneTotalWidth / 2, height - LINE_POS - 180);
+    } else if (AnimationData.judge.value === "miss"){
+      ct.fillStyle = COLOR_MISS;
+      ct.strokeText("Miss", laneTotalWidth / 2, height - LINE_POS - 180);
+      ct.fillText("Miss", laneTotalWidth / 2, height - LINE_POS - 180);
+    }
+
+    // ms表示
+    ct.font = `bold 18px "Noto Serif JP"`;
+    ct.lineWidth = 2;
+    // - + 逆なのはわざと
+    if (Math.abs(AnimationData.msJudge.value) < THRESHOLD_CRITICAL){
+      ct.fillStyle = COLOR_NONE;
+    } else if (AnimationData.msJudge.value < 0){
+      ct.fillStyle = COLOR_FAST;
+    } else {
+      ct.fillStyle = COLOR_LATE;
+    }
+    const msMessage = (AnimationData.msJudge.value > 0 ? "-" : "+") + Math.abs(AnimationData.msJudge.value).toFixed(0) + " ms";
+    ct.strokeText(msMessage, laneTotalWidth / 2, height - LINE_POS - 150);
+    ct.fillText(msMessage, laneTotalWidth / 2, height - LINE_POS - 150);
+
+    ct.textAlign = "start";
+    ct.globalAlpha = 1;
+  }
+  ct.restore();
+
+  ct.fillStyle = "#d8d8d8";
+  ct.font = `24px "Noto Serif JP"`;
+  ct.fillText(`Score: ${GameData.score}`, 20, 40);
+  ct.font = `15px "Noto Serif JP"`;
+  ct.fillText("– " + ({
+    kaidan: "折り返し階段",
+    kougo: "　交互押し　",
+    douji: "　同時押し　",
+    tateren: " 乱打／縦連 ",
+    bizure: " 　微ズレ　 ",
+    konfure: " 　混フレ　 ",
+    "2random": "　二重乱打　",
+  })[GameData.chartType] + " –", 32, 70);
+  ct.font = `19px "Noto Serif JP"`;
+  ct.fillText("Critical", 25, 100);
+  ct.fillText("Hit",      25, 124);
+  ct.fillText("Graze",    25, 148);
+  ct.fillText("Miss",     25, 172);
+  ct.textAlign = "end";
+  ct.fillText(GameData.judgeCount.critical, 150, 100);
+  ct.fillText(GameData.judgeCount.hit,      150, 124);
+  ct.fillText(GameData.judgeCount.graze,    150, 148);
+  ct.fillText(GameData.judgeCount.miss,     150, 172);
+  ct.textAlign = "start";
+
+  ct.fillStyle = "#9c9c9c";
+  ct.fillRect(5, 45, 200, 1);
+
+  ct.restore();
+
+  requestAnimationFrame(main);
+}
+
+window.addEventListener("resize", () => {
+  mainCanvas.width = gameArea.clientWidth * window.devicePixelRatio;
+  mainCanvas.height = gameArea.clientHeight * window.devicePixelRatio;
+});
+
+</script>
+</body>
+</html>

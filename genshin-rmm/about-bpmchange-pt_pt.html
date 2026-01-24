@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Especulação sobre a implementação de mudanças de BPM - Base de dados de partituras - Genshin Impact "Repertório de Mil Melodias"</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="./common.css" rel="stylesheet">
+  <link href="./fonts/font.css" rel="stylesheet">
+  <style>
+    .contents {
+      color: #f0f0f0;
+      margin: 3px 0;
+      padding: 5px 8px;
+      width: calc(100dvw - 32px);
+      max-width: 700px;
+      border-radius: 10px;
+    }
+    img {
+      max-width: 520px;
+    }
+  </style>
+</head>
+<body class="lang-pt_pt">
+<header>
+  <div style="flex: 1;"><a href=".?pt_pt" id="headtitle" i18n="headtitle">Arquivo de partituras</a></div>
+  <div><select id="langselect">
+    <option value="ja_jp">日本語</option>
+    <option value="en_us">English</option>
+    <option value="zh_cn">中文（简体）</option>
+    <option value="zh_tw">中文（繁體）</option>
+    <option value="ko_kr">한국어</option>
+    <option value="es_es">Español</option>
+    <option value="fr_fr">Français</option>
+    <option value="ru_ru">Русский язык</option>
+    <option value="th_th">ภาษาไทย</option>
+    <option value="vi_vn">Tiếng Việt</option>
+    <option value="de_de">Deutsch</option>
+    <option value="id_id">Bahasa Indonesia</option>
+    <option value="pt_pt" selected>Português</option>
+    <option value="tr_tr">Türkçe</option>
+    <option value="it_it">Italiano</option>
+  </select></div>
+</header>
+<main>
+  <div class="contents">
+    <h1>Especulação sobre a implementação de mudanças de BPM</h1>
+    <p>Neste jogo, as mudanças de BPM não são feitas alterando o BPM em compassos ou tempos específicos, mas reiniciando a partitura em determinados segundos.</p>
+    <p>Assim, quando uma mudança de BPM ocorre logo após o início de um compasso, o editor pode exibir linhas de compasso duplas sobrepostas. (→ Ver imagem)</p>
+    <picture>
+      <source srcset="./about-bpmchange-1.webp" />
+      <img src="./about-bpmchange-1.png" />
+    </picture>
+    <p>Esse comportamento também é usado para sincronizar o início da música com o início de um compasso.</p>
+    <p>Portanto, neste arquivo de partituras, as linhas de compasso duplas mostradas no editor não são publicadas como estão, mas fundidas em uma única linha.</p>
+  </div>
+</main>
+</body>
+<script>
+const langselect = document.getElementById("langselect");
+langselect.addEventListener("change", event => {
+  window.location = "./about-bpmchange-" + event.target.value + ".html";
+});
+</script>
+</html>
