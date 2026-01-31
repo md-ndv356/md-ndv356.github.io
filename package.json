@@ -1,0 +1,21 @@
+{
+  "name": "md-ndv356.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/md-ndv356/md-ndv356.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/md-ndv356/md-ndv356.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/md-ndv356/md-ndv356.github.io.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "server": "python3 -m http.server --directory dist 8080"
+  }
+}

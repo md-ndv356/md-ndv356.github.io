@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="{[{@langcode-hyphen:str}]}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{[{title:html}]}</title>
+  <meta name="description" content="{[{meta_description:str}]}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/genshin-rmm/common.css" rel="stylesheet">
+  <link href="/genshin-rmm/fonts/font.css" rel="stylesheet">
+  <link rel="canonical" href="https://md-ndv356.github.io/genshin-rmm/{[{@langcode:str}]}/">
+  {{{alternate-links}}}
+  <style>
+    .item {
+      display: flex;
+      color: #111520;
+      margin: 3px 0;
+      padding: 5px 8px;
+      background: linear-gradient(270deg, #fc897e, #f79a2f);
+      width: calc(100dvw - 32px);
+      max-width: 520px;
+      border-radius: 10px;
+    }
+    .bpm {
+      font-size: 14px;
+      margin: 0;
+    }
+    .bpm::before {
+      display: inline-block;
+      padding-right: 3px;
+      font-size: 12px;
+      content: "BPM";
+    }
+    .title {
+      flex: 1;
+      margin: 0 8px;
+    }
+    .levels {
+      display: flex;
+      gap: 5px;
+      margin: 0;
+    }
+    .easy, .normal, .hard, .legend {
+      padding: 0 8px;
+    }
+    main a[href] {
+      color: #2c13b7;
+    }
+    main a#bpmchange-link {
+      color: #d7d7d7;
+    }
+    main a[href]:hover, main a#bpmchange-link:hover {
+      color: #379fc4;
+    }
+    .sort-container {
+      display: flex;
+      padding: 6px 10px;
+      border-radius: 10px;
+      width: min(536px, calc(100dvw - 32px));
+      background-color: #2a395b;
+    }
+    .sort-icon {
+      display: block;
+      margin: 3px 0;
+    }
+    .sort-button {
+      appearance: none;
+      margin: 2px;
+      border: 2px;
+      border-radius: 6px;
+      padding: 6px 8px;
+      height: 30px;
+      cursor: pointer;
+      color: #e7e7e7e7;
+      background-color: #242734;
+      font: inherit;
+      font-size: 12px;
+    }
+    .sort-button.active {
+      color: #dede87;
+    }
+    .sort-button:hover {
+      color: #7dc2f7;
+      background-color: #363b4d;
+    }
+    .history, .description {
+      padding: 8px 0;
+      max-width: 700px;
+    }
+    .copyright, .copyright * {
+      font-size: 11px;
+      color: #86a4f8;
+    }
+  </style>
+</head>
+<body class="lang-{[{@langcode:str}]}">
+<header>
+  <div style="flex: 1;"><a href="/genshin-rmm/{[{@langcode:str}]}/" id="headtitle">{[{headtitle:html}]}</a></div>
+  <div><select id="langselect">
+    <option value="ja_jp">日本語</option>
+    <option value="en_us">English</option>
+    <option value="zh_cn">中文（简体）</option>
+    <option value="zh_tw">中文（繁體）</option>
+    <option value="ko_kr">한국어</option>
+    <option value="es_es">Español</option>
+    <option value="fr_fr">Français</option>
+    <option value="ru_ru">Русский язык</option>
+    <option value="th_th">ภาษาไทย</option>
+    <option value="vi_vn">Tiếng Việt</option>
+    <option value="de_de">Deutsch</option>
+    <option value="id_id">Bahasa Indonesia</option>
+    <option value="pt_pt">Português</option>
+    <option value="tr_tr">Türkçe</option>
+    <option value="it_it">Italiano</option>
+  </select></div>
+</header>
+<main>
+  <h1>{[{pagetitle:html}]}</h1>
+  <div class="sort-container">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#888" xmlns="http://www.w3.org/2000/svg" class="sort-icon">
+      <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+      <path d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z"></path>
+      <path d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z"></path>
+    </svg>
+    <div style="margin-left: 12px;" id="sort-buttons">
+      <button id="sort_default" class="sort-button">{[{sort_default:html}]}</button>
+      <button id="sort_bpm_start" class="sort-button">{[{sort_bpm_start:html}]}</button>
+      <button id="sort_bpm_min" class="sort-button">{[{sort_bpm_min:html}]}</button>
+      <button id="sort_bpm_max" class="sort-button">{[{sort_bpm_max:html}]}</button>
+      <button id="sort_level_l" class="sort-button">{[{sort_level_l:html}]}</button>
+      <button id="sort_notes_l" class="sort-button">{[{sort_notes_l:html}]}</button>
+      <button id="sort_duration" class="sort-button">{[{sort_duration:html}]}</button>
+      <button id="sort_alphabetical" class="sort-button">{[{sort_alphabetical:html}]}</button>
+    </div>
+  </div>
+  <div style="margin-top: 12px;">
+    <a id="bpmchange-link" href="/genshin-rmm/{[{@langcode:str}]}/about-bpmchange.html">{[{bpmchange-link:html}]}</a>
+  </div>
+  <div id="musiclist"></div>
+  <div class="description">
+    <h2>{[{description-title:html}]}</h2>
+    <div>{[{description-content:html}]}</div>
+  </div>
+  <div class="history">
+    <h2>{[{history-latest:html}]}</h2>
+    <div id="history-latest">{{{history-content}}}</div>
+  </div>
+</main>
+<footer>
+  <p>{[{statement:html}]}</p>
+  <p class="copyright">The website was made by <a href="https://twitter.com/looksky495">looksky495</a>.</p>
+</footer>
+</body>
+<script>
+const langText = "{[{@langcode:str}]}";
+const params = Object.fromEntries(Array.from(new URLSearchParams(window.location.search).entries()));
+// if (searchquery[0] !== langText) window.location = "./?" + langText;
+
+const generateURLParams = params => {
+  return Object.entries(params).map(item => item[0] + "=" + encodeURIComponent(item[1])).join("/");
+};
+
+const langselect = document.getElementById("langselect");
+langselect.value = langText;
+langselect.addEventListener("change", event => {
+  if (params.sort === "album") delete params.sort;
+  window.location = "/genshin-rmm/" + event.target.value + "/?" + generateURLParams(params);
+});
+
+const musiclist = document.getElementById("musiclist");
+function init ([albumList, musicTable, scoreList]){
+  // Initialize sorting button
+  const sortButtonClicked = event => {
+    params.sort = event.target.sortId;
+    if (params.sort === "default") delete params.sort;
+    window.location = "/genshin-rmm/" + langText + "/?" + generateURLParams(params);
+  };
+  const sortButtons = document.getElementById("sort-buttons");
+  for (const sortId of [ "default", "bpm_start", "bpm_min", "bpm_max", "level_l", "notes_l", "duration", "alphabetical" ]){
+    const button = document.getElementById("sort_" + sortId);
+    button.sortId = sortId;
+    if (sortId === (params.sort || "default")) button.classList.add("active");
+    button.addEventListener("click", sortButtonClicked);
+  }
+
+  // Categories
+  const categoryElements = {};
+  const NullCategories = [ ["0", ""] ];
+  const TimeCategories = [
+    [ "9", "4:30 ~ 5:00" ],
+    [ "8", "4:00 ~ 4:30" ],
+    [ "7", "3:30 ~ 4:00" ],
+    [ "6", "3:00 ~ 3:30" ],
+    [ "5", "2:30 ~ 3:00" ],
+    [ "4", "2:00 ~ 2:30" ],
+    [ "3", "1:30 ~ 2:00" ],
+    [ "2", "1:00 ~ 1:30" ],
+    [ "1", "0:30 ~ 1:00" ],
+    [ "0", "0:00 ~ 0:30" ],
+  ];
+  const BPMCategories = [
+    [ "15", "BPM 300 ~ 320" ],
+    [ "14", "BPM 280 ~ 300" ],
+    [ "13", "BPM 260 ~ 280" ],
+    [ "12", "BPM 240 ~ 260" ],
+    [ "11", "BPM 220 ~ 240" ],
+    [ "10", "BPM 200 ~ 220" ],
+    [ "9" , "BPM 180 ~ 200" ],
+    [ "8" , "BPM 160 ~ 180" ],
+    [ "7" , "BPM 140 ~ 160" ],
+    [ "6" , "BPM 120 ~ 140" ],
+    [ "5" , "BPM 100 ~ 120" ],
+    [ "4" , "BPM 80 ~ 100" ],
+    [ "3" , "BPM 60 ~ 80" ],
+    [ "2" , "BPM 40 ~ 60" ],
+    [ "1" , "BPM 20 ~ 40" ],
+    [ "0" , "BPM ~ 20" ],
+  ];
+  const LevelCategories = [
+    ["10", "Lv. 10"],
+    ["9" , "Lv. 9"],
+    ["8" , "Lv. 8"],
+    ["7" , "Lv. 7"],
+    ["6" , "Lv. 6"],
+    ["5" , "Lv. 5"],
+    ["4" , "Lv. 4"],
+    ["3" , "Lv. 3"],
+    ["2" , "Lv. 2"],
+    ["1" , "Lv. 1"],
+  ];
+  const NotesCategories = [
+    ["11", "1100 ~ 1200 notes"],
+    ["10", "1000 ~ 1100 notes"],
+    ["9" , "900 ~ 1000 notes"],
+    ["8" , "800 ~ 900 notes"],
+    ["7" , "700 ~ 800 notes"],
+    ["6" , "600 ~ 700 notes"],
+    ["5" , "500 ~ 600 notes"],
+    ["4" , "400 ~ 500 notes"],
+    ["3" , "300 ~ 400 notes"],
+    ["2" , "200 ~ 300 notes"],
+    ["1" , "100 ~ 200 notes"],
+    ["0" , "~ 100 notes"],
+  ];
+
+  if (!params.sort) params.sort = "album";
+
+  // Albums
+  for (const [key, name] of (
+    params.sort.startsWith("bpm_") ? BPMCategories :
+    params.sort.startsWith("level_l") ? LevelCategories :
+    params.sort.startsWith("notes_") ? NotesCategories :
+    params.sort === "duration" ? TimeCategories :
+    params.sort === "alphabetical" ? NullCategories : Object.entries(albumList).map(item => [item[0], item[1][langText]])
+  )){
+    const categoryElement = document.createElement("div");
+    categoryElement.className = "album";
+    const categoryTitle = document.createElement("h2");
+    categoryTitle.textContent = name;
+    categoryElement.appendChild(categoryTitle);
+    const categoryList = document.createElement("div");
+    categoryList.className = "album-list";
+    categoryElement.appendChild(categoryList);
+    musiclist.appendChild(categoryElement);
+    categoryElements[key] = categoryList;
+  }
+
+  // Music List
+  for (const music of Object.entries(musicTable).sort(
+    params.sort === "bpm_start" ? (a, b) => b[1].bpm - a[1].bpm :
+    params.sort === "bpm_min" ? (a, b) => b[1].bpm_min - a[1].bpm_min :
+    params.sort === "bpm_max" ? (a, b) => b[1].bpm_max - a[1].bpm_max :
+    params.sort === "level_l" ? (a, b) => b[1].score.l_level - a[1].score.l_level :
+    params.sort === "notes_l" ? (a, b) => b[1].score.l_notes - a[1].score.l_notes :
+    params.sort === "duration" ? (a, b) => b[1].duration - a[1].duration :
+    (params.sort === "alphabetical" && langText === "ja_jp") ? (a, b) => a[1].ja_kana.localeCompare(b[1].ja_kana, "ja") :
+    (params.sort === "alphabetical" && langText === "zh_cn") ? (a, b) => a[1].cn_pinyin.localeCompare(b[1].cn_pinyin, "zh-Hans") :
+    (params.sort === "alphabetical" && langText === "zh_tw") ? (a, b) => a[1].tw_pinyin.localeCompare(b[1].tw_pinyin, "zh-Hant") :
+    params.sort === "alphabetical" ? (a, b) => a[1].title[langText].localeCompare(b[1].title[langText]) : (a, b) => a[1].sortkey - b[1].sortkey
+  )){
+    categoryElements[
+      params.sort === "bpm_start" ? Math.floor(music[1].bpm / 20) :
+      params.sort === "bpm_min" ? Math.floor(music[1].bpm_min / 20) :
+      params.sort === "bpm_max" ? Math.floor(music[1].bpm_max / 20) :
+      params.sort === "level_l" ? Math.floor(music[1].score.l_level) :
+      params.sort === "notes_l" ? Math.floor(music[1].score.l_notes / 100) :
+      params.sort === "duration" ? Math.floor(music[1].duration / 30) :
+      params.sort === "alphabetical" ? "0" : music[1].album
+    ].insertAdjacentHTML("beforeend", `<div class="item">
+  <div class="bpm">${music[1].bpm}</div>
+  <div class="title">${music[1].title[langText]}</div>
+  <div class="levels">
+  <a` + (scoreList[music[0]]?.[0] ? ` href="./${music[0]}/easy/"` : "") + `><div class="easy">${music[1].score.n_level}</div></a>
+  <a` + (scoreList[music[0]]?.[1] ? ` href="./${music[0]}/normal/"` : "") + `><div class="normal">${music[1].score.h_level}</div></a>
+  <a` + (scoreList[music[0]]?.[2] ? ` href="./${music[0]}/hard/"` : "") + `><div class="hard">${music[1].score.p_level}</div></a>
+  <a` + (scoreList[music[0]]?.[3] ? ` href="./${music[0]}/legend/"` : "") + `><div class="legend">${music[1].score.l_level}</div></a>
+  </div>
+</div>`);
+  }
+
+  // ないやつは消す
+  for (const item of Object.values(categoryElements)){
+    if (!item.children.length){
+      item.parentElement.remove();
+    }
+  }
+}
+
+
+/**
+ * Decodes a Base64-encoded, gzipped string back to its original Unicode string format.
+ *
+ * @param {string} base64GzippedString The input Base64 string.
+ * @returns {Promise<string>} The decompressed Unicode string.
+ * @author ChatGPT
+ */
+async function decodeBase64GzipUnicode(base64GzippedString) {
+  // 1. Decode the Base64 string to a Uint8Array
+  const binaryString = atob(base64GzippedString);
+  const gzippedBytes = Uint8Array.from(binaryString, m => m.charCodeAt(0));
+
+  // 2. Decompress the gzipped bytes using DecompressionStream
+  // Convert the Uint8Array to a stream (using a Blob for cross-browser compatibility)
+  const stream = new Blob([gzippedBytes]).stream();
+  const decompressedStream = stream.pipeThrough(new DecompressionStream("gzip"));
+
+  // 3. Read the stream and decode the bytes to a Unicode string
+  // Use a Response object to easily read the stream's array buffer
+  const decompressedBuffer = await new Response(decompressedStream).arrayBuffer();
+  const originalString = new TextDecoder().decode(decompressedBuffer);
+
+  return originalString;
+}
+
+(async () => {
+  Promise.all([
+    decodeBase64GzipUnicode(`{{{albumlist-gzip-b64}}}`).then(jsonStr => JSON.parse(jsonStr)),
+    decodeBase64GzipUnicode(`{{{musictable-gzip-b64}}}`).then(jsonStr => JSON.parse(jsonStr)),
+    decodeBase64GzipUnicode(`{{{scorelist-gzip-b64}}}`).then(jsonStr => JSON.parse(jsonStr)),
+  ]).then(init);
+})();
+
+// https://act.hoyoverse.com/ys/event/ugc-music-stable/index.html?game_biz=hk4e_global&hyl_presentation_style=fullscreen&hyl_auth_required=true&utm_source=sns&utm_medium=twitter&lang=ja-jp&key=Button_Fengdan&is_from_button=true#/
+// これから色々情報を持ってこれるみたい
+
+/* musictable.json def.
+  00: English Title
+  01: Japanese Title
+  02: Chinese (Simplified) Title
+  03: French Title
+  04: German Title
+  05: Reserved
+  06: Area Name
+  07: Duration
+  08: BPM
+  09: Normal Level
+  10: Normal Notes
+  11: Hard Level
+  12: Hard Notes
+  13: Pro Level
+  14: Pro Notes
+  15: Legendary Level
+  16: Legendary Notes
+*/
+</script>
+</html>

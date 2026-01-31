@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BPM 변화 구현 방식 추측 - 원신 선율이 흐르는 악보 - 악보 보관소</title>
+  <title>{[{about-bpmchange-title}]}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="./common.css" rel="stylesheet">
-  <link href="./fonts/font.css" rel="stylesheet">
+  <link href="/genshin-rmm/common.css" rel="stylesheet">
+  <link href="/genshin-rmm/fonts/font.css" rel="stylesheet">
+  <link rel="canonical" href="https://md-ndv356.github.io/genshin-rmm/{[{@langcode:str}]}/about-bpmchange.html">
+  {{{alternate-links}}}
   <style>
     .contents {
       color: #f0f0f0;
@@ -22,15 +24,15 @@
     }
   </style>
 </head>
-<body class="lang-ko_kr">
+<body class="lang-{[{@langcode:str}]}">
 <header>
-  <div style="flex: 1;"><a href=".?ko_kr" id="headtitle" i18n="headtitle">악보 보관소</a></div>
+  <div style="flex: 1;"><a href="/genshin-rmm/{[{@langcode:str}]}/">{[{headtitle:html}]}</a></div>
   <div><select id="langselect">
-    <option value="ja_jp">日本語</option>
+    <option value="ja_jp" selected>日本語</option>
     <option value="en_us">English</option>
     <option value="zh_cn">中文（简体）</option>
     <option value="zh_tw">中文（繁體）</option>
-    <option value="ko_kr" selected>한국어</option>
+    <option value="ko_kr">한국어</option>
     <option value="es_es">Español</option>
     <option value="fr_fr">Français</option>
     <option value="ru_ru">Русский язык</option>
@@ -45,22 +47,22 @@
 </header>
 <main>
   <div class="contents">
-    <h1>BPM 변화 구현 방식 추측</h1>
-    <p>이 게임에서 BPM 변화는 특정 마디나 박자에서 BPM을 직접 변경하는 방식이 아니라, 특정 초 단위에서 새로운 악보가 시작되는 방식으로 처리되는 것으로 보인다.</p>
-    <p>따라서 마디 시작 직후에 BPM 변화가 설정된 경우, 에디터에서는 마디선이 이중으로 표시될 수 있다. (→ 이미지 참조)</p>
+    <h1>{[{about-bpmchange-h1:html}]}</h1>
+    <p>{[{about-bpmchange-p1:html}]}</p>
+    <p>{[{about-bpmchange-p2:html}]}</p>
     <picture>
-      <source srcset="./about-bpmchange-1.webp" />
-      <img src="./about-bpmchange-1.png" />
+      <source srcset="../image/about-bpmchange-0.webp" />
+      <img src="../image/about-bpmchange-0.png" />
     </picture>
-    <p>이 동작은 곡의 시작 위치와 마디의 시작 위치를 동기화할 때에도 사용된다.</p>
-    <p>따라서 본 악보 보관소에서는 에디터에 이중으로 표시되는 마디선을 그대로 싣는 대신, 겹치는 두 줄을 하나로 합쳐 표기하고 있다.</p>
+    <p>{[{about-bpmchange-p3:html}]}</p>
+    <p>{[{about-bpmchange-p4:html}]}</p>
   </div>
 </main>
 </body>
 <script>
 const langselect = document.getElementById("langselect");
 langselect.addEventListener("change", event => {
-  window.location = "./about-bpmchange-" + event.target.value + ".html";
+  window.location = "/genshin-rmm/" + event.target.value + "/about-bpmchange.html";
 });
 </script>
 </html>
