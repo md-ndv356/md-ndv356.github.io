@@ -52,7 +52,8 @@ const promises = fs.promises;
           return `<div style="color: #ccc; margin: 14px 4px 6px; font-size: 15px;">${item.postedDate}${langText !== "ja_jp" ? " (yyyy/mm/dd)" : ""}</div><div>${item.content[langText].replace(/\n/g, "<br>")}</div>`;
         }).join("\n")
       ), "alternate-links", langcodes.map(langCode => {
-        const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/`
+        const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/`;
+        sitemap.push({ loc: link });
         return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
       }).join("\n")
       ), "musictable-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(musicTable))
@@ -168,7 +169,8 @@ const promises = fs.promises;
             ), "measure-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(levelData.measure ?? null))
             ), "bpm-changes-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(bpm_act))
             ), "alternate-links", langcodes.map(otherLangCode => {
-              const link = `https://md-ndv356.github.io/genshin-rmm/${otherLangCode}/${musicId}/${difficultyId[i]}/`
+              const link = `https://md-ndv356.github.io/genshin-rmm/${otherLangCode}/${musicId}/${difficultyId[i]}/`;
+              sitemap.push({ loc: link });
               return `<link rel="alternate" hreflang="${otherLangCode.replace(/_/g, "-")}" href="${link}">`;
             }).join("\n")
           ), langCode);
@@ -189,13 +191,23 @@ const promises = fs.promises;
         aboutBpmChangeTemplate,
         "alternate-links",
         langcodes.map(langCode => {
-          const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/about-bpmchange.html`
+          const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/about-bpmchange.html`;
+          sitemap.push({ loc: link });
           return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
         }).join("\n")
       ), langText
     );
     await promises.writeFile(path.join("./dist/genshin-rmm", langText, "about-bpmchange.html"), pageText, "utf-8");
   }
+
+  // Generate sitemap.xml
+  const sitemapXmlText = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    sitemap.map(item => {
+      return `  <url>\n    <loc>${item.loc}</loc>\n  </url>`;
+    }).join("\n") +
+    `\n</urlset>`;
+  await promises.writeFile("./dist/sitemap.xml", sitemapXmlText, "utf-8");
 })();
 
 /**
