@@ -128,6 +128,7 @@ const promises = fs.promises;
             contentReplacement(
             contentReplacement(
             contentReplacement(
+            contentReplacement(
             scoreDetailTemplate, "songid", musicId
             ), "difficulty-index", i + ""
             ), "difficulty-id", difficultyId[i]
@@ -147,7 +148,8 @@ const promises = fs.promises;
             ), "bpm-notice-style", bpmList.length > 1 ? `style="display: block;"` : `style="display: none;"`
             ), "duration", Math.floor(levelData.duration / 60) + ":" + ("0" +(levelData.duration % 60)).slice(-2)
             ), "album", levelData.country[langCode] + " - " + levelData.album[langCode]
-            ), "songtitle", (() => {
+            ), "songtitle", levelData.title[langCode]
+            ), "songtitle-with-link", (() => {
               if (levelData.link_ytmusic){
                 return `<a href="https://youtu.be/${levelData.link_ytmusic}" target="_blank" rel="noopener noreferrer">${levelData.title[langCode]}</a>`;
               } else {
