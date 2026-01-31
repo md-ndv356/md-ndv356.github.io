@@ -38,6 +38,7 @@ const promises = fs.promises;
   fs.cpSync("./genshin-rmm/fonts/", "./dist/genshin-rmm/fonts/", { recursive: true });
   fs.cpSync("./genshin-rmm/common.css", "./dist/genshin-rmm/common.css");
   fs.cpSync("./genshin-rmm/index.html", "./dist/genshin-rmm/index.html");
+  fs.cpSync("./genshin-rmm/detail.html", "./dist/genshin-rmm/detail/index.html");
 
   // Top Page
   const topPageTemplate = await promises.readFile("./genshin-rmm/template/index.html", "utf-8");

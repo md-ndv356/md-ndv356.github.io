@@ -28,7 +28,7 @@
         "ja_jp": "譜面一覧にカテゴリ分けを追加し、並び替えを利用できるようにしました。デフォルト、開始BPMの速い順、レベル順（レジェンド）、ノーツ順（レジェンド）、あいう順が利用できます。",
         "zh_cn": "在谱面列表中增加了分类，并可以使用排序功能。可用的排序包括：默认、起始BPM高、等级（传说）、音符数（传说）、拼音顺序。",
         "zh_tw": "在譜面列表中新增了分類，並可使用排序功能。可用的排序包括：預設、起始BPM高、等級（傳說）、音符數（傳說）、拼音順序。",
-        "en_us": "Added categories to the score list and enabled sorting. Available options: Default, Starting BPM, Level (Legend), Notes (Legend), Alphabetical.",
+        "en_us": "Added categories to the score list and enabled sorting. Available options: Default, Starting BPM, Level (Legendary), Notes (Legendary), Alphabetical.",
         "ko_kr": "악보 목록에 카테고리를 추가하고 정렬 기능을 사용할 수 있도록 했습니다. 사용 가능한 옵션: 기본값, 시작 BPM↑, 레벨 (레전드), 노트 수 (레전드), 가나다.",
         "es_es": "Se añadieron categorías a la lista de partituras y ahora es posible ordenar. Opciones disponibles: Predeterminado, BPM inicial, Nivel (Leyenda), Notas (Leyenda), A–Z.",
         "fr_fr": "Ajout de catégories à la liste des partitions et activation du tri. Options disponibles : Par défaut, BPM départ, Niveau (Légende), Notes (Légende), A–Z.",
