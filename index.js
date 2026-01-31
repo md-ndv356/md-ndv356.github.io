@@ -16,7 +16,7 @@ const ln2ct = ({"zh_cn": "cn", "zh_tw": "tw", "de_de": "de", "en_us": "en", "es_
 
 const promises = fs.promises;
 (async () => {
-  if ((await promises.stat("./dist")).isDirectory()){
+  if (fs.existsSync("./dist") && (await promises.stat("./dist")).isDirectory()){
     await promises.rm("./dist", { recursive: true });
   }
   await promises.mkdir("./dist");
