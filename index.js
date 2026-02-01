@@ -226,9 +226,9 @@ function translateTemplate(template, lang){
     if (type === "html") {
       return text.replace(/\n/g, "<br>")
         .replace(/\u200b/g, "<wbr>")
+        .replace(/&/g, "&amp;")
         .replace(/"/g, '&quot;')
         .replace(/'/g, "&#39;")
-        .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
     } else {
