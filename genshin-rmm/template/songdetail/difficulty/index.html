@@ -216,7 +216,6 @@ const langText = "{[{@langcode:str}]}";
 const langselect = document.getElementById("langselect");
 langselect.value = langText;
 langselect.addEventListener("change", event => {
-  query[0] = event.target.value;
   window.location = "https://md-ndv356.github.io/genshin-rmm/" + event.target.value + "/{{{songid}}}/{{{difficulty-id}}}/";
 });
 
