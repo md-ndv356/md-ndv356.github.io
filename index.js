@@ -10,9 +10,7 @@ import albumList from "./genshin-rmm/albumlist.json" with { type: "json" };
 import musicTable from "./genshin-rmm/musictable-v2.json" with { type: "json" };
 // import levelData from "./genshin-rmm/music/_GMusic1.3.json" with { type: "json" }; // Example
 
-const langcodes = ["ja_jp", "en_us", "zh_cn", "zh_tw", "ko_kr", "de_de", "fr_fr", "es_es", "pt_pt", "it_it", "ru_ru", "tr_tr", "vi_vn", "th_th"];
-const ct2ln = ({"cn": "zh_cn", "tw": "zh_tw", "de": "de_de", "en": "en_us", "es": "es_es", "fr": "fr_fr", "id": "id_id", "ja": "ja_jp", "ko": "ko_kr", "pt": "pt_pt", "ru": "ru_ru", "th": "th_th", "vi": "vi_vn"});
-const ln2ct = ({"zh_cn": "cn", "zh_tw": "tw", "de_de": "de", "en_us": "en", "es_es": "es", "fr_fr": "fr", "id_id": "id", "ja_jp": "ja", "ko_kr": "ko", "pt_pt": "pt", "ru_ru": "ru", "th_th": "th", "vi_vn": "vi"});
+const langcodes = ["zh_cn","zh_tw","en_us","ko_kr","ja_jp","es_es","fr_fr","ru_ru","th_th","vi_vn","de_de","id_id","pt_pt","tr_tr","it_it"];
 
 const promises = fs.promises;
 (async () => {

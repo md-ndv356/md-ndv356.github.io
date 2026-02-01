@@ -368,6 +368,7 @@
     "th_th": "การคาดเดาเกี่ยวกับการทำงานของการเปลี่ยน BPM",
     "vi_vn": "Dự đoán về cách triển khai thay đổi BPM",
     "de_de": "Vermutungen zur Implementierung von BPM-Änderungen",
+    "id_id": "Perkiraan tentang implementasi perubahan BPM",
     "pt_pt": "Especulação sobre a implementação de mudanças de BPM",
     "tr_tr": "BPM değişikliklerinin uygulanışı hakkında tahmin",
     "it_it": "Ipotesi sull’implementazione dei cambi di BPM"
@@ -384,6 +385,7 @@
     "th_th": "ในเกมนี้ การเปลี่ยน BPM ไม่ได้ถูกทำโดยการแก้ไขที่ห้องหรือจังหวะใด ๆ โดยตรง แต่ใช้วิธีเริ่มต้นโน้ตเพลงใหม่ที่เวลาหนึ่ง ๆ แทน",
     "vi_vn": "Trong trò chơi này, việc thay đổi BPM không được thực hiện bằng cách điều chỉnh trực tiếp tại các ô nhịp hoặc phách, mà bằng cách bắt đầu lại bản nhạc tại một mốc thời gian nhất định.",
     "de_de": "In diesem Spiel werden BPM-Änderungen nicht durch die direkte Anpassung in bestimmten Takten oder Schlägen umgesetzt, sondern durch einen Neustart der Partitur zu einem bestimmten Zeitpunkt.",
+    "id_id": "Dalam permainan ini, perubahan BPM tidak diterapkan dengan mengubah BPM pada birama atau ketukan tertentu, melainkan dengan memulai ulang skor pada titik waktu tertentu.",
     "pt_pt": "Neste jogo, as mudanças de BPM não são feitas alterando o BPM em compassos ou tempos específicos, mas reiniciando a partitura em determinados segundos.",
     "tr_tr": "Bu oyunda BPM değişiklikleri, belirli ölçü veya vuruşlarda BPM’yi değiştirmek yerine, belirli saniyelerde yeni bir partisyon başlatılarak gerçekleştirilmektedir.",
     "it_it": "In questo gioco i cambi di BPM non vengono applicati modificando il BPM in misure o battiti specifici, ma facendo ripartire la partitura in determinati secondi."
@@ -400,6 +402,7 @@
     "th_th": "ดังนั้น เมื่อมีการเปลี่ยน BPM ทันทีที่เริ่มห้อง โปรแกรมแก้ไขอาจแสดงเส้นห้องสองเส้นซ้อนกัน (→ ดูภาพนี้)",
     "vi_vn": "Do đó, khi thay đổi BPM xảy ra ngay sau khi bắt đầu ô nhịp, trình chỉnh sửa có thể hiển thị hai vạch nhịp chồng lên nhau. (→ Xem hình ảnh này)",
     "de_de": "Daher kann es vorkommen, dass beim Einsetzen einer BPM-Änderung direkt nach dem Beginn eines Taktes im Editor doppelte Taktstriche angezeigt werden. (→ Siehe dieses Bild)",
+    "id_id": "Oleh karena itu, ketika perubahan BPM terjadi tepat setelah awal birama, editor mungkin menampilkan garis birama ganda yang tumpang tindih. (→ Lihat gambar ini)",
     "pt_pt": "Assim, quando uma mudança de BPM ocorre logo após o início de um compasso, o editor pode exibir linhas de compasso duplas sobrepostas. (→ Veja esta imagem)",
     "tr_tr": "Bu nedenle, bir BPM değişikliği ölçünün başında ayarlandığında editörde çift ölçü çizgisi görünebilir. (→ Bu görsele bakın)",
     "it_it": "Di conseguenza, quando un cambio di BPM avviene subito dopo l’inizio di una misura, l’editor può mostrare due linee di battuta sovrapposte. (→ Vedi questa immagine)"
@@ -416,6 +419,7 @@
     "th_th": "พฤติกรรมนี้ยังถูกใช้เพื่อทำให้ตำแหน่งเริ่มต้นของเพลงตรงกับจุดเริ่มต้นของห้องด้วย",
     "vi_vn": "Hành vi này cũng được dùng để đồng bộ vị trí bắt đầu của bài hát với đầu ô nhịp.",
     "de_de": "Dieses Verhalten wird auch verwendet, um den Startpunkt des Stücks mit dem Beginn eines Taktes zu synchronisieren.",
+    "id_id": "Perilaku ini juga digunakan untuk menyinkronkan posisi awal trek dengan awal birama.",
     "pt_pt": "Esse comportamento também é usado para sincronizar o início da música com o início de um compasso.",
     "tr_tr": "Bu davranış, parçanın başlangıç noktasını ölçünün başlangıcıyla senkronize etmek için de kullanılmaktadır.",
     "it_it": "Questo comportamento viene utilizzato anche per sincronizzare l’inizio del brano con l’inizio della misura."
@@ -432,6 +436,7 @@
     "th_th": "ดังนั้น ในคลังโน้ตเพลงนี้ เส้นห้องสองเส้นที่แสดงในโปรแกรมแก้ไขจะไม่ถูกนำมาแสดงตามนั้น แต่จะถูกรวมให้เป็นเส้นเดียว",
     "vi_vn": "Vì vậy, trong kho bản nhạc này, các vạch nhịp kép hiển thị trong trình chỉnh sửa không được giữ nguyên, mà được gộp thành một vạch duy nhất.",
     "de_de": "Daher werden in diesem Notenarchiv doppelte Taktstriche aus dem Editor nicht unverändert übernommen, sondern zu einer einzigen Linie zusammengefasst.",
+    "id_id": "Oleh karena itu, dalam database partitur ini, garis birama ganda yang ditampilkan di editor tidak diterbitkan apa adanya, melainkan digabungkan menjadi satu garis birama.",
     "pt_pt": "Portanto, neste arquivo de partituras, as linhas de compasso duplas mostradas no editor não são publicadas como estão, mas fundidas em uma única linha.",
     "tr_tr": "Bu yüzden, bu nota arşivinde editörde görünen çift ölçü çizgileri olduğu gibi değil, üst üste gelen iki çizgi birleştirilerek tek çizgi halinde gösterilmektedir.",
     "it_it": "Pertanto, in questo archivio di spartiti, le linee di battuta doppie mostrate nell’editor non vengono riportate così come sono, ma unite in una sola."
