@@ -162,14 +162,15 @@ const params = Object.fromEntries(Array.from(new URLSearchParams(window.location
 // if (searchquery[0] !== langText) window.location = "./?" + langText;
 
 const generateURLParams = params => {
-  return Object.entries(params).map(item => item[0] + "=" + encodeURIComponent(item[1])).join("/");
+  if (Object.keys(params).length === 0) return "";
+  return "?" + Object.entries(params).map(item => item[0] + "=" + encodeURIComponent(item[1])).join("/");
 };
 
 const langselect = document.getElementById("langselect");
 langselect.value = langText;
 langselect.addEventListener("change", event => {
   if (params.sort === "album") delete params.sort;
-  window.location = "/genshin-rmm/" + event.target.value + "/?" + generateURLParams(params);
+  window.location = "/genshin-rmm/" + event.target.value + "/" + generateURLParams(params);
 });
 
 const musiclist = document.getElementById("musiclist");
@@ -178,7 +179,7 @@ function init ([albumList, musicTable, scoreList]){
   const sortButtonClicked = event => {
     params.sort = event.target.sortId;
     if (params.sort === "default") delete params.sort;
-    window.location = "/genshin-rmm/" + langText + "/?" + generateURLParams(params);
+    window.location = "/genshin-rmm/" + langText + "/" + generateURLParams(params);
   };
   const sortButtons = document.getElementById("sort-buttons");
   for (const sortId of [ "default", "bpm_start", "bpm_min", "bpm_max", "level_l", "notes_l", "duration", "alphabetical" ]){
