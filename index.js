@@ -101,7 +101,6 @@ const promises = fs.promises;
 
       for (const langCode of langcodes){
         try {
-
           const dir = `./dist/genshin-rmm/${langCode}/${musicId}/${difficultyId[i]}/`;
           await promises.mkdir(dir, { recursive: true });
 
@@ -157,11 +156,12 @@ const promises = fs.promises;
             ), "songtitle_multilang", (() => {
               const titles = [];
               for (const translationEntry of Object.entries(langTranslationMap)){
-                if (translationEntry[1].includes(langCode)){
-                  translationEntry[1].splice(translationEntry[1].indexOf(langCode), 1);
+                const cached = [...translationEntry[1]];
+                if (cached.includes(langCode)){
+                  cached.splice(cached.indexOf(langCode), 1);
                 }
-                if (!translationEntry[1].length) continue;
-                const languages = translationEntry[1].map(c => "[" + langShort[c] + "]").join("");
+                if (!cached.length) continue;
+                const languages = cached.map(c => "[" + langShort[c] + "]").join("");
                 titles.push(`<div><span class="titlesublang">${languages}</span><br><span class="titlesub lang-${translationEntry[1][0]}">${translationEntry[0]}</span></div>`);
               }
               return titles.join("\n");
