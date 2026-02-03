@@ -3247,7 +3247,7 @@
       "p_level": 7,
       "p_notes": 442,
       "l_level": 8,
-      "l_notes": 685
+      "l_notes": 689
     },
     "title": {
       "zh_cn": "经过（中）",
@@ -3659,13 +3659,13 @@
     "sortkey": -1998,
     "score": {
       "n_level": 1,
-      "n_notes": 0,
+      "n_notes": 200,
       "h_level": 4,
-      "h_notes": 0,
+      "h_notes": 344,
       "p_level": 7,
-      "p_notes": 0,
+      "p_notes": 442,
       "l_level": 8,
-      "l_notes": 0
+      "l_notes": 685
     },
     "title": {
       "zh_cn": "经过（日）",
@@ -3697,13 +3697,13 @@
     "sortkey": -1998,
     "score": {
       "n_level": 1,
-      "n_notes": 0,
+      "n_notes": 200,
       "h_level": 4,
-      "h_notes": 0,
+      "h_notes": 344,
       "p_level": 7,
-      "p_notes": 0,
+      "p_notes": 442,
       "l_level": 8,
-      "l_notes": 0
+      "l_notes": 687
     },
     "title": {
       "zh_cn": "经过（英）",
@@ -3735,13 +3735,13 @@
     "sortkey": -1992,
     "score": {
       "n_level": 2,
-      "n_notes": 0,
+      "n_notes": 235,
       "h_level": 4,
-      "h_notes": 0,
+      "h_notes": 358,
       "p_level": 7,
-      "p_notes": 0,
+      "p_notes": 551,
       "l_level": 8,
-      "l_notes": 0
+      "l_notes": 761
     },
     "title": {
       "zh_cn": "灼火之心（英）",
@@ -3773,13 +3773,13 @@
     "sortkey": -1992,
     "score": {
       "n_level": 2,
-      "n_notes": 0,
+      "n_notes": 235,
       "h_level": 4,
-      "h_notes": 0,
+      "h_notes": 358,
       "p_level": 7,
-      "p_notes": 0,
+      "p_notes": 551,
       "l_level": 8,
-      "l_notes": 0
+      "l_notes": 761
     },
     "title": {
       "zh_cn": "灼火之心（韩）",
@@ -3811,13 +3811,13 @@
     "sortkey": -1992,
     "score": {
       "n_level": 2,
-      "n_notes": 0,
+      "n_notes": 235,
       "h_level": 4,
-      "h_notes": 0,
+      "h_notes": 358,
       "p_level": 7,
-      "p_notes": 0,
+      "p_notes": 551,
       "l_level": 8,
-      "l_notes": 0
+      "l_notes": 761
     },
     "title": {
       "es_es": "Blazing Heart (japonés)",
@@ -3835,44 +3835,6 @@
       "pt_pt": "Blazing Heart (Japanese)",
       "tr_tr": "Blazing Heart (Japanese)",
       "it_it": "Blazing Heart (giapponese)"
-    }
-  },
-  "_GMusic102": {
-    "album": "NodKrai1",
-    "bpm": 116,
-    "duration": 217,
-    "bpm_min": 116,
-    "bpm_max": 116,
-    "ja_kana": "きおくのたびえいごばん",
-    "cn_pinyin": "Jīng guò（Yīng）",
-    "tw_pinyin": "Jīng guò（Yīng）",
-    "sortkey": -1998,
-    "score": {
-      "n_level": 1,
-      "n_notes": 0,
-      "h_level": 4,
-      "h_notes": 0,
-      "p_level": 7,
-      "p_notes": 0,
-      "l_level": 8,
-      "l_notes": 0
-    },
-    "title": {
-      "zh_cn": "经过（英）",
-      "ru_ru": "Passing Memories (английский)",
-      "zh_tw": "經過（英）",
-      "en_us": "Passing Memories (English)",
-      "ko_kr": "Passing Memories (영어)",
-      "th_th": "Passing Memories (English)",
-      "vi_vn": "Passing Memories (English)",
-      "es_es": "Passing Memories (inglés)",
-      "fr_fr": "Passing Memories (English)",
-      "de_de": "Passing Memories (Englisch)",
-      "id_id": "Passing Memories (Inggris)",
-      "pt_pt": "Passing Memories (English)",
-      "ja_jp": "記憶の旅（English Ver.）",
-      "it_it": "Passing Memories (inglese)",
-      "tr_tr": "Passing Memories (English)"
     }
   }
 }
