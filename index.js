@@ -28,8 +28,14 @@ const promises = fs.promises;
   fs.cpSync("./index.html", "./dist/index.html");
   fs.cpSync("./googlee229be2cbc95c49b.html", "./dist/googlee229be2cbc95c49b.html");
 
-  sitemap.push({ loc: "https://md-ndv356.github.io/taiko/battle-no1/" });
-  sitemap.push({ loc: "https://md-ndv356.github.io/bm2dx/ffmpeg/convert.html" });
+  sitemap.push({
+    loc: "https://md-ndv356.github.io/taiko/battle-no1/",
+    lastmod: fs.statSync("./taiko/battle-no1/index.html").mtime
+  });
+  sitemap.push({
+    loc: "https://md-ndv356.github.io/bm2dx/ffmpeg/convert.html",
+    lastmod: fs.statSync("./bm2dx/ffmpeg/convert.html").mtime
+  });
 
   // ===== Genshin Impact - Repertoire of Myriad Melodies ======
   fs.cpSync("./genshin-rmm/image/", "./dist/genshin-rmm/image/", { recursive: true });
@@ -52,7 +58,10 @@ const promises = fs.promises;
         }).join("\n")
       ), "alternate-links", langcodes.map(langCode => {
         const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/`;
-        sitemap.push({ loc: link });
+        sitemap.push({
+          loc: link,
+          lastmod: fs.statSync("./genshin-rmm/index.html").mtime
+        });
         return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
       }).join("\n")
       ), "musictable-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(musicTable))
@@ -171,7 +180,10 @@ const promises = fs.promises;
             ), "bpm-changes-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(bpm_act))
             ), "alternate-links", langcodes.map(otherLangCode => {
               const link = `https://md-ndv356.github.io/genshin-rmm/${otherLangCode}/${musicId}/${difficultyId[i]}/`;
-              sitemap.push({ loc: link });
+              sitemap.push({
+                loc: link,
+                lastmod: fs.statSync(`./genshin-rmm/music/${musicId}.${i}.json`).mtime
+              });
               return `<link rel="alternate" hreflang="${otherLangCode.replace(/_/g, "-")}" href="${link}">`;
             }).join("\n")
           ), langCode);
@@ -193,7 +205,10 @@ const promises = fs.promises;
         "alternate-links",
         langcodes.map(langCode => {
           const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/about-bpmchange.html`;
-          sitemap.push({ loc: link });
+          sitemap.push({
+            loc: link,
+            lastmod: fs.statSync("./genshin-rmm/template/about-bpmchange.html").mtime
+          });
           return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
         }).join("\n")
       ), langText
@@ -205,11 +220,26 @@ const promises = fs.promises;
   const sitemapXmlText = `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     sitemap.map(item => {
-      return `  <url>\n    <loc>${item.loc}</loc>\n  </url>`;
+      return `  <url>\n    <loc>${item.loc}</loc>\n    <lastmod>${item.lastmod.toISOString()}</lastmod>\n  </url>`;
     }).join("\n") +
     `\n</urlset>`;
   await promises.writeFile("./dist/sitemap.xml", sitemapXmlText, "utf-8");
-  await promises.writeFile("./dist/sitemap2.xml", sitemapXmlText, "utf-8");
+
+  const testSitemapXmlText = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    sitemap.slice(0, 20).map(item => {
+      return `  <url>\n    <loc>${item.loc}</loc>\n    <lastmod>${item.lastmod.toISOString()}</lastmod>\n  </url>`;
+    }).join("\n") +
+    `\n</urlset>`;
+  await promises.writeFile("./dist/sitemap2.xml", testSitemapXmlText, "utf-8");
+
+  const robots = `User-agent: *
+Allow: /
+
+Sitemap: https://md-ndv356.github.io/sitemap.xml
+Sitemap: https://md-ndv356.github.io/sitemap2.xml
+`;
+  await promises.writeFile("./dist/robots.txt", robots, "utf-8");
 })();
 
 /**
