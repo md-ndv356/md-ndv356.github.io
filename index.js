@@ -209,6 +209,7 @@ const promises = fs.promises;
     }).join("\n") +
     `\n</urlset>`;
   await promises.writeFile("./dist/sitemap.xml", sitemapXmlText, "utf-8");
+  await promises.writeFile("./dist/sitemap2.xml", sitemapXmlText, "utf-8");
 })();
 
 /**
