@@ -25,6 +25,7 @@ const promises = fs.promises;
   fs.cpSync("./ndv-tickers", "./dist/ndv-tickers", { recursive: true });
   fs.cpSync("./quakemap-v2", "./dist/quakemap-v2", { recursive: true });
   fs.cpSync("./taiko", "./dist/taiko", { recursive: true });
+  fs.cpSync("./library", "./dist/library", { recursive: true });
   fs.cpSync("./index.html", "./dist/index.html");
   fs.cpSync("./googlee229be2cbc95c49b.html", "./dist/googlee229be2cbc95c49b.html");
 
