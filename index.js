@@ -254,13 +254,13 @@ function translateTemplate(template, lang){
     const text = i18n[id]?.[lang] ?? `{[{${id}:${type}}]}`;
     if (i18n[id]?.[lang] === void 0) console.warn(`Missing translation for id "${id}" in language "${lang}"`);
     if (type === "html") {
-      return text.replace(/\n/g, "<br>")
-        .replace(/\u200b/g, "<wbr>")
-        .replace(/&/g, "&amp;")
+      return text.replace(/&/g, "&amp;")
         .replace(/"/g, '&quot;')
         .replace(/'/g, "&#39;")
         .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+        .replace(/>/g, "&gt;")
+        .replace(/\n/g, "<br>")
+        .replace(/\u200b/g, "<wbr>");
     } else {
       return text.replace(/\n/g, "\\n")
         .replace(/"/g, '\\"')
