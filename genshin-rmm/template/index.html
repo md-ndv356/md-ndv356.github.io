@@ -19,7 +19,7 @@
       padding: 5px 8px;
       background: linear-gradient(270deg, #fc897e, #f79a2f);
       width: calc(100dvw - 32px);
-      max-width: 520px;
+      max-width: 540px;
       border-radius: 10px;
     }
     .bpm {
@@ -272,7 +272,7 @@ function init ([albumList, musicTable, scoreList]){
   }
 
   // Music List
-  for (const music of Object.entries(musicTable).sort(
+  for (const music of Object.entries(musicTable).filter(item => !item[1].inv).sort(
     params.sort === "bpm_start" ? (a, b) => b[1].bpm - a[1].bpm :
     params.sort === "bpm_min" ? (a, b) => b[1].bpm_min - a[1].bpm_min :
     params.sort === "bpm_max" ? (a, b) => b[1].bpm_max - a[1].bpm_max :
