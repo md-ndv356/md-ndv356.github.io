@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const languages = ['zh-cn', 'zh-tw', 'en-us', 'ko-kr', 'ja-jp', 'es-es', 'fr-fr', 'ru-ru', 'th-th', 'de-de', 'tr-tr', 'it-it'];
+const languages = ['zh-cn', 'zh-tw', 'en-us', 'ko-kr', 'ja-jp', 'es-es', 'fr-fr', 'ru-ru', 'th-th', 'vi-vn', 'de-de', 'id-id', 'pt-pt', 'tr-tr', 'it-it'];
 const args = process.argv.slice(2);
 
 if (args.length !== 1) {
