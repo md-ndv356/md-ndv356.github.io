@@ -4,8 +4,8 @@ const data = JSON.parse(fs.readFileSync("./musictable-v2.json", "utf-8"));
 const newcomers = Object.entries(data).slice(102);
 
 for (const song of newcomers){
-  console.log(song[1].title.ja_jp);
-  // continue;
+  console.log(`  "${song[0]}": [0, 0, 0, 0, "${song[1].title.en_us}"],`);
+  continue;
 
   const levelData = {
     title: {
