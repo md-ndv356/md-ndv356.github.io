@@ -32,6 +32,9 @@
       font-size: 12px;
       content: "BPM";
     }
+    .bpm-changes {
+      color: #1e5903;
+    }
     .title {
       flex: 1;
       margin: 0 8px;
@@ -293,7 +296,7 @@ function init ([albumList, musicTable, scoreList]){
       params.sort === "duration" ? Math.floor(music[1].duration / 30) :
       params.sort === "alphabetical" ? "0" : music[1].album
     ].insertAdjacentHTML("beforeend", `<div class="item">
-  <div class="bpm">${music[1].bpm}</div>
+  <div class="bpm${music[1].bpm_min === music[1].bpm_max ? "" : " bpm-changes"}">${music[1].bpm}</div>
   <div class="title">${music[1].title[langText]}</div>
   <div class="levels">
   <a` + (scoreList[music[0]]?.[0] ? ` href="./${music[0]}/easy/"` : "") + `><div class="easy">${music[1].score.n_level}</div></a>
