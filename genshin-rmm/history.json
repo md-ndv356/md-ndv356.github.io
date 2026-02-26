@@ -1,6 +1,27 @@
 {
   "history": [
     {
+      "id": "20260226170235",
+      "postedDate": "2026/02/26",
+      "content": {
+        "ja_jp": "BPMの変化がある楽曲は、一覧表示でBPM表記が緑色になるように変更しました。",
+        "zh_cn": "BPM有变化的乐曲，在列表显示中BPM标记变为绿色。",
+        "zh_tw": "BPM有變化的樂曲，在列表顯示中BPM標記變為綠色。",
+        "en_us": "For songs with BPM changes, the BPM label in the list display has been changed to green.",
+        "ko_kr": "BPM이 변경된 곡에 대해, 목록 표시에서 BPM 라벨이 녹색으로 변경되었습니다.",
+        "es_es": "Para las canciones con cambios de BPM, la etiqueta de BPM en la visualización de la lista se ha cambiado a verde.",
+        "fr_fr": "Pour les chansons avec des changements de BPM, l'étiquette BPM dans l'affichage de la liste a été changée en vert.",
+        "ru_ru": "Для песен с изменениями BPM, метка BPM в отображении списка была изменена на зеленую.",
+        "th_th": "สำหรับเพลงที่มีการเปลี่ยนแปลง BPM ป้าย BPM ในการแสดงรายการได้เปลี่ยนเป็นสีเขียวแล้ว",
+        "vi_vn": "Đối với các bài hát có sự thay đổi BPM, nhãn BPM trong hiển thị danh sách đã được đổi sang màu xanh lá cây.",
+        "de_de": "Für Songs mit BPM-Änderungen wurde das BPM-Label in der Listenanzeige auf grün geändert.",
+        "id_id": "Untuk lagu dengan perubahan BPM, label BPM dalam tampilan daftar telah diubah menjadi hijau.",
+        "pt_pt": "Para as músicas com mudanças de BPM, o rótulo BPM na exibição da lista foi alterado para verde.",
+        "tr_tr": "BPM değişiklikleri olan şarkılar için, liste görüntüsünde BPM etiketi yeşil olarak değiştirildi.",
+        "it_it": "Per le canzoni con cambiamenti di BPM, l'etichetta BPM nella visualizzazione dell'elenco è stata cambiata in verde."
+      }
+    },
+    {
       "id": "20250907035600",
       "postedDate": "2025/09/07",
       "content": {
