@@ -114,7 +114,7 @@ const promises = fs.promises;
           const dir = `./dist/genshin-rmm/${langCode}/${musicId}/${difficultyId[i]}/`;
           await promises.mkdir(dir, { recursive: true });
 
-          const bpmList = levelData.bpm_act ? [levelData.bpm].concat(Object.values(levelData.bpm_act)) : [];
+          const bpmList = levelData.bpm_act ? (levelData.bpm_act[0] ? [] : [levelData.bpm]).concat(Object.values(levelData.bpm_act)) : [];
           const bpm_act = bpmList.length > 1 ? levelData.bpm_act : {};
 
           const pageText = translateTemplate(
