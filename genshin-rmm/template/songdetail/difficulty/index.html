@@ -194,7 +194,7 @@
 </header>
 <main>
   <div class="information">
-    <div id="album" title="{[{album_description:str}]}">{{{album}}}</div>
+    <div id="album" data-title="{[{album_description:str}]}">{{{album}}}</div>
     <div id="title">{{{songtitle-with-link}}}</div>
     <div class="table-centering" id="title-multi">{{{songtitle_multilang}}}</div>
     <div class="difficulty">
@@ -202,7 +202,7 @@
       <div id="level-count">{{{level-stars}}}</div>
     </div>
     <div class="others">
-      <div class="flex"><div class="bpm" title="{[{bpm_description:str}]}">BPM</div><div id="bpm">{{{bpm}}}</div><div id="bpm-act" title="{{{bpm-changes}}}">{{{bpm-minmax}}}</div></div>
+      <div class="flex"><div class="bpm" data-title="{[{bpm_description:str}]}">BPM</div><div id="bpm" data-title="{[{bpm_description:str}]}">{{{bpm}}}</div><div id="bpm-act" data-title="{{{bpm-changes}}}">{{{bpm-minmax}}}</div></div>
       <div class="flex"><div class="duration">{[{duration:html}]}</div><div id="duration">{{{duration}}}</div></div>
       <div class="flex"><div id="notes"></div><div class="notes">{[{notes:html}]}</div></div>
     </div>
@@ -214,9 +214,11 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.3/sprintf.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/i18next@25.1.2/i18next.min.jsjs"></script>
 <script src="https://cdn.jsdelivr.net/npm/i18next-sprintf-postprocessor@0.2.2/i18nextSprintfPostProcessor.min.js"></script> -->
+<script src="https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
 <script>
 const langText = "{[{@langcode:str}]}";
-// const params = Object.fromEntries(Array.from(new URLSearchParams(window.location.search).entries()));
+const params = Object.fromEntries(Array.from(new URLSearchParams(window.location.search).entries()));
 
 const langselect = document.getElementById("langselect");
 langselect.value = langText;
@@ -224,9 +226,11 @@ langselect.addEventListener("change", event => {
   window.location = "https://md-ndv356.github.io/genshin-rmm/" + event.target.value + "/{{{songid}}}/{{{difficulty-id}}}/";
 });
 
-const speed = 200;
+const speed = params.speed ? params.speed - 0 : 200;
+const initialBpm = Number("{{{bpm}}}");
 
 function init ([scoreData, measureData, bpmChangesData]){
+  const bpmChanges = bpmChangesData ?? {};
   // Analyze Chart
   const tap       = ["1", "2", "3", "4", "5", "6"];
   const holdStart = ["q", "w", "e", "r", "t", "y"];
@@ -236,13 +240,18 @@ function init ([scoreData, measureData, bpmChangesData]){
   const holdStartPos = [null, null, null, null, null, null];
   const notesList = [];
   const barlineList = [];
+  const playbackTimeline = [];
   let basePosition = 0;
+  let currentTime = 0;
+  let currentBpm = Object.prototype.hasOwnProperty.call(bpmChanges, 0) ? bpmChanges[0] : initialBpm;
   const measureCount = scoreData.length;
   for (let barI = 0, barL = measureCount; barI < barL; barI++){
+    if (Object.prototype.hasOwnProperty.call(bpmChanges, barI)) currentBpm = bpmChanges[barI];
     const measureLength = measureData?.[barI] ? measureData[barI][0] / measureData[barI][1] : 1;
     const bar = scoreData[barI];
     const lines = bar.split(",");
     barlineList.push({ pos: basePosition, index: barI });
+    playbackTimeline.push({ pos: basePosition, time: currentTime, bpm: currentBpm });
     for (let lineI = 0, lineL = lines.length; lineI < lineL; lineI++){
       const line = lines[lineI];
       const notePosition = basePosition + lineI / lineL;
@@ -259,7 +268,9 @@ function init ([scoreData, measureData, bpmChangesData]){
       }
     }
     basePosition += measureLength;
+    currentTime += measureLength * 60000 / currentBpm;
   }
+  play.timeline = playbackTimeline;
 
   // View Notes
   document.getElementById("notes").textContent = notesList.length + "";
@@ -270,7 +281,7 @@ function init ([scoreData, measureData, bpmChangesData]){
     chartBase.insertAdjacentHTML("beforeend", `<div class="laneline" style="left: ${44.5 + i * 70}px; height: ${height + 35}px;"></div>`);
   }
   for (const barline of barlineList){
-    chartBase.insertAdjacentHTML("beforeend", `<div class="barline${bpmChangesData[barline.index] ? " bpmchange" : ""}" style="top: ${height - barline.pos * speed}px; left: 0px;" data-bpm="${bpmChangesData[barline.index] ?? ""}">${barline.index + 1}</div>`);
+    chartBase.insertAdjacentHTML("beforeend", `<div class="barline${bpmChanges[barline.index] ? " bpmchange" : ""}" style="top: ${height - barline.pos * speed}px; left: 0px;" data-bpm="${bpmChanges[barline.index] ?? ""}">${barline.index + 1}</div>`);
   }
   for (const note of notesList){
     const lanePos = 30 + note.lane * 70;
@@ -286,16 +297,64 @@ function init ([scoreData, measureData, bpmChangesData]){
 <div class="longedge" style="top: ${holdEnd}px; left: ${lanePos}px;"></div>`);
     }
   }
+
+  // Initialize Tooltip
+  for (const element of document.querySelectorAll("[data-title]")){
+    tippy(element, {
+      content: element.getAttribute("data-title"),
+      animation: "fade",
+      duration: 300
+    });
+  }
+}
+
+let lastPos = 0;
+// for debug purpose
+function getChartPositionAtElapsedTime (elapsedTime){
+  const timeline = play.timeline;
+  if (!timeline?.length) return 0;
+
+  let left = 0;
+  let right = timeline.length - 1;
+  while (left < right){
+    const mid = Math.ceil((left + right) / 2);
+    if (timeline[mid].time <= elapsedTime) left = mid;
+    else right = mid - 1;
+  }
+
+  const segment = timeline[left];
+  return segment.pos + Math.max(0, elapsedTime - segment.time) * segment.bpm / 60000;
 }
 
 
-// for debug purpose
+document.body.addEventListener("keydown", event => {
+  if (play.pause && event.code === "KeyA" && event.altKey && event.shiftKey){
+    startPlay();
+    return;
+  } else if (!play.pause && event.code === "ShiftRight"){
+    play.pause = true;
+    return;
+  }
+});
+
+function startPlay (){
+  play.startTime = Date.now();
+  play.startPos = document.querySelector("#chart").getBoundingClientRect().bottom + window.scrollY;
+  play.pause = false;
+  play();
+}
+
 function play (){
   const currentTime = Date.now();
-  scrollTo(0, play.startPos - (currentTime - play.startTime) * (play.bpm / 60000) * speed);
+  const elapsedTime = currentTime - play.startTime;
+  const chartPosition = getChartPositionAtElapsedTime(elapsedTime);
+  scrollTo(0, play.startPos - window.innerHeight - chartPosition * speed);
+  document.getElementById("headtitle").textContent = (lastPos - (play.startPos - window.innerHeight - chartPosition * speed)).toFixed(2);
+  lastPos = play.startPos - window.innerHeight - chartPosition * speed;
   if (!play.pause) requestAnimationFrame(play);
 }
-play.bpm = "{{{bpm}}}"-0;
+play.timeline = [];
+play.pause = true;
 
 // play.startTime = Date.now();
 // play.startPos = document.querySelector("#chart").getBoundingClientRect().bottom + window.scrollY;
