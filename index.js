@@ -140,7 +140,7 @@ const promises = fs.promises;
             ), "difficulty-index", i + ""
             ), "difficulty-id", difficultyId[i]
             ), "difficulty-text", `{[{level-${i}:str}]}`
-            ), "level-stars", "★".repeat(levelData.level)
+            ), "level-stars", "★".repeat(levelData.level) + `<span style="color: #888;">` + "☆".repeat(10 - levelData.level) + `</span>`
             ), "bpm", levelData.bpm + ""
             ), "bpm-minmax", (() => {
               if (bpmList.length === 0){
