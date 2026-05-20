@@ -1,11 +1,11 @@
 import fs from "fs";
 
 const data = JSON.parse(fs.readFileSync("./musictable-v2.json", "utf-8"));
-const newcomers = Object.entries(data).slice(102);
+const newcomers = Object.entries(data).slice(114);
 
 for (const song of newcomers){
   console.log(`  "${song[0]}": [0, 0, 0, 0, "${song[1].title.en_us}"],`);
-  continue;
+  // continue;
 
   const levelData = {
     title: {

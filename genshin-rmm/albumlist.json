@@ -1,4 +1,21 @@
 {
+  "Magic": {
+    "zh_cn": "魔导·绮想交奏之诗",
+    "zh_tw": "魔導·綺想交奏之詩",
+    "en_us": "Hexerei: Ballad of Whimsical Polyphony",
+    "ko_kr": "마도·환상의 교향시",
+    "ja_jp": "魔導・夢のポリフォニー",
+    "es_es": "Taumaturgia: Balada de la polifonía fantástica",
+    "fr_fr": "Hexerei: Ballad of Whimsical Polyphony",
+    "ru_ru": "Hexerei: Ballad of Whimsical Polyphony",
+    "th_th": "Hexerei: Ballad of Whimsical Polyphony",
+    "vi_vn": "Hexerei: Khúc Ballad Huyền Diệu",
+    "de_de": "Hexerei: Ballad of Whimsical Polyphony",
+    "id_id": "Hexerei: Ballad of Whimsical Polyphony",
+    "pt_pt": "Hexerei: Ballad of Whimsical Polyphony",
+    "tr_tr": "Hexerei: Ballad of Whimsical Polyphony",
+    "it_it": "Hexerei: Ballad of Whimsical Polyphony"
+  },
   "NodKrai2": {
     "zh_cn": "挪德卡莱·边地乐园之扉",
     "zh_tw": "挪德卡萊·邊地樂園之扉",
