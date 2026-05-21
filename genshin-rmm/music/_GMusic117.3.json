@@ -34,27 +34,29 @@
     "it_it": "Mondstadt"
   },
   "album": {
-    "zh_cn": "",
-    "zh_tw": "",
-    "en_us": "",
-    "ko_kr": "",
-    "ja_jp": "",
-    "es_es": "",
-    "fr_fr": "",
-    "ru_ru": "",
-    "th_th": "",
-    "vi_vn": "",
-    "de_de": "",
-    "id_id": "",
-    "pt_pt": "",
-    "tr_tr": "",
-    "it_it": ""
+    "zh_cn": "珍珠之歌 5",
+    "zh_tw": "珍珠之歌 5",
+    "en_us": "The Shimmering Voyage Vol. 5",
+    "ko_kr": "진주의 노래 5",
+    "ja_jp": "真珠の歌 5",
+    "es_es": "The Shimmering Voyage Vol. 5",
+    "fr_fr": "The Shimmering Voyage Vol. 5",
+    "ru_ru": "The Shimmering Voyage Vol. 5",
+    "th_th": "The Shimmering Voyage Vol. 5",
+    "vi_vn": "The Shimmering Voyage Vol. 5",
+    "de_de": "The Shimmering Voyage Vol. 5",
+    "id_id": "The Shimmering Voyage Vol. 5",
+    "pt_pt": "The Shimmering Voyage Vol. 5",
+    "tr_tr": "The Shimmering Voyage Vol. 5",
+    "it_it": "The Shimmering Voyage Vol. 5"
   },
-  "link_ytmusic": "",
+  "link_ytmusic": "FIZBuH0Xybo",
   "duration": 147,
   "bpm": 139,
   "level": 8,
   "score": [],
-  "measure": {},
+  "measure": {
+    "0": [7, 24]
+  },
   "bpm_act": {}
 }

@@ -34,27 +34,29 @@
     "it_it": "Altro"
   },
   "album": {
-    "zh_cn": "",
-    "zh_tw": "",
-    "en_us": "",
-    "ko_kr": "",
-    "ja_jp": "",
-    "es_es": "",
-    "fr_fr": "",
-    "ru_ru": "",
-    "th_th": "",
-    "vi_vn": "",
-    "de_de": "",
-    "id_id": "",
-    "pt_pt": "",
-    "tr_tr": "",
-    "it_it": ""
+    "zh_cn": "珍珠之歌 2",
+    "zh_tw": "珍珠之歌 2",
+    "en_us": "The Shimmering Voyage Vol. 2",
+    "ko_kr": "진주의 노래 2",
+    "ja_jp": "真珠の歌 2",
+    "es_es": "The Shimmering Voyage Vol. 2",
+    "fr_fr": "The Shimmering Voyage Vol. 2",
+    "ru_ru": "The Shimmering Voyage Vol. 2",
+    "th_th": "The Shimmering Voyage Vol. 2",
+    "vi_vn": "The Shimmering Voyage Vol. 2",
+    "de_de": "The Shimmering Voyage Vol. 2",
+    "id_id": "The Shimmering Voyage Vol. 2",
+    "pt_pt": "The Shimmering Voyage Vol. 2",
+    "tr_tr": "The Shimmering Voyage Vol. 2",
+    "it_it": "The Shimmering Voyage Vol. 2"
   },
-  "link_ytmusic": "",
+  "link_ytmusic": "7XsvLTSvpWU",
   "duration": 231,
   "bpm": 167,
   "level": 8,
   "score": [],
-  "measure": {},
+  "measure": {
+    "0": [9, 16]
+  },
   "bpm_act": {}
 }

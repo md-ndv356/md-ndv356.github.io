@@ -34,27 +34,29 @@
     "it_it": "Mondstadt"
   },
   "album": {
-    "zh_cn": "",
-    "zh_tw": "",
-    "en_us": "",
-    "ko_kr": "",
-    "ja_jp": "",
-    "es_es": "",
-    "fr_fr": "",
-    "ru_ru": "",
-    "th_th": "",
-    "vi_vn": "",
-    "de_de": "",
-    "id_id": "",
-    "pt_pt": "",
-    "tr_tr": "",
-    "it_it": ""
+    "zh_cn": "闪耀的群星（可莉）",
+    "zh_tw": "閃耀的群星（可莉）",
+    "en_us": "The Stellar Moments (Klee)",
+    "ko_kr": "빛나는 뭇별（클레）",
+    "ja_jp": "輝く星々（クレー）",
+    "es_es": "Los momentos estelares (Klee)",
+    "fr_fr": "The Stellar Moments ( Klee )",
+    "ru_ru": "The Stellar Moments (Кли)",
+    "th_th": "The Stellar Moments (Klee)",
+    "vi_vn": "The Stellar Moments (Klee)",
+    "de_de": "The Stellar Moments (Klee)",
+    "id_id": "The Stellar Moments (Klee)",
+    "pt_pt": "The Stellar Moments (Klee)",
+    "tr_tr": "The Stellar Moments (Klee)",
+    "it_it": "The Stellar Moments (Klee)"
   },
-  "link_ytmusic": "",
+  "link_ytmusic": "7aYTCP-aVr8",
   "duration": 69,
   "bpm": 134,
   "level": 6,
   "score": [],
-  "measure": {},
+  "measure": {
+    "0": [9, 24]
+  },
   "bpm_act": {}
 }

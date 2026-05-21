@@ -34,27 +34,29 @@
     "it_it": "Mondstadt"
   },
   "album": {
-    "zh_cn": "",
-    "zh_tw": "",
-    "en_us": "",
-    "ko_kr": "",
-    "ja_jp": "",
-    "es_es": "",
-    "fr_fr": "",
-    "ru_ru": "",
-    "th_th": "",
-    "vi_vn": "",
-    "de_de": "",
-    "id_id": "",
-    "pt_pt": "",
-    "tr_tr": "",
-    "it_it": ""
+    "zh_cn": "珍珠之歌",
+    "zh_tw": "珍珠之歌",
+    "en_us": "The Shimmering Voyage",
+    "ko_kr": "진주의 노래",
+    "ja_jp": "真珠の歌",
+    "es_es": "El viaje deslumbrante",
+    "fr_fr": "The Shimmering",
+    "ru_ru": "The Shimmering Voyage",
+    "th_th": "The Shimmering Voyage",
+    "vi_vn": "The Shimmering Voyage",
+    "de_de": "The Shimmering Voyage",
+    "id_id": "The Shimmering Voyage",
+    "pt_pt": "The Shimmering Voyage",
+    "tr_tr": "The Shimmering Voyage",
+    "it_it": "The Shimmering Voyage"
   },
-  "link_ytmusic": "",
+  "link_ytmusic": "3PQBhh8KhZk",
   "duration": 224,
   "bpm": 92,
   "level": 8,
   "score": [],
-  "measure": {},
+  "measure": {
+    "0": [7, 24]
+  },
   "bpm_act": {}
 }

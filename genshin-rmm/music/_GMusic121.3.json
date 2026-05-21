@@ -34,27 +34,29 @@
     "it_it": "Mondstadt"
   },
   "album": {
-    "zh_cn": "",
-    "zh_tw": "",
-    "en_us": "",
-    "ko_kr": "",
-    "ja_jp": "",
-    "es_es": "",
-    "fr_fr": "",
-    "ru_ru": "",
-    "th_th": "",
-    "vi_vn": "",
-    "de_de": "",
-    "id_id": "",
-    "pt_pt": "",
-    "tr_tr": "",
-    "it_it": ""
+    "zh_cn": "闪耀的群星6（杜林）",
+    "zh_tw": "閃耀的群星6（杜林）",
+    "en_us": "The Stellar Moments Vol. 6 (Durin)",
+    "ko_kr": "빛나는 뭇별6（두린）",
+    "ja_jp": "輝く星々Vol.6（ドゥリン）",
+    "es_es": "The Stellar Moments Vol. 6 (Durin)",
+    "fr_fr": "The Stellar Moments Vol. 6 ( Durin )",
+    "ru_ru": "The Stellar Moments Vol. 6 (Дурин)",
+    "th_th": "The Stellar Moments Vol. 6 (Durin)",
+    "vi_vn": "The Stellar Moments Vol. 6 (Durin)",
+    "de_de": "The Stellar Moments Vol. 6 (Durin)",
+    "id_id": "The Stellar Moments Vol. 6 (Durin)",
+    "pt_pt": "The Stellar Moments Vol. 6 (Durin)",
+    "tr_tr": "The Stellar Moments Vol. 6 (Durin)",
+    "it_it": "The Stellar Moments Vol. 6 (Durin)"
   },
-  "link_ytmusic": "",
+  "link_ytmusic": "RW1GZVVQIF8",
   "duration": 146,
   "bpm": 152,
   "level": 8,
   "score": [],
-  "measure": {},
+  "measure": {
+    "1": [9, 48]
+  },
   "bpm_act": {}
 }
