@@ -146,7 +146,8 @@ const promises = fs.promises;
               if (bpmList.length === 0){
                 return "";
               } else if (bpmList.length === 1){
-                return "(" + bpmList[0] + ")";
+                return "";
+                // return "(" + bpmList[0] + ")";
               } else {
                 return "(" + Math.min(...bpmList) + "-" + Math.max(...bpmList) + ")";
               }
