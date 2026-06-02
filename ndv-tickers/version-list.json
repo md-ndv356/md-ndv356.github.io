@@ -19,11 +19,20 @@
   },
   "extension": {
     "newest": {
-      "code": "beta32",
-      "name": "β0.6.2"
+      "code": "beta33",
+      "name": "β0.7.1"
     },
-    "lastupd": 1780206992,
+    "lastupd": 1780438952,
     "list": [
+      {
+        "name": "β0.7.1",
+        "dl_link": "https://github.com/looksky495/ndv-ticker-extension-v0/releases/download/v0.7.1/release-extension-v0.7.1.zip",
+        "jumpto": "https://ndv.iaigiri.com/ext/",
+        "stopcode": "0",
+        "code": "beta33",
+        "date": 1780438952,
+        "string": "**NDV Ticker Extension (Beta)** をご利用いただき、ありがとうございます。v0.7.1 がリリースされました。\n\n現在、正式版の v1 を開発中です。進捗は [looksky495/ndv-ticker-extension](https://github.com/looksky495/ndv-ticker-extension) から確認できます！\n\n## 変更\n\n* 気象警報・注意報の表示時間をすこし短くしました。\n  * M スケール 3 のとき、注意報は表示されません。\n\n## 修正\n\n* 通常画面：選択中のコマンドに応じて色がつかない問題を修正\n* 気象速報：指定河川洪水予報が表示されない問題を修正\n  * 指定河川洪水予報の情報を処理する際、関数呼び出しの引数に誤りがあり、情報が正しく表示されませんでした。\n* 気象速報：特定の場合に全般気象解説情報（台風）を表示できない問題を修正"
+      },
       {
         "name": "β0.7.0",
         "dl_link": "https://github.com/looksky495/ndv-ticker-extension-v0/releases/download/v0.7.0/release-extension-v0.7.0.zip",
