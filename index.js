@@ -157,7 +157,7 @@ const promises = fs.promises;
               }
             })()
             ), "bpm-changes", bpmList.join(" - ")
-            ), "bpm-actual-notice-style", (bpmList.length >= 1 && levelData.bpm !== levelData.bpm_act[0]) ? `style="display: block;"` : `style="display: none;"`
+            ), "bpm-actual-notice-style", (bpmList.length >= 1 && levelData.bpm_act[0] && levelData.bpm !== levelData.bpm_act[0]) ? `style="display: block;"` : `style="display: none;"`
             ), "bpm-change-notice-style", bpmList.length > 1 ? `style="display: block;"` : `style="display: none;"`
             ), "duration", Math.floor(levelData.duration / 60) + ":" + ("0" +(levelData.duration % 60)).slice(-2)
             ), "album", levelData.country[langCode] + " - " + levelData.album[langCode]
