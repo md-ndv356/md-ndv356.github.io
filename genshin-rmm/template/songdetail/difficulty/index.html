@@ -16,6 +16,7 @@
       display: inline-block;
       text-align: center;
       width: 415px;
+      margin-top: 25px;
     }
     .tap {
       position: absolute;
@@ -156,9 +157,10 @@
       gap: 10px;
       margin: 5px 0 3px;
     }
-    #bpm-notice {
+    #bpm-change-notice, #bpm-actual-notice {
       font-size: 14px;
       color: #ddd;
+      margin: 6px 0 0;
     }
     .flex {
       display: flex;
@@ -207,7 +209,8 @@
       <div class="flex"><div id="notes"></div><div class="notes">{[{notes:html}]}</div></div>
     </div>
   </div>
-  <p id="bpm-notice" {{{bpm-notice-style}}}>{[{bpm-notice:html}]}</p>
+  <p id="bpm-actual-notice" {{{bpm-actual-notice-style}}}>{[{bpm-actual-notice:html}]}</p>
+  <p id="bpm-change-notice" {{{bpm-change-notice-style}}}>{[{bpm-change-notice:html}]}</p>
   <div id="chart"></div>
 </main>
 </body>

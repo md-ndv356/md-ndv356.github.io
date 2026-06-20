@@ -136,6 +136,7 @@ const promises = fs.promises;
             contentReplacement(
             contentReplacement(
             contentReplacement(
+            contentReplacement(
             scoreDetailTemplate, "songid", musicId
             ), "difficulty-index", i + ""
             ), "difficulty-id", difficultyId[i]
@@ -146,14 +147,18 @@ const promises = fs.promises;
               if (bpmList.length === 0){
                 return "";
               } else if (bpmList.length === 1){
-                return "";
-                // return "(" + bpmList[0] + ")";
+                if (bpmList[0] === levelData.bpm){
+                  return "";
+                } else {
+                  return "(" + bpmList[0] + ")";
+                }
               } else {
                 return "(" + Math.min(...bpmList) + "-" + Math.max(...bpmList) + ")";
               }
             })()
             ), "bpm-changes", bpmList.join(" - ")
-            ), "bpm-notice-style", bpmList.length > 1 ? `style="display: block;"` : `style="display: none;"`
+            ), "bpm-actual-notice-style", (bpmList.length >= 1 && levelData.bpm !== levelData.bpm_act[0]) ? `style="display: block;"` : `style="display: none;"`
+            ), "bpm-change-notice-style", bpmList.length > 1 ? `style="display: block;"` : `style="display: none;"`
             ), "duration", Math.floor(levelData.duration / 60) + ":" + ("0" +(levelData.duration % 60)).slice(-2)
             ), "album", levelData.country[langCode] + " - " + levelData.album[langCode]
             ), "songtitle", levelData.title[langCode]

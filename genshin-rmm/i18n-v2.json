@@ -305,12 +305,29 @@
     "tr_tr": "Nota",
     "it_it": "Note"
   },
-  "bpm-notice": {
+  "bpm-actual-notice": {
+    "zh_cn": "由于小数点的四舍五入等原因，游戏内显示的 BPM 可能与实际 BPM 不同。",
+    "zh_tw": "由於小數點的四捨五入等原因，遊戲內顯示的 BPM 可能與實際 BPM 不同。",
+    "en_us": "Due to rounding and other reasons, the BPM displayed in the game may differ from the actual BPM.",
+    "ko_kr": "소수점 반올림 등의 이유로 게임 내 표시된 BPM이 실제 BPM과 다를 수 있습니다.",
+    "ja_jp": "小数点の丸め処理などにより、\u200bゲーム内表記の BPM は\u200b実際のものとは異なる場合があります。",
+    "es_es": "Debido a redondeos y otras razones, el BPM mostrado en el juego puede diferir del BPM real.",
+    "fr_fr": "En raison de l'arrondi et d'autres raisons, le BPM affiché dans le jeu peut différer du BPM réel.",
+    "ru_ru": "Из-за округления и других причин, отображаемый в игре BPM может отличаться от фактического BPM.",
+    "th_th": "เนื่องจากการปัดเศษและเหตุผลอื่น ๆ BPM ที่แสดงในเกมอาจแตกต่างจาก BPM ที่แท้จริง",
+    "vi_vn": "Do làm tròn và các lý do khác, BPM hiển thị trong trò chơi có thể khác với BPM thực tế.",
+    "de_de": "Aufgrund von Rundungen und anderen Gründen kann der im Spiel angezeigte BPM vom tatsächlichen BPM abweichen.",
+    "id_id": "Karena pembulatan dan alasan lainnya, BPM yang ditampilkan dalam game mungkin berbeda dari BPM sebenarnya.",
+    "pt_pt": "Devido a arredondamentos e outros motivos, o BPM exibido no jogo pode diferir do BPM real.",
+    "tr_tr": "Yuvarlama ve diğer nedenlerden dolayı, oyunda görüntülenen BPM, gerçek BPM'den farklı olabilir.",
+    "it_it": "A causa dell'arrotondamento e di altri motivi, il BPM visualizzato nel gioco potrebbe differire dal BPM effettivo."
+  },
+  "bpm-change-notice": {
     "zh_cn": "表示 BPM 变化的绿色数字是作者推测的。",
     "zh_tw": "錶示 BPM 變化的綠色數字是作者推測的。",
     "en_us": "The green numbers representing BPM changes are estimated by the author.",
     "ko_kr": "BPM 변경을 나타내는 초록색 숫자는 작성자가 추정한 값입니다.",
-    "ja_jp": "BPM変化を表す緑数字は、\u200b作者が推測したものです。",
+    "ja_jp": "BPM 変化を表す緑数字は、\u200b作者が推測したものです。",
     "es_es": "Los números verdes que representan cambios en el BPM son estimados por el autor.",
     "fr_fr": "Die grünen Zahlen, die BPM-Änderungen anzeigen, wurden vom Autor geschätzt.",
     "ru_ru": "Зелёные числа, обозначающие изменения BPM, оценены автором.",
