@@ -29,14 +29,8 @@ const promises = fs.promises;
   fs.cpSync("./index.html", "./dist/index.html");
   fs.cpSync("./googlee229be2cbc95c49b.html", "./dist/googlee229be2cbc95c49b.html");
 
-  sitemap.push({
-    loc: "https://md-ndv356.github.io/taiko/battle-no1/",
-    lastmod: fs.statSync("./taiko/battle-no1/index.html").mtime
-  });
-  sitemap.push({
-    loc: "https://md-ndv356.github.io/bm2dx/ffmpeg/convert.html",
-    lastmod: fs.statSync("./bm2dx/ffmpeg/convert.html").mtime
-  });
+  sitemap.push({ loc: "https://md-ndv356.github.io/taiko/battle-no1/" });
+  sitemap.push({ loc: "https://md-ndv356.github.io/bm2dx/ffmpeg/convert.html" });
 
   // ===== Genshin Impact - Repertoire of Myriad Melodies ======
   fs.cpSync("./genshin-rmm/image/", "./dist/genshin-rmm/image/", { recursive: true });
@@ -47,6 +41,11 @@ const promises = fs.promises;
 
   // Top Page
   const topPageTemplate = await promises.readFile("./genshin-rmm/template/index.html", "utf-8");
+  const topAlternateLinks = langcodes.map(langCode => {
+    const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/`;
+    sitemap.push({ loc: link });
+    return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
+  }).join("\n");
   for (const langText of langcodes){
     const pageText = translateTemplate(
       contentReplacement(
@@ -57,14 +56,7 @@ const promises = fs.promises;
         topPageTemplate, "history-content", history.history.sort((a, b) => b.id - a.id).slice(0, 2).map(item => {
           return `<div style="color: #ccc; margin: 14px 4px 6px; font-size: 15px;">${item.postedDate}${langText !== "ja_jp" ? " (yyyy/mm/dd)" : ""}</div><div>${item.content[langText].replace(/\n/g, "<br>")}</div>`;
         }).join("\n")
-      ), "alternate-links", langcodes.map(langCode => {
-        const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/`;
-        sitemap.push({
-          loc: link,
-          lastmod: fs.statSync("./genshin-rmm/index.html").mtime
-        });
-        return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
-      }).join("\n")
+      ), "alternate-links", topAlternateLinks
       ), "musictable-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(musicTable))
       ), "scorelist-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(scoreList))
       ), "albumlist-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(albumList))
@@ -108,6 +100,12 @@ const promises = fs.promises;
         if (!langTranslationMap[key]) langTranslationMap[key] = [];
         langTranslationMap[key].push(langCode);
       }
+
+      const detailAlternateLinks = langcodes.map(otherLangCode => {
+        const link = `https://md-ndv356.github.io/genshin-rmm/${otherLangCode}/${musicId}/${difficultyId[i]}/`;
+        sitemap.push({ loc: link });
+        return `<link rel="alternate" hreflang="${otherLangCode.replace(/_/g, "-")}" href="${link}">`;
+      }).join("\n");
 
       for (const langCode of langcodes){
         try {
@@ -185,14 +183,7 @@ const promises = fs.promises;
             ), "score-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(levelData.score))
             ), "measure-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(levelData.measure ?? null))
             ), "bpm-changes-gzip-b64", encodeBase64GzipUnicode(JSON.stringify(bpm_act))
-            ), "alternate-links", langcodes.map(otherLangCode => {
-              const link = `https://md-ndv356.github.io/genshin-rmm/${otherLangCode}/${musicId}/${difficultyId[i]}/`;
-              sitemap.push({
-                loc: link,
-                lastmod: fs.statSync(`./genshin-rmm/music/${musicId}.${i}.json`).mtime
-              });
-              return `<link rel="alternate" hreflang="${otherLangCode.replace(/_/g, "-")}" href="${link}">`;
-            }).join("\n")
+            ), "alternate-links", detailAlternateLinks
           ), langCode);
           await promises.writeFile(path.join(dir, "index.html"), pageText, "utf-8");
         } catch (e) {
@@ -205,19 +196,17 @@ const promises = fs.promises;
 
   // about-bpmchange.html
   const aboutBpmChangeTemplate = await promises.readFile("./genshin-rmm/template/about-bpmchange.html", "utf-8");
+  const aboutBpmChangeAlternateLinks = langcodes.map(langCode => {
+    const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/about-bpmchange.html`;
+    sitemap.push({ loc: link });
+    return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
+  }).join("\n");
   for (const langText of langcodes){
     const pageText = translateTemplate(
       contentReplacement(
         aboutBpmChangeTemplate,
         "alternate-links",
-        langcodes.map(langCode => {
-          const link = `https://md-ndv356.github.io/genshin-rmm/${langCode}/about-bpmchange.html`;
-          sitemap.push({
-            loc: link,
-            lastmod: fs.statSync("./genshin-rmm/template/about-bpmchange.html").mtime
-          });
-          return `<link rel="alternate" hreflang="${langCode.replace(/_/g, "-")}" href="${link}">`;
-        }).join("\n")
+        aboutBpmChangeAlternateLinks
       ), langText
     );
     await promises.writeFile(path.join("./dist/genshin-rmm", langText, "about-bpmchange.html"), pageText, "utf-8");
@@ -227,24 +216,15 @@ const promises = fs.promises;
   const sitemapXmlText = `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     sitemap.map(item => {
-      return `  <url>\n    <loc>${item.loc}</loc>\n    <lastmod>${item.lastmod.toISOString()}</lastmod>\n  </url>`;
+      return `  <url>\n    <loc>${item.loc}</loc>\n  </url>`;
     }).join("\n") +
     `\n</urlset>`;
   await promises.writeFile("./dist/sitemap.xml", sitemapXmlText, "utf-8");
-
-  const testSitemapXmlText = `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    sitemap.slice(0, 20).map(item => {
-      return `  <url>\n    <loc>${item.loc}</loc>\n    <lastmod>${item.lastmod.toISOString()}</lastmod>\n  </url>`;
-    }).join("\n") +
-    `\n</urlset>`;
-  await promises.writeFile("./dist/sitemap2.xml", testSitemapXmlText, "utf-8");
 
   const robots = `User-agent: *
 Allow: /
 
 Sitemap: https://md-ndv356.github.io/sitemap.xml
-Sitemap: https://md-ndv356.github.io/sitemap2.xml
 `;
   await promises.writeFile("./dist/robots.txt", robots, "utf-8");
 })();
