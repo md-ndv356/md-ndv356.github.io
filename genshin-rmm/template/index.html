@@ -35,6 +35,10 @@
     .bpm-changes {
       color: #1e5903;
     }
+    .stat {
+      font-size: 14px;
+      margin: 0;
+    }
     .title {
       flex: 1;
       margin: 0 8px;
@@ -295,22 +299,35 @@ function init ([albumList, musicTable, scoreList]){
     (params.sort === "alphabetical" && langText === "zh_tw") ? (a, b) => a[1].tw_pinyin.localeCompare(b[1].tw_pinyin, "zh-Hant") :
     params.sort === "alphabetical" ? (a, b) => a[1].title[langText].localeCompare(b[1].title[langText]) : (a, b) => a[1].sortkey - b[1].sortkey
   )){
+    const m = music[1];
+    const sort = params.sort;
+    let secondaryHtml;
+    if (sort === "bpm_start" || sort === "bpm_min" || sort === "bpm_max") {
+      const bpmText = m.bpm_min === m.bpm_max ? `${m.bpm_min}` : `${m.bpm_min} ~ ${m.bpm_max}`;
+      secondaryHtml = `<div class="bpm">${bpmText}</div>`;
+    } else if (sort === "level_l" || sort === "notes_l") {
+      secondaryHtml = `<div class="stat">${m.score.l_notes} Notes</div>`;
+    } else if (sort === "duration") {
+      secondaryHtml = `<div class="stat">${Math.floor(m.duration / 60)}:${("0" + (m.duration % 60)).slice(-2)}</div>`;
+    } else {
+      secondaryHtml = `<div class="bpm${m.bpm_min === m.bpm_max ? "" : " bpm-changes"}">${m.bpm}</div>`;
+    }
     categoryElements[
-      params.sort === "bpm_start" ? Math.floor(music[1].bpm / 20) :
-      params.sort === "bpm_min" ? Math.floor(music[1].bpm_min / 20) :
-      params.sort === "bpm_max" ? Math.floor(music[1].bpm_max / 20) :
-      params.sort === "level_l" ? Math.floor(music[1].score.l_level) :
-      params.sort === "notes_l" ? Math.floor(music[1].score.l_notes / 100) :
-      params.sort === "duration" ? Math.floor(music[1].duration / 30) :
-      params.sort === "alphabetical" ? "0" : music[1].album
+      sort === "bpm_start" ? Math.floor(m.bpm / 20) :
+      sort === "bpm_min" ? Math.floor(m.bpm_min / 20) :
+      sort === "bpm_max" ? Math.floor(m.bpm_max / 20) :
+      sort === "level_l" ? Math.floor(m.score.l_level) :
+      sort === "notes_l" ? Math.floor(m.score.l_notes / 100) :
+      sort === "duration" ? Math.floor(m.duration / 30) :
+      sort === "alphabetical" ? "0" : m.album
     ].insertAdjacentHTML("beforeend", `<div class="item">
-  <div class="bpm${music[1].bpm_min === music[1].bpm_max ? "" : " bpm-changes"}">${music[1].bpm}</div>
-  <div class="title">${music[1].title[langText]}</div>
+  ${secondaryHtml}
+  <div class="title">${m.title[langText]}</div>
   <div class="levels">
-  <a` + (scoreList[music[0]]?.[0] ? ` href="./${music[0]}/easy/"` : "") + `><div class="easy">${music[1].score.n_level}</div></a>
-  <a` + (scoreList[music[0]]?.[1] ? ` href="./${music[0]}/normal/"` : "") + `><div class="normal">${music[1].score.h_level}</div></a>
-  <a` + (scoreList[music[0]]?.[2] ? ` href="./${music[0]}/hard/"` : "") + `><div class="hard">${music[1].score.p_level}</div></a>
-  <a` + (scoreList[music[0]]?.[3] ? ` href="./${music[0]}/legend/"` : "") + `><div class="legend">${music[1].score.l_level}</div></a>
+  <a` + (scoreList[music[0]]?.[0] ? ` href="./${music[0]}/easy/"` : "") + `><div class="easy">${m.score.n_level}</div></a>
+  <a` + (scoreList[music[0]]?.[1] ? ` href="./${music[0]}/normal/"` : "") + `><div class="normal">${m.score.h_level}</div></a>
+  <a` + (scoreList[music[0]]?.[2] ? ` href="./${music[0]}/hard/"` : "") + `><div class="hard">${m.score.p_level}</div></a>
+  <a` + (scoreList[music[0]]?.[3] ? ` href="./${music[0]}/legend/"` : "") + `><div class="legend">${m.score.l_level}</div></a>
   </div>
 </div>`);
   }
