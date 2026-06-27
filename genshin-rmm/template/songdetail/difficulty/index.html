@@ -64,7 +64,7 @@
       top: 0px; left: 25px;
       content: "";
       display: block;
-      width: 390px; height: 2px;
+      width: var(--chart-barline-w, 390px); height: 2px;
       background-color: #ffffff80;
       z-index: 2;
       translate: 0 10px;
@@ -232,6 +232,30 @@ langselect.addEventListener("change", event => {
 const speed = params.speed ? params.speed - 0 : 200;
 const initialBpm = Number("{{{bpm}}}");
 
+// Responsive chart layout constants
+const CHART_IDEAL_W = 415;
+const CHART_LANE_IDEAL = 70;
+const CHART_NOTE_W = 26;
+const CHART_FIRST_LANE = 30;
+const CHART_RIGHT_PAD = 9;
+const CHART_MIN_SPACING = 28; // 26px note + 2px gap minimum
+
+function computeChartLayout() {
+  const availableW = Math.min(window.innerWidth, document.documentElement.clientWidth) - 16;
+  if (availableW >= CHART_IDEAL_W) {
+    return { laneSpacing: CHART_LANE_IDEAL, scale: 1, chartWidth: CHART_IDEAL_W };
+  }
+  const candidate = Math.floor((availableW - CHART_RIGHT_PAD - CHART_FIRST_LANE - CHART_NOTE_W) / 5);
+  const laneSpacing = Math.max(candidate, CHART_MIN_SPACING);
+  const chartWidth = CHART_FIRST_LANE + 5 * laneSpacing + CHART_NOTE_W + CHART_RIGHT_PAD;
+  const scale = candidate >= CHART_MIN_SPACING ? 1 : availableW / chartWidth;
+  return { laneSpacing, scale, chartWidth };
+}
+
+const chartLayout = computeChartLayout();
+document.getElementById("chart").style.width = chartLayout.chartWidth + "px";
+document.documentElement.style.setProperty("--chart-barline-w", (chartLayout.chartWidth - 25) + "px");
+
 function init ([scoreData, measureData, bpmChangesData]){
   const bpmChanges = bpmChangesData ?? {};
   // Analyze Chart
@@ -279,15 +303,21 @@ function init ([scoreData, measureData, bpmChangesData]){
   document.getElementById("notes").textContent = notesList.length + "";
   const chartBase = document.getElementById("chart");
   const height = notesList.at(-1).pos * speed;
+  const { laneSpacing, scale } = chartLayout;
   chartBase.style.height = (height + 35) + "px";
+  if (scale < 1) {
+    chartBase.style.transformOrigin = "top center";
+    chartBase.style.transform = `scale(${scale})`;
+    chartBase.style.marginBottom = Math.round((scale - 1) * (height + 35)) + "px";
+  }
   for (let i = 0; i < 6; i++){
-    chartBase.insertAdjacentHTML("beforeend", `<div class="laneline" style="left: ${44.5 + i * 70}px; height: ${height + 35}px;"></div>`);
+    chartBase.insertAdjacentHTML("beforeend", `<div class="laneline" style="left: ${CHART_FIRST_LANE + i * laneSpacing + 14.5}px; height: ${height + 35}px;"></div>`);
   }
   for (const barline of barlineList){
     chartBase.insertAdjacentHTML("beforeend", `<div class="barline${bpmChanges[barline.index] ? " bpmchange" : ""}" style="top: ${height - barline.pos * speed}px; left: 0px;" data-bpm="${bpmChanges[barline.index] ?? ""}">${barline.index + 1}</div>`);
   }
   for (const note of notesList){
-    const lanePos = 30 + note.lane * 70;
+    const lanePos = CHART_FIRST_LANE + note.lane * laneSpacing;
     if (note.type === "tap"){
       chartBase.insertAdjacentHTML("beforeend", `
 <div class="tap" style="top: ${height - note.pos * speed}px; left: ${lanePos}px;"></div>`);
