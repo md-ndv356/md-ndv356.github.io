@@ -333,7 +333,7 @@ function init ([albumList, musicTable, scoreList]){
     const m = music[1];
     const sort = params.sort;
     let secondaryHtml;
-    if (sort === "bpm_start" || sort === "bpm_min" || sort === "bpm_max") {
+    if (sort === "bpm_min" || sort === "bpm_max") {
       const bpmText = m.bpm_min === m.bpm_max ? `${m.bpm_min}` : `${m.bpm_min} ~ ${m.bpm_max}`;
       secondaryHtml = `<div class="bpm">${bpmText}</div>`;
     } else if (sort === "level_l" || sort === "notes_l") {
