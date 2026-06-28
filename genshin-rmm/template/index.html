@@ -13,7 +13,9 @@
   {{{alternate-links}}}
   <style>
     .item {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
       color: #111520;
       margin: 3px 0;
       padding: 5px 8px;
@@ -25,6 +27,7 @@
     .bpm {
       font-size: 14px;
       margin: 0;
+      text-align: start;
     }
     .bpm::before {
       display: inline-block;
@@ -38,15 +41,43 @@
     .stat {
       font-size: 14px;
       margin: 0;
+      text-align: start;
     }
     .title {
-      flex: 1;
       margin: 0 8px;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: center;
     }
     .levels {
       display: flex;
       gap: 5px;
       margin: 0;
+      justify-self: end;
+    }
+    @media (max-width: 450px) {
+      .item {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+          "title  title"
+          "stat   levels";
+        row-gap: 2px;
+        margin: 6px 0;
+      }
+      .item > :first-child {
+        grid-area: stat;
+      }
+      .item .title {
+        grid-area: title;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+      }
+      .item .levels {
+        grid-area: levels;
+      }
     }
     .easy, .normal, .hard, .legend {
       padding: 0 8px;
