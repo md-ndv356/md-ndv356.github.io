@@ -19,11 +19,20 @@
   },
   "extension": {
     "newest": {
-      "code": "beta34",
-      "name": "β0.7.2"
+      "code": "beta35",
+      "name": "β0.7.3"
     },
-    "lastupd": 1782097124,
+    "lastupd": 1782707658,
     "list": [
+      {
+        "name": "β0.7.3",
+        "dl_link": "https://github.com/looksky495/ndv-ticker-extension-v0/releases/download/v0.7.3/release-extension-v0.7.3.zip",
+        "jumpto": "https://ndv.iaigiri.com/ext/",
+        "stopcode": "0",
+        "code": "beta35",
+        "date": 1782707658,
+        "string": "**NDV Ticker Extension** をご利用いただき、ありがとうございます。v0.7.3 がリリースされました。\n\n現在、正式版の v1 を開発中です。進捗は [looksky495/ndv-ticker-extension](https://github.com/looksky495/ndv-ticker-extension) から確認できます！\n\n## 追加\n\n* 音楽再生で音声ファイルの読み込みに失敗した場合、読み込みに失敗したことを表示するようになりました。\n* 読み上げ音声のロードに失敗したときに、ステータス情報に表示されるようになりました。\n\n## 修正\n\n* 意図せず 60 fps を超える更新が行われていた問題を、再度修正しました。\n* 地震情報のマスターの音量の設定値が保存されない問題を修正しました。\n* 津波観測に関する情報の音量設定が反映されない問題を修正しました。\n* 音楽再生の音量がマスター音量によって変化しない問題を修正しました。\n* 地震情報の概要テキストで、震源の深さがごく浅いときに「不明」と表示される問題を修正しました。\n"
+      },
       {
         "name": "β0.7.2",
         "dl_link": "https://github.com/looksky495/ndv-ticker-extension-v0/releases/download/v0.7.2/release-extension-v0.7.2.zip",
