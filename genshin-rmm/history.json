@@ -1,6 +1,27 @@
 {
   "history": [
     {
+      "id": "20260704124024",
+      "postedDate": "2026/07/04",
+      "content": {
+        "ja_jp": "スマートフォン用のレスポンシブウェブデザインに対応しました。また、これまでBPMを表示していた部分が、ソート設定によって変化するようになりました。",
+        "zh_cn": "已支持智能手机的响应式网页设计。此外，之前显示BPM的部分现在会根据排序设置而变化。",
+        "zh_tw": "已支持智慧型手機的響應式網頁設計。此外，之前顯示BPM的部分現在會根據排序設定而變化。",
+        "en_us": "Responsive web design for smartphones has been implemented. Additionally, the section that previously displayed BPM now changes based on the sort setting.",
+        "ko_kr": "스마트폰용 반응형 웹 디자인을 지원합니다. 또한, 이전에 BPM을 표시하던 부분이 정렬 설정에 따라 변화하게 되었습니다.",
+        "es_es": "Se ha implementado un diseño web responsivo para smartphones. Además, la sección que anteriormente mostraba el BPM ahora cambia según la configuración de ordenación.",
+        "fr_fr": "Le design web responsive pour les smartphones a été implémenté. De plus, la section qui affichait précédemment le BPM change désormais selon le paramètre de tri.",
+        "ru_ru": "Реализован адаптивный веб-дизайн для смартфонов. Кроме того, раздел, в котором ранее отображался BPM, теперь изменяется в зависимости от настройки сортировки.",
+        "th_th": "ได้รองรับการออกแบบเว็บแบบ Responsive สำหรับสมาร์ทโฟนแล้ว นอกจากนี้ ส่วนที่แสดง BPM ก่อนหน้านี้จะเปลี่ยนแปลงตามการตั้งค่าการเรียงลำดับ",
+        "vi_vn": "Thiết kế web responsive cho điện thoại thông minh đã được triển khai. Ngoài ra, phần trước đây hiển thị BPM giờ sẽ thay đổi tùy theo cài đặt sắp xếp.",
+        "de_de": "Responsives Webdesign für Smartphones wurde implementiert. Außerdem ändert sich der Bereich, der zuvor den BPM angezeigt hat, nun je nach Sortiereinstellung.",
+        "id_id": "Desain web responsif untuk smartphone telah diterapkan. Selain itu, bagian yang sebelumnya menampilkan BPM kini akan berubah sesuai pengaturan pengurutan.",
+        "pt_pt": "O design web responsivo para smartphones foi implementado. Além disso, a secção que anteriormente mostrava o BPM passará a mudar consoante a definição de ordenação.",
+        "tr_tr": "Akıllı telefonlar için duyarlı web tasarımı uygulandı. Ayrıca, daha önce BPM'i gösteren bölüm artık sıralama ayarına göre değişecek.",
+        "it_it": "Il design web responsive per gli smartphone è stato implementato. Inoltre, la sezione che in precedenza mostrava il BPM cambierà ora in base all'impostazione di ordinamento."
+      }
+    },
+    {
       "id": "20260226170235",
       "postedDate": "2026/02/26",
       "content": {
