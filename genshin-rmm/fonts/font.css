@@ -95,3 +95,7 @@
 .lang-th_th {
   font-family: "Noto Serif Thai", "Noto Serif", "Noto Serif JP", serif;
 }
+
+.lang-ja_jp, .lang-zh_cn, .lang-zh_tw {
+  text-autospace: normal;
+}
