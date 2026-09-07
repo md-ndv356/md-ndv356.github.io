@@ -19,11 +19,20 @@
   },
   "extension": {
     "newest": {
-      "code": "beta37",
-      "name": "β0.7.5"
+      "code": "beta38",
+      "name": "β0.7.6"
     },
-    "lastupd": 1782707658,
+    "lastupd": 1788795150,
     "list": [
+      {
+        "name": "β0.7.6",
+        "dl_link": "https://github.com/looksky495/ndv-ticker-extension-v0/releases/download/v0.7.6/release-extension-v0.7.6.zip",
+        "jumpto": "https://ndv.iaigiri.com/ext/",
+        "stopcode": "0",
+        "code": "beta38",
+        "date": 1788795150,
+        "string": "**NDV Ticker Extension** をご利用いただき、ありがとうございます。v0.7.6 がリリースされました。\n\n現在、正式版の v1 を開発中です。進捗は [looksky495/ndv-ticker-extension](https://github.com/looksky495/ndv-ticker-extension) から確認できます！\n\n## 追加\n\n* 通常画面で、気象警報（レベル３）以上の情報のみを表示できるようになりました。\n\n## 修正\n\n* 気象警報・注意報が 2026 年 5 月 28 日のデータを表示し続ける問題を修正しました。"
+      },
       {
         "name": "β0.7.5",
         "dl_link": "https://github.com/looksky495/ndv-ticker-extension-v0/releases/download/v0.7.5/release-extension-v0.7.5.zip",
