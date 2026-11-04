@@ -261,6 +261,7 @@ function init ([albumList, musicTable, scoreList]){
     [ "0" , "（未調査）" ],
   ];
   const LevelCategories = [
+    ["58", "Lv. 8?????"],
     ["10", "Lv. 10"],
     ["9" , "Lv. 9"],
     ["8" , "Lv. 8"],
@@ -355,10 +356,10 @@ function init ([albumList, musicTable, scoreList]){
   ${secondaryHtml}
   <div class="title">${m.title[langText]}</div>
   <div class="levels">
-  <a` + (scoreList[music[0]]?.[0] ? ` href="./${music[0]}/easy/"` : "") + `><div class="easy">${m.score.n_level}</div></a>
-  <a` + (scoreList[music[0]]?.[1] ? ` href="./${music[0]}/normal/"` : "") + `><div class="normal">${m.score.h_level}</div></a>
-  <a` + (scoreList[music[0]]?.[2] ? ` href="./${music[0]}/hard/"` : "") + `><div class="hard">${m.score.p_level}</div></a>
-  <a` + (scoreList[music[0]]?.[3] ? ` href="./${music[0]}/legend/"` : "") + `><div class="legend">${m.score.l_level}</div></a>
+  <a` + (scoreList[music[0]]?.[0] ? ` href="./${music[0]}/easy/"` : "") + `><div class="easy">${m.score.n_level % 50}</div></a>
+  <a` + (scoreList[music[0]]?.[1] ? ` href="./${music[0]}/normal/"` : "") + `><div class="normal">${m.score.h_level % 50}</div></a>
+  <a` + (scoreList[music[0]]?.[2] ? ` href="./${music[0]}/hard/"` : "") + `><div class="hard">${m.score.p_level % 50}</div></a>
+  <a` + (scoreList[music[0]]?.[3] ? ` href="./${music[0]}/legend/"` : "") + `><div class="legend">${m.score.l_level % 50}</div></a>
   </div>
 </div>`);
   }

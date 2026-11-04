@@ -1,4 +1,21 @@
 {
+  "Encounter2": {
+    "zh_cn": "相遇·悠久旅途之暇",
+    "zh_tw": "相遇·悠久旅途之暇",
+    "en_us": "Encounter: Interlude of the Long Journey",
+    "ko_kr": "만남·여정의 쉼표",
+    "ja_jp": "出会い・遥かな旅の一休み",
+    "es_es": "Encuentro: Interludio de un largo viaje",
+    "fr_fr": "Rencontre : Interlude d'un long voyage",
+    "ru_ru": "Встреча: Отдых в долгом странствии",
+    "th_th": "Encounter: Interlude of the Long Journey",
+    "vi_vn": "Encounter: Interlude of the Long Journey",
+    "de_de": "Encounter: Interlude of the Long Journey",
+    "id_id": "Encounter: Interlude of the Long Journey",
+    "pt_pt": "Encontro: Intervalo em uma Longa Jornada",
+    "tr_tr": "Encounter: Interlude of the Long Journey",
+    "it_it": "Encounter: Interlude of the Long Journey"
+  },
   "NodKrai3": {
     "zh_cn": "挪德卡莱·朔望凝待之庭",
     "zh_tw": "挪德卡萊·朔望凝待之庭",
