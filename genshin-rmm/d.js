@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const data = JSON.parse(fs.readFileSync("./musictable-v2.json", "utf-8"));
-const newcomers = Object.entries(data).slice(126);
+const newcomers = Object.entries(data).slice(138);
 
 for (const song of newcomers){
   console.log(`  "${song[0]}": [0, 0, 0, 0, "${song[1].title.en_us}"],`);
@@ -26,21 +26,21 @@ for (const song of newcomers){
       "it_it": song[1].title["it_it"] || ""
     },
     country: {
-      "zh_cn": "挪德卡莱",
-      "zh_tw": "挪德卡萊",
-      "en_us": "Nod-Krai",
-      "ko_kr": "노드크라이",
-      "ja_jp": "ナド・クライ",
-      "es_es": "Nod Krai",
-      "fr_fr": "Nod-Krai",
-      "ru_ru": "Нод-Край",
-      "th_th": "Nod-Krai",
-      "vi_vn": "Nod-Krai",
-      "de_de": "Nod-Krai",
-      "id_id": "Nod-Krai",
-      "pt_pt": "Nod-Krai",
-      "tr_tr": "Nod-Krai",
-      "it_it": "Nod-Krai"
+      "zh_cn": "",
+      "zh_tw": "",
+      "en_us": "",
+      "ko_kr": "",
+      "ja_jp": "",
+      "es_es": "",
+      "fr_fr": "",
+      "ru_ru": "",
+      "th_th": "",
+      "vi_vn": "",
+      "de_de": "",
+      "id_id": "",
+      "pt_pt": "",
+      "tr_tr": "",
+      "it_it": ""
     },
     album: {  "zh_cn": "",  "zh_tw": "",  "en_us": "",  "ko_kr": "",  "ja_jp": "",  "es_es": "",  "fr_fr": "",  "ru_ru": "",  "th_th": "",  "vi_vn": "",  "de_de": "",  "id_id": "",  "pt_pt": "",  "tr_tr": "",  "it_it": ""},
     link_ytmusic: "",
